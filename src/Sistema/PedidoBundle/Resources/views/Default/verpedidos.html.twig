@@ -1,0 +1,85 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_alumno')}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+<div class="pedido">
+    <div class="pedidodetalle">
+        <table>
+            <tr>
+                <th>Pedido Nro.</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Est.Pedido</th>
+                <th>Total</th>
+                <th>Saldo Restante</th>
+                <th>Lugar de Retiro</th>
+                <th>Acción</th>
+            </tr>
+            {% for DP in datospedidocab %}
+                <tr>
+                    <td>{{DP.id}}</td>
+                    <td>{#{DP.fechap}#}{{ DP.fechap | date("d/m/Y", false) }}</td>
+                    <td>{{DP.usuarioalu.username}}</td>
+                    <td>{{DP.estados}}</td>
+                    <td> $ {{DP.total}}</td>
+                    {% if DP.tipopago == 1 and DP.estadopag == 1 %}                        
+                        {%set valor = DP.total /2 %}
+                        <td> $ {{ valor }}{#----{{ valor|round(2, 'ceil') }#}</td>
+                    {% elseif DP.tipopago == 1 and DP.estadopag == 0 %}
+                        <td> $ 0.00</td>
+                    {% elseif DP.tipopago == 2 and DP.estadopag == 0 %}
+                        <td> $ 0.00</td>
+                    {% endif %}        
+                    {#<td>{{DP.estadopag}}</td>
+                    <td>{{DP.tipopago}}</td>#}
+                    <td>{{DP.sucursal}}</td>
+                    {% if DP.estadopag == 1 %}
+                        {% if DP.Estados == 'En Espera' %}    
+                            <td><a class="FinalizarPago" value="" href ="{{ path("ped_pagar",{'idped':DP.id}) }}">Pagar Saldo</a></td>
+                        {% else %}
+                            <td>Pendiente de Pago</td>
+                        {% endif %}
+                    {% endif %}
+    
+                    {% if DP.estadopag == 0%}
+                        <td>Pagado</td>
+                    {% endif %}               
+                    
+               </tr>    
+            {% endfor %}
+        </table> 
+    </div>
+</div>
+    <div class="continfoayuda">  
+        <p>Información de los estados en que los pedidos pueden estar.</p>
+        <div class="continfodescy">            
+            <div class="col1"><p>Iniciado: <span>Todo pedido que usted realiza se 
+            inicia en este estado (Iniciado), quedando en cola hasta ser atendido 
+            por la fotocopiadora.</span></p></div>          
+            <div class="col1"><p>Atendiendo: <span>El pedido pasa al estado "Atendiendo", 
+            cuando el mismo esta siendo atendida por la fotocopiadora</span>.</p></div>
+            <div class="col1"><p>En Espera: <span>El pedido en el estado "En Espera", 
+             indica que su pedido ya fue atendido y esta listo. Pero no lo puede 
+             retirar hasta abonar el saldo faltante.</span></p></div>            
+            <div class="col1"><p>Finalizado: <span>El pedido en estado "Finalizado", 
+            indica que su pedido esta atendido y que lo puede retirar.</span></p></div>                        
+        </div>
+    </div>        
+</div>
+{% endblock %}

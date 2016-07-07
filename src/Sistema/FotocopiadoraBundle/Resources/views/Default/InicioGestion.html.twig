@@ -1,0 +1,20 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Gestion{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">            
+            <li><a href="{{path('Gestion_UA')}}">Listar Usuario Activo</a></li>
+            <li><a href="{{path('gestion_UNA')}}">Listar Usuario No Activo</a></li>
+            <li><a href="{{ path('pagina_adm')}}">Menú Principal</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+{% block maincol %}
+ 
+{% endblock %}

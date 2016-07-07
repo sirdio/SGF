@@ -1,0 +1,50 @@
+
+
+
+
+
+<form {%if tipouser == "Empleado"%}
+            action="{{ path('usuario_modificarempleado',{'usn': datosusuario.username,'codop': 'ayn'}) }}"
+       {%elseif tipouser == "Administrador"%}
+            action="{{ path('usuario_mdificaremp',{'usn': datosusuario.username,'codop': 'ayn'}) }}"
+       {%endif%} 
+      method="post" {{ form_enctype(edit_form) }} class="form_pop">
+        <h2>Modificar datos</h2>
+        {{form_errors(edit_form)}}       
+
+        <div class="fil">
+                {{form_label(edit_form.apellido, 'Apellido:')}}
+                {{form_errors(edit_form.apellido)}}  
+                {{form_widget(edit_form.apellido)}}
+                <div class="msjerror1"><span id="msjc"></span></div>
+        </div>   
+        <div class="fil">
+
+                {{form_label(edit_form.nombre, 'Nombre:')}}
+                {{form_errors(edit_form.nombre)}}  
+                {{form_widget(edit_form.nombre)}}
+                <div class="msjerror1"><span id="msjc1"></span></div>
+        </div>
+            {{form_rest(edit_form)}}
+        <h2> <p><button type="submit">Aceptar</button></p></h2>
+       
+</form>
+   
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        nombre = $("#sistema_usuariosbundle_empleadoayntype_nombre").val();
+        apellido = $("#sistema_usuariosbundle_empleadoayntype_apellido").val();
+        if(nombre == " " ) {
+            $( "#msjc" ).text( "El campo nombre no debe estar en blanco.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }    
+        if(apellido == " " ) {
+            $( "#msjc1" ).text( "El campo apellido no debe estar en blanco.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }          
+    });
+
+});
+    
+</script>

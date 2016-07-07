@@ -1,0 +1,411 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+table{border-collapse:collapse;border-spacing:0}
+
+body { background-color: #d6eaf4 ; line-height: 1;font-family: Arial, Helvetica, sans-serif;
+font-size: 12px; width: 100%; height: 100%; color: #000; font-size: 14px; }
+.clear { clear: both; }
+#wrapper { margin: 0 auto; width: 1000px; }
+#wrapper a { text-decoration: none; color: #10299e; font-weight:bold; }
+#wrapper a:hover { text-decoration: none; color: #183BE3; font-weight:bold; }
+/*#wrapper a:hover {*/
+    /*background: #25ADDF;rgba(204, 208, 244, 0.8);*/
+    /*color: #f1b7ce !important; #f6d09e !important ;*/
+/*}*/
+#wrapper span.highlight { color: #F48A00; }
+
+#header { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+#header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; background-color:#131315; }
+#header ul.navigation { list-style: none; text-align: right; }
+#header .navigation li { display: inline; }
+#header .navigation li a { display: inline-block; padding: 10px 15px; border-left: 1px solid #ccc; color: #eff0f8 ; background-color:#131315 }
+#header .navigation li a:hover { color: #bfc0c6;  background-color:#3b3b3f }
+#header .navigation li a:active { color: #eff0f8; background-color: #8b8a93 }
+
+#header h2 { font-family: 'Irish Grover', cursive; font-size: 92px; text-align: center; line-height: 110px; }
+
+
+#header h2 a { color: #0F0E0F; }
+#header h3 { text-align: center; font-family: 'La Belle Aurore', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal;  }
+#header h3 a { color: #19799c; }
+#header .saludo{ background-color: #c7c6d2; border: 1px solid #ccc; width: 20%; margin-left: 80%; height: 60px; box-shadow: 2px 2px 5px #999; border-radius: 10px 10px;}
+.saludo p{ text-align: center; color: #141519; text-shadow: #555 2px 2px 3px;}
+.saludo a{ margin-left: 100px; color: blue;}
+
+
+article h3 {font-size: 20px; color: rgb(209, 151, 5)}
+article h2 {font-size: 28px; color: #D19705;}
+/*amarillo #F5CA00 #f59b00 #FDEBCC
+
+rojo #D83373
+rojo claro #de598d #e3709d #efadc7 #f7d6e3 #19799c
+azul #25ADDF
+azul claro #50bde5
+gris oscuro #868489
+gris #959399*/
+.sidebar .tags { font-weight: bold; }
+.sidebar .tags span { color: #000; font-size: 12px; }
+.sidebar .tags .weight-1 { font-size: 12px; }
+.sidebar .tags .weight-2 { font-size: 15px; }
+.sidebar .tags .weight-3 { font-size: 18px; }
+.sidebar .tags .weight-4 { font-size: 21px; }
+.sidebar .tags .weight-5 { font-size: 24px; }
+.error{color: #F61212;  font-size: 14px; }
+.maincol article h1{color:#110d00; font-size: 30px; font-weight: bold; padding-left:  25%;}
+
+/*.maincol table { color:#777;    font-size: 16px; font-weight: bold; alignment-adjust:central;}
+table tr th{color: #f59b00; background-color:#D83373; } 
+table tr td{color: #959399;font-size: 12px}
+table tr, table th, table td { border: 1px solid #CCC; padding: .5em .5em; }
+table th { font-size: 15px; color: #F48A00;  }*/
+
+.maincol h1,
+.maincol h2
+    { line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
+.maincol p { line-height: 1.5em; margin-bottom: 20px; }
+
+.maincol > #buscador { width: 98.5%; height:80px;  border-bottom: 1px solid #CCC;  float: left; margin: 5px;}
+.maincol > #dialog{ width: 98.5%; height:300px; border-bottom: 1px  solid #CCC; float: left; margin: 5px; }
+.maincol > #dialog>table
+{width: 99%; margin: 5px; border: 3px solid #FFFFFF; color: #FFFFFF /*#0888FF*/; font-size: 16px; font-weight: bold; border-spacing: 0;}
+.maincol > #dialog>table tr, .maincol > #dialog>table th, .maincol > #dialog>table td { border: 1px solid #FFFFFF; padding: .5em .5em; }
+.maincol > #dialog>table th { font-size: 15px; color: #FFFFFF; background-color: #2F3031; }
+.maincol > #dialog>table tr td{color: #000;;font-size: 10px}
+
+#contenedor{ width: 50%;border: 1px  solid #CCC; margin-top: 20px; padding-left: 20px;}
+#footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa;}
+#reguser{margin-top: 10px}
+#reguser a { font-size: 13px; }
+
+/*===============================================================================
+
+ ===========================================================================
+   Botones
+ ======================================================================== 
+ Botón normal */
+.boton, .boton:visited {
+    background: #c0d2db;  /*#50bde5;rgb(  189, 194, 243  );*/
+    border-bottom: 1px solid rgba(0,0,0, 0.25);
+    /*color: #183BE3 !important;*/
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    line-height: 1;
+    padding: .5em 1em;
+    text-decoration: none;
+
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: .2em;
+
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0, 0.6);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0, 0.6);
+    box-shadow: 0 1px 3px rgba(0,0,0, 0.6);
+
+    text-shadow: 0 1px 1px #a2b0f3;
+}
+.boton:hover {
+    background: #D6EAF4;/*#25ADDF;rgba(204, 208, 244, 0.8);*/
+    /*color: #404649 !important;*/ /*#f6d09e !important ;*/
+}
+
+/*a.boton {color: #183BE3 !important;}*/
+
+ /*===========================================================================
+   Formularios
+   ========================================================================*/
+
+.contact_form h1 { background: none repeat scroll 0 0 #2f3031; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 15px; 
+                   padding: 5px; text-shadow: 2px 2px 8px  #000; width: 98.9%; alignment-adjust: central;}
+.contact_form h3 { background: none repeat scroll 0 0 #2f3031; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 26px; padding: 5px; text-shadow: 2px 2px 8px  #000;
+                    width: 70%; alignment-adjust: central;}
+.contact_form h2 { background: none repeat scroll 0 0 #2f3031; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 26px; padding: 5px; text-shadow: 2px 2px 8px  #000;
+                    width: 98.8%; alignment-adjust: central;}
+.contact_form label { color: #555555; display: inline-block; float: left; font-family: sans-serif; font-size: 13px; font-weight: bold; margin-top: 3px; padding: 3px; width: 300px;}
+.contact_form input { height:20px; width:220px; padding:5px 8px;}
+.contact_form textarea { padding:8px; width:300px; }
+.contact_form button { margin-left:90px;}
+.contact_form input, .contact_form textarea { border:1px solid #aaa; box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset; border-radius:2px; color: #888; font-size: 12px;
+	padding-right:30px; -moz-transition: padding .25s; -webkit-transition: padding .25s; -o-transition: padding .25s; transition: padding .25s; }
+.contact_form input:focus, .contact_form textarea:focus { background: #fff; border:1px solid #555; box-shadow: 0 0 3px #aaa; padding-right:80px;
+}
+.contact_form, .login_form { border-radius: 5px; color: #e3709d; background-color: #c7c6d2;}
+
+.contact_form input:required:valid, .contact_form textarea:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/*===========================================================================
+  ============================ formulario login ============================= 
+  ===========================================================================*/
+.login_form h2 { background: none repeat scroll 0 0 #2f3031; border-radius: 5px; color:  #ffffff; display: block; font-family: sans-serif; font-size: 20px; padding: 5px;
+    text-shadow: 2px 2px 8px #000 ; width: 95%; alignment-adjust: central;}
+
+.login_form label { color: #555555; display: inline-block; float: left; font-family: sans-serif; font-size: 13px; font-weight: bold; margin-top: 3px; padding: 3px; width: 192px;}
+.login_form input { height:20px; width:150px; padding:5px 8px; margin-left:10px }
+.login_form textarea { padding:8px; width:190px; }
+.login_form button {margin-bottom: 5px; margin-top: 5px; margin-left:70px; padding:5px;}
+
+
+.login_form input, .login_form textarea { border:1px solid #aaa; box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset; border-radius:2px; color: #888; font-size: 12px;
+	padding-right:5px; -moz-transition: padding .25s; -webkit-transition: padding .25s; -o-transition: padding .25s; transition: padding .25s; }
+.login_form input:focus, .login_form textarea:focus { background: #fff; border:1px solid #555; box-shadow: 0 0 3px #aaa; padding-right:20px;}
+
+.login_form input:required:valid, .login_form textarea:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.login_form input:focus:invalid, .login_form textarea:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/*===========================================================================
+  ============================ formulario chico ============================= 
+  ===========================================================================*/
+.chico_form h2 { background: none repeat scroll 0 0 #2F3031; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 16px; padding: 5px;
+                 text-shadow: 2px 2px 8px  #000; width: 98.3%; alignment-adjust: central;}
+.chico_form label { color: #555555; display: inline-block; float: left; font-family: sans-serif; font-size: 13px; font-weight: bold; margin-top: 3px; padding: 3px; width: 300px;}
+.chico_form input { height:20px; width:220px; padding:5px 8px;}
+.chico_form textarea { padding:8px; width:300px; }
+.chico_form button { margin-left:90px;}
+.chico_form input, .chico_form textarea { border:1px solid #aaa; box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset; border-radius:2px; color: #888; font-size: 12px;
+	padding-right:30px; -moz-transition: padding .25s; -webkit-transition: padding .25s; -o-transition: padding .25s; transition: padding .25s; }
+.contact_form input:focus, .chico_form textarea:focus { background: #fff; border:1px solid #555; box-shadow: 0 0 3px #aaa; padding-right:80px;
+}
+.chico_form{ border-radius: 5px; color: #e3709d; background-color: #C7C6D2; width: 543px}
+
+.chico_form input:required:valid, .chico_form textarea:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.chico_form input:focus:invalid, .chico_form textarea:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+
+/*===========================================================================
+  ============================ formulario Especial=========================== 
+  ===========================================================================*/
+.materia_form h1 { background: none repeat scroll 0 0 #055fb2; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 15px; 
+                   padding: 5px; text-shadow: 2px 2px 8px  #000; width: 98.9%; alignment-adjust: central;}
+.materia_form h3 { background: none repeat scroll 0 0 #055fb2; border-radius: 5px; 
+                   color: #ffffff; display: block; font-family: sans-serif; font-size: 26px; padding: 5px; text-shadow: 2px 2px 8px  #000;
+                    width: 70%; alignment-adjust: central;}
+.materia_form h2 { background: none repeat scroll 0 0 #055fb2; border-radius: 5px; 
+                   color: #ffffff; display: block; font-family: sans-serif; font-size: 26px; padding: 5px; text-shadow: 2px 2px 8px  #000;
+                    width: 98.8%; alignment-adjust: central;}
+.materia_form label { /*border: 1px solid #e3709d;*/ color: #555555; display: inline-block; 
+                     float: left; font-family: sans-serif; font-size: 13px; font-weight: bold; margin-top: 3px; padding: 3px; width: 300px;}
+.materia_form input { height:20px; width:220px; padding:5px 8px; /*border: 1px solid #e3709d*/ }
+.materia_form textarea { padding:8px; width:300px; }
+.materia_form button { margin-left:90px;}
+.materia_form input, .materia_form textarea { border:1px solid #aaa; box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset; border-radius:2px; color: #888; font-size: 12px;
+	padding-right:30px; -moz-transition: padding .25s; -webkit-transition: padding .25s; -o-transition: padding .25s; transition: padding .25s; }
+.materia_form input:focus, .materia_form textarea:focus { background: #fff; border:1px solid #555; box-shadow: 0 0 3px #aaa; padding-right:80px;
+}
+.materia_form, .login_form { border-radius: 5px; color: #e3709d; background-color: #83c3ff;}
+
+.materia_form input:required:valid, .materia_form textarea:required:valid {
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.materia_form input:focus:invalid, .materia_form textarea:focus:invalid {
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+.contenedor{ width: 100%; border: 1px solid #D6EAF4; border-radius: 5px; }
+.contenedor:hover{background-color:#c0d2db; border: 1px solid #dddede; /*border-radius: 5px*/}
+.contenedor>.linea
+{width: 95%; height: 80px; border-radius: 5px; border-bottom: 2px solid #999; margin-top: 5px; margin-bottom: 5px; margin-left: 25px; }
+.contenedor>.linea:hover{background-color:#abbbc3 /*#e4e4e599.5*/;}
+
+.contenedor>.linea>.celtext{/*border: 1px solid #055fb2;*/ width: 92%; float: left;}
+.contenedor>.linea>.celtext>.celizqu{border: 1px solid #055fb2; width: 90%;}
+.contenedor>.linea>.celtext>p { margin-top: 3px; margin-left: 5px; font-size:19px;}
+.contenedor>.linea>.celtext>p>span{font-weight: bold; font-size:16px;}
+.contenedor>.linea>.celtext>.celderc{border: 1px solid #055fb2; width: 90%;}
+.contenedor>.linea>.enlacemodificar{/*border: 1px solid #055fb2;*/ width: 10%; float: right; text-align: center;}
+.contenedor>.linea>.enlacemodificar>a{color: #041BC1 !important;}
+.contenedor>.linea>.enlacemodificar>a:hover{color: #0888FF !important;}
+.contenedor>.linea>.enlacemodificar>a:active{color: #0888FF !important;}
+
+
+/*******************************************************************************
+                                configurando cajas de diseño                    
+*******************************************************************************/
+
+section.maincol>article, section.maincolleft>article, section.maincol>.listarapu>article {
+border-width: 3px;
+border-style:solid;
+display: inline-block;
+vertical-align:top;
+position: relative;
+border-radius: 0px 0px 15px 15px;
+margin:15px 0px 5px 5%;
+width: 92%;
+font-size: 1.2em;
+background-color: #C7C6D2;
+font-family: cursive;
+}
+
+section.maincol>article>figure, section.maincolleft>article>figure, section.maincol>.listarapu>article>figure{
+    float: left;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+section.maincol>article>figure>img, section.maincolleft>article>figure>img, section.maincol>.listarapu>article>figure>img{
+    -moz-border-radius: 50%; border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+    width: 90px;
+    height: 80px;    
+    
+}
+
+section.maincol>article>span, section.maincolleft>article>span, section.maincol>.listarapu>article>span {
+    position: absolute;
+    border-width: 3px ;
+    border: solid #2F3031;
+    top:-30px;
+    right: -2px;
+    height: 21px;
+    line-height: 21px;
+    padding: 2px 8px;
+    border-radius: 15px 15px 0px 0px;
+    font-weight: bolder;
+    color:#FFFFFF;
+    background-color: #2F3031;
+}
+
+section.maincol>article>h2, section.maincolleft>article>h2, section.maincol>.listarapu>article>h2{
+    padding: 0px;
+    text-align: right;
+    margin: 10px 10px 0px 40px;
+    font-size: 1.1em;
+    font-weight: bolder;    
+    color: #2F3031;   
+}
+
+section.maincol>article>p, section.maincolleft>article>p, section.maincol>.listarapu>article>p{
+    font-size: 0.9em;
+    text-align: justify;
+    margin: 15px 10px 5px 30px;    
+}
+
+section.maincol>article>.descapu, section.maincolleft>article>.descapu, section.maincol>.listarapu>article>.descapu{
+    width: 90%;
+    margin: 30px 4% 10px 4%;
+    border-width: 2px;
+    border: solid #121313;
+    border-radius: 15px;
+    background-color: #2F3031;
+    padding-top: 20px;
+    font-size: 0.8em;    
+}
+section.maincol>article>.descapu>ul, section.maincolleft>article>.descapu>ul, section.maincol>.listarapu>article>.descapu>ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;    
+}
+
+section.maincol>article>.descapu>ul>li, section.maincolleft>article>.descapu>ul>li, section.maincol>.listarapu>article>.descapu>ul>li{
+    color: #FFFFFF;
+    font-weight: bolder;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 5px 4%;
+    width: 40%;
+}
+
+section.maincol>article>.conttabla, section.maincol>article>.contcab, section.maincol>.listarapu>article>.conttabla {
+    width: 90%;
+    border-width: 2px;
+    border: solid #121313;
+    border-radius: 15px;
+    background-color: #8b8a93;
+    padding-top: 20px;
+    font-size: 0.8em;
+}
+section.maincol>article>.contcab, section.maincol>.listarapu>article>.contcab
+{margin: 40px 4% 10px 4%;}
+
+section.maincol>article>.contcab>p, section.maincol>.listarapu>article>.contcab>p
+{border-radius: 5px; background-color:#535258 ; width: 22%; display: inline-block; margin: 0px 0px 20px .5%; padding-left: 10px}
+
+section.maincol>article>.conttabla, section.maincol>.listarapu>article>.conttabla
+{margin: 10px 4% 10px 4%;}
+
+section.maincol>article>.contpie, section.maincol>.listarapu>article>.contpie
+{border-width: 2px; border:solid #121313; border-radius: 0px 0px 10px 10px; background-color:#121313; height: 20px; text-align: center }
+
+section.maincol>article>.contpie>a, section.maincol>.listarapu>article>.contpie>a
+{color:#b7b8b8 !important;}
+
+section.maincol>article>.contpie>a:hover, section.maincol>.listarapu>article>.contpie>a:hover
+{color:#ffffff !important; font-weight: bold;}
+
+section.maincol>article>.conttabla>table, section.maincol>.listarapu>article>.conttabla>table 
+{width: 99%; margin: 10px 5px 10px 5px; border: 3px solid #FFFFFF; color: #D83373 /*#0888FF*/;  font-weight: bold; border-spacing: 0;}
+
+section.maincol>article>.conttabla>table tr, section.maincol>article>.conttabla>table th, section.maincol>article>.conttabla>table td,
+section.maincol>.listarapu>article>.conttabla>table tr, section.maincol>.listarapu>article>.conttabla>table th, section.maincol>.listarapu>article>.conttabla>table td 
+{ border: 1px solid #FFFFFF; padding: .5em .5em; }
+
+section.maincol>article>.conttabla>table th, section.maincol>.listarapu>article>.conttabla>table th
+{ font-size: 15px; color: #FFFFFF; background-color: #2F3031; }
+
+section.maincol>article>.conttabla>table tr td, section.maincol>.listarapu>article>.conttabla>table tr td
+{color: #000;}
+
+.listarapu>.mensaje{border: 3px solid #FFFFFF; width: 99.9%; border-radius: 5px; height: 30px; margin-bottom: 15px;}
+.listarapu>.mensaje>p{    color:#FFFFFF; background-color: #2F3031; height: 30px; line-height: 30px; border-radius:2px;}
+
+/*******************************************************************************
+                        diseño contenido mensje                    
+*******************************************************************************/
+
+section.maincol>.Contenidomsj 
+{ border-width: 3px; border-style:solid; display: inline-block; vertical-align:top; position: relative; border-radius: 0px 0px 15px 15px; margin:15px 0px 5px 0px;
+width: 99%; font-size: 1.2em; background-color: #C7C6D2; font-family: cursive; }
+
+section.maincol>.Contenidomsj>.cabmsj>p, section.maincol>.Contenidomsj>.piemsj>p
+{border-radius: 5px; background-color:#535258 ; width: 22%; display: inline-block; margin: 10px 0px 20px 7%; padding-left: 10px}
+
+section.maincol>.Contenidomsj>.detmsj, section.maincol>.Contenidomsj>.piemsj
+{ width: 90%; border-width: 2px; border: solid #121313; border-radius: 15px; background-color: #8b8a93; padding-top: 20px; font-size: 0.8em; margin: 10px 0px 20px 5%; }
+section.maincol>.Contenidomsj>.detmsj>p
+{ margin: 10px 0px 20px 3%; }
+
+section.maincol>.Contenidomsj>span{
+    position: absolute;
+    border-width: 3px ;
+    border: solid #2F3031;
+    top:-30px;
+    right: -2px;
+    height: 21px;
+    line-height: 21px;
+    padding: 2px 8px;
+    border-radius: 15px 15px 0px 0px;
+    font-weight: bolder;
+    color:#FFFFFF;
+    background-color: #C7C6D2;
+}
+/*section.maincol>.Contenidomsj>.cabmsj>p
+{ padding: 0px; text-align: right; margin: 10px 10px 0px 40px; font-size: 1.1em; font-weight: bolder; color: #2F3031; }
+
+section.maincol>.Contenidomsj>.cabmsj>p
+{ font-size: 0.9em; text-align: justify; margin: 15px 10px 5px 30px; }*/

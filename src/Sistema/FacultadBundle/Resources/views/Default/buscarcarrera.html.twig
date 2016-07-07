@@ -1,0 +1,6 @@
+<select id="Carreras">
+        <option value="0">Seleccionar Carrera</option>
+    {% for carreras in carrera %}
+        <option value="{{carreras.CarrCodigo}}">{{carreras.CarrNombre}}</option>
+    {% endfor %}
+</select>

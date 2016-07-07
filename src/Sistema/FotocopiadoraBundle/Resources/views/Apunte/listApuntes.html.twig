@@ -1,0 +1,25 @@
+<hr />   
+<div class="listacontenido">  
+    <div class="listatabla">
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Paginas</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+                <th>Nombre Archivo</th>
+            </tr>
+            {% for apunte in apuntes %}
+            <tr>
+                <td>{{ apunte.Id}}</td>
+                <td>{{ apunte.nombre}}</td>
+                <td>{{ apunte.nropag}}</td>
+                <td>{{ apunte.precio}}</td>
+                <td>{{ apunte.fecha}}</td>
+                <td>{{ apunte.path}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+ </div>

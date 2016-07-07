@@ -1,0 +1,110 @@
+
+
+##################################################################
+########################Rutas de acceso Admin###################
+##################################################################  
+
+pedido_inicio:
+    pattern:  /admin/pedidos/{usn}
+    defaults: { _controller: PedidoBundle:Default:index }
+
+pedido_listatrabajos:
+    pattern: /admin/listarpedidos/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:ListarTrabajos }
+    
+pedido_realizar:
+    pattern: /admin/atendiendopedido/{usn}/{pcab}    
+    defaults: { _controller: PedidoBundle:Pedido:AtenderPedido }
+    
+pedido_buscararcdes:
+    pattern: /admin/descargararchivo/{fId}
+    defaults: { _controller: PedidoBundle:Pedido:BuscarArcdes }
+    
+pedido_cerrar:
+    pattern: /admin/cerrartrabajo/{pedid}/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:CerrarTrabajo}
+    
+pedido_finalizadomost:
+    pattern: /admin/mostrarpedidosfinalozados/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:MostrarPF} 
+    
+pedido_entrgar:    
+    pattern: /admin/entregarpedido/{idped}
+    defaults: { _controller: PedidoBundle:Pedido:EntregarPedido} 
+    
+##################################################################
+########################Rutas de acceso Admin###################
+##################################################################  
+
+pedido_inicioemp:
+    pattern:  /empleado/pedidos/{usn}
+    defaults: { _controller: PedidoBundle:Default:index }
+    
+pedido_listatrabajosemp:
+    pattern: /empleado/listarpedidos/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:ListarTrabajos }
+    
+pedido_realizaremp:
+    pattern: /empleado/atendiendopedido/{usn}/{pcab}    
+    defaults: { _controller: PedidoBundle:Pedido:AtenderPedido } 
+    
+pedido_buscararcdesemp:
+    pattern: /empleado/descargararchivo/{fId}
+    defaults: { _controller: PedidoBundle:Pedido:BuscarArcdes }    
+    
+pedido_cerraremp:
+    pattern: /empleado/cerrartrabajo/{pedid}/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:CerrarTrabajo}  
+    
+pedido_finalizadomostemp:
+    pattern: /empleado/mostrarpedidosfinalozados/{usn}
+    defaults: { _controller: PedidoBundle:Pedido:MostrarPF}     
+    
+pedido_entrgaremp:    
+    pattern: /empleado/entregarpedido/{idped}
+    defaults: { _controller: PedidoBundle:Pedido:EntregarPedido}    
+    
+##################################################################
+########################Rutas de acceso Alumnos###################
+##################################################################  
+
+ped_iniciopedalu:
+    pattern:  /alumno/pedidoayudante
+    defaults: { _controller: PedidoBundle:Default:PedidoInicio }
+    
+pedido_nuevoalu:
+    pattern:  /alumno/pedidonuevo/{usn}
+    defaults: { _controller: PedidoBundle:Default:Nuevop }
+
+pedido_seleccionaralu:
+    pattern:  /alumno/seleccionar/{fid}/{cid}/{maid}
+    defaults: { _controller: "PedidoBundle:Default:seleccionar" }
+      
+ped_mostrarapualu:
+  pattern: /alumno/agregarapu/{id}
+  defaults: {_controller: PedidoBundle:Default:apunterselec }
+  
+ped_verficaralu:
+  pattern: /alumno/verificando/{precio}/{usn}
+  defaults: {_controller: PedidoBundle:Default:Verificandovalores }      
+  
+ped_selecsucalu:
+  pattern: /alumno/seleccionarsucursal
+  defaults: {_controller: PedidoBundle:Default:SelecSuc }   
+  
+ped_armaralu:
+  pattern: /alumno/armarpedido
+  defaults: {_controller: PedidoBundle:Default:ArmarPedido }   
+  
+ped_cerrandopedalu:
+  pattern: /alumno/cerrandopedido/{datos}
+  defaults: {_controller: PedidoBundle:Default:CerrarPedido }   
+  
+ped_veralu:
+  pattern: /alumno/verpedidos/{usn}
+  defaults: {_controller: PedidoBundle:Default:VerPedidos }   
+  
+ped_pagar:
+  pattern: /alumno/registrarpago/{idped}
+  defaults: {_controller: PedidoBundle:Default:RegistrarPago }     
+  

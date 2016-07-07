@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: dbfotocopiadora
+    database_user: root
+    database_password: sgf123456
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 9d4faa4f52af21ae3a1088100b8d34424
+    database_path: null

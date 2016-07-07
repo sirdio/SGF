@@ -1,0 +1,58 @@
+.Rowtitulo{width:95%; margin-left: 15px;}
+.Row1, .Row2, .Row3, .Row4, .Row5, .Row6, .Row7, .Row8, .Row9
+{ width:98%; height: 120px; margin-left: 7px; padding-top: 5px;  }  
+
+.RowEsp{height: 75px; width:95%; margin-left: 10px }
+.RowEsp1{width:75%;   margin-left: 10px}
+.RowEsp2{width:75%;  margin-left: 10px }
+.Row1>.Cell1, .Row2>.Cell1, .Row3>.Cell1, .Row4>.Cell1, .Row5>.Cell1, .Row6>.Cell1, .Row7>.Cell1,
+.Row8>.Cell1, .Row9>.Cell1{ width:45%; float: left;  margin-left: 25px;}
+.Row1>.Cell2, .Row2>.Cell2, .Row3>.Cell2, .Row4>.Cell2, .Row5>.Cell2, .Row6>.Cell2, .Row7>.Cell2,
+.Row8>.Cell2, .Row9>.Cell2{ width:45%; float: left; margin-left: 10px; }
+
+.Rowtitulo a { text-decoration: none; color: #e3709d; text-align: center;}
+.Rowtitulo h3 { font-size: 25px;}
+.botform{border: 1px solid #e3709d;background: none repeat scroll 0 0 #055fb2; border-radius: 5px; color: #e3709d; display: block;
+         font-family: sans-serif; font-size: 26px; padding: 20px 5px 0px 0px; text-shadow: 1px 1px 1px  #FCF9F9;
+                    width: 98.5%; }
+
+
+
+
+/*otro estilo de grilla para basecuerpo1CG*/
+.fila, .fila1, .fila2 { width:95%; height: 80px; margin-left: 7px; padding-top: 5px; /*border: 1px solid #e3709d */} 
+.fila3esp { width:95%; height: 250px; margin-left: 7px; padding-top: 5px; } 
+.fila>.celda1, .fila1>.celda1, .fila2>.celda1{ width:90%; float: left; /*border: 1px solid  #28921f */}
+.fila>.celda2, .fila1>.celda2, .fila2>.celda2{ width:90%; float: left; /*border: 1px solid #F5CA00 */}
+
+
+/*otro estilo de grilla para agregar apunte*/
+
+.filae1, .filae2, .filae3, .filae4, .filae5, .filae6 { width:98%; height: 100px; margin-left: 7px; padding-top: 5px;  /*border: 1px solid #e3709d*/ }  
+.filae1>.Celle1, .filae2>.Celle1, .filae3>.Celle1, .filae4>.Celle1, .filae5>.Celle1, .filae6>.Celle1 { width:35%; float: left;  margin-left: 25px; /*border: 1px solid #e3709d*/}
+.filae1>.Celle2, .filae2>.Celle2, .filae3>.Celle2, .filae4>.Celle2, .filae5>.Celle2, .filae6>.Celle2 { width:60%; float: left; margin-left: 10px; /*border: 1px solid #e3709d*/}
+.filae2>.Celle1>.msjerror1, .filae4>.Celle1>.msjerror1, .filae4>.Celle2>.msjerror1, .filae3>.Celle2>.msjerror1,.filae2>.Celle2>.msjerror1{width:95.5%; }
+/*.filae2>.Celle2>.msjerror2{width:95.5%; }*/
+.filaebot1 { width:80%; height: 120px; margin-left: 7px; padding-top: 5px;  }  
+.filaebot2 { width:80%; height: 30px; margin-left: 7px; padding-top: 5px;  }  
+.filaebot1>.Cellebot1{ width:45%; float: left;  margin-left: 25px; }
+.filaeEsp7{width:50%; height: 100px; margin-left: 7px; padding-top: 5px; /*border: 1px solid #e3709d*/ }
+.filaeEsp7>.Celle2{width:40%; float: right; margin-top: 30px;  /*border: 1px solid #e3709d*/ }
+
+
+
+/*otro estilo de grilla para mostrar*/
+.info{ width:100%; height: 150px; border-radius: 5px; color: #e3709d; background-color: #83c3ff; }
+.info>h2 { background: none repeat scroll 0 0 #055fb2; border-radius: 5px; color: #ffffff; display: block; font-family: sans-serif; font-size: 26px; padding: 5px; text-shadow: 2px 2px 8px  #000;
+                    width: 98.8%; alignment-adjust: central;}
+.cont1>h2, .cont2>h2, .cont3>h2{color: #ffffff; alignment-adjust: central;font-size: 20px; height: auto; width:auto}
+.cont1>h2{ margin-left: 15px; margin-top: 15px;}
+.cont2>h2{margin-left: 5px; margin-top: 8px;}
+.cont3>h2{margin-left: 15px; margin-top: 10px;}
+.info>.cont1{width:99.95%; border-radius: 50px; background-color: #055fb2;/* border: groove 1em #055fb2; border-radius: 2em;*/float: left}
+.info>.cont2{width:5%;height: 40px; border-radius: 200px; background-color: #055fb2; margin-top: 5px/*; border: groove 1em #055fb2; border-radius: 2em*/;float: left}
+.info>.cont3{width:94.95%;height: 40px; border-radius: 50px; background-color: #055fb2;float: left; margin-top: 5px;/* border: groove 1em #055fb2; border-radius: 2em*/}
+
+#recuadro{background-color: #83c3ff; height: 350px ; /*border: 1px solid #e3709d;*/}
+#contentab,#contentab1{width:70%; float: left; /*border: 1px solid #e3709d;*/}
+#contentab2{width:25%; height: 350px ; float: right; padding-top: 140px; padding-left: 40px; /*border: 1px solid #e3709d;*/}

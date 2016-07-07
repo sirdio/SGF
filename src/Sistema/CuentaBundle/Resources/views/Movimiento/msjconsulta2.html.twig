@@ -1,0 +1,71 @@
+
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Acreditar Saldo Usuario{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Empleado"%}
+                <li><a href="{{ path('cuenta_acredsaldoemp')}}">Volver</a></li>
+            {%elseif app.user.tipou == "Administrador"%}
+                <li><a href="{{ path('cuenta_acredsaldo')}}">Volver</a></li>
+            {%endif%}             
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conectado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+
+{% block maincol %}
+<div class="listacontenido">
+         
+    {% if estado == 1 %}
+    <p>{{msaj}}</p>
+    <div class="listatabla">
+        <table>
+   
+            <tr>
+                <th>Apellido y Nombre</th>                
+                <th>Libreta Universitaria</th>                
+                <th>Cuenta N°</th>                
+                <th>Saldo en Cuenta</th>                
+            </tr>
+            <tr>
+                <td>{{ datoscta.apellido}} {{ datoscta.nombre}}</td>
+                <td>{{ datoscta.nroLU}}</td>
+                <td>{{ datoscta.nrocuenta}}</td>
+                <td>{{ datoscta.saldoactual}}</td>
+            </tr>
+            <tr>
+                <th>Movimiento Nro.</th>
+                <th>Fecha</th>   
+                <th>Descripción</th>
+                <th>Tipo de Operación</th>
+                <th>Importe</th>
+                <th>Saldo Posterior</th>
+            </tr>
+            <tr>  
+                <td>{{ movimiento.id}}</td> 
+                <td>{{ movimiento.fecha}}</td> 
+                <td>{{ movimiento.descripcion}}</td>               
+                <td>{{ movimiento.operacion}}</td>
+                <td>${{ movimiento.monto}}</td>
+                <td>${{ movimiento.saldopost}}</td> 
+            </tr>
+        </table>
+   </div>         
+
+        
+    {% endif %}
+    {% if estado == 2 %}
+        <p>{{msaj}}</p>
+    {% endif %}
+     
+</div>       
+{% endblock %}
+{% block javascripts %} 
+{% endblock%}

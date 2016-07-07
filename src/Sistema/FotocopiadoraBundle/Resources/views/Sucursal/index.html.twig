@@ -1,0 +1,30 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Sucursales{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            
+            <li><a href="{{ path('sucursal_new')}}">Agregar</a></li>
+            <li><a href="{{ path('sucursal_lista')}}">Modificar</a></li>
+            {% if app.user.tipou == 'Empleado'%}
+            <li><a href="{{ path('pagina_emp')}}">Menu Principal</a></li>
+            {% endif %}
+            {% if app.user.tipou == 'Administrador'%}
+            <li><a href="{{ path('pagina_adm')}}">Menu Principal</a></li>
+            {% endif %}            
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+
+{% endblock %}
+{% block javascripts %} 
+
+{% endblock%}

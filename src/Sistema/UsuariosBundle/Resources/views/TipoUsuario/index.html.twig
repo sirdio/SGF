@@ -1,0 +1,40 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Gestion de tipos de usuarios{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {#<li><a href="#">Inicio</a></li>#}
+            <li><a href="{{ path ('rol_new')}}">Agregar</a></li>
+            <li><a href="{{path ('rol_mostrar')}}">Modificar</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block id 'portada' %}
+{% block article -%}
+    {% if entities %}
+        <h1>Tipos de Usuarios</h1>
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Tipo Usuario</th>
+            </tr>
+       
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.tipus }}</td>
+            </tr>
+        {% endfor %}
+          
+        </table>  
+    {% else %}
+        <h3>No se ha cargado ningún tipo de usuario, para hacerlo ingrese en la opción AGREGAR del menú.</h3>
+    {% endif %}
+{% endblock %}
+
+   
+
+   
+

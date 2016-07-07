@@ -1,0 +1,28 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Listar arrera{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('C_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="listacontenido">
+    <p>Carreras</p>
+    <div class="listatabla">        
+        <table>            
+            <tr>
+                <th>Código</th>
+                <th>Nombre de Carrera</th>
+            </tr>
+            {% for carreras in carrera %}
+            <tr>
+                <td>{{ carreras.CarrCodigo}}</td>
+                <td><a href="{{ path('C_editar',{'Carr_Codigo' : carreras.CarrCodigo }) }}">{{carreras.CarrNombre}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensajes Internos{% endblock %}
+{% block navigation %}      
+     <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == 'Empleado'%}
+                <li><a href="{{ path('msjinterna_mensajesinternosemp',{'usn':app.user.username})}}">Volver</a></li>                        
+            {%else%}
+                <li><a href="{{ path('msjinterna_mensajesinternosadmin',{'usn':app.user.username})}}">Volver</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+{% block maincol %}
+<div class="Contenidomsj">
+    <span>
+        {%if app.user.tipou == 'Empleado'%}
+            <a href="{{path('msjinterna_descargararchivoemp',{'id': datosmsj.id})}}">Descargar Archivo</a>
+        {%else%}
+            <a href="{{path('msjinterna_descargararchivoadmin',{'id': datosmsj.id})}}">Descargar Archivo</a>
+        {%endif%}        
+    </span>
+    <div class="cabmsj">
+        <p>Remitente: {{datosmsj.nombreremitente}}</p>
+        <p>Asunto: {{datosmsj.asunto}}</p>
+        <p>Fecha: {{datosmsj.fechaenvio}}</p>        
+    </div>
+    <div class="detmsj">
+        <p>Mensaje:</p>
+        <p>{{datosmsj.descripcion}} </p>
+    </div>
+    <div class="piemsj">
+    <p>Facultad: {{facultad}}</p>
+    <p>Carrera: {{carrera}}</p>
+    <p>Materia: {{materia}}</p>
+    
+    </div>
+        
+</div>
+{% endblock %}

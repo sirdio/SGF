@@ -1,0 +1,64 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Lista de Trabajos {% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Administrador" %}
+                <li><a href="{{ path('pedido_inicio',{'usn':app.user.username})}}">Volver</a></li>
+            {%elseif app.user.tipou == "Empleado" %}
+                <li><a href="{{ path('pedido_inicioemp',{'usn':app.user.username})}}">Volver</a></li>
+            {%endif%}
+                
+            
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+    {%if estado == 0%}
+        <article>
+            <figure><img src="{{ asset('/imagen/lista.jpg') }}" alt=""></figure>
+            <span>Lista</span>
+            <h2>Pedidos por Atender</h2>
+
+            <div class="conttabla">
+                <table>
+                        <tr>
+                            <th>Pedido Nro.:</th>
+                            <th>Fecha</th>
+                            <th>Estado del pedido</th>
+                            <th>lugar</th>
+                            <th>Total</th>
+                            <th>Accion</th>
+                        </tr>
+                        {% for pcab in datospedcab %}
+                        <tr>
+                            <td>{{pcab.Id}}</td>
+                            <td>{{pcab.fechap}}</td>
+                            <td>{{pcab.estados}}</td>
+                            <td>{{pcab.sucursal}}</td>
+                            <td>{{pcab.total}}</td>
+                            {%if app.user.tipou == "Administrador" %}
+                                <td><a class="verdet" href ="{{path('pedido_realizar',{'usn':app.user.username, 'pcab':pcab.Id})}}">Atender pedido</a></td>
+                            {%elseif app.user.tipou == "Empleado" %}
+                                <td><a class="verdet" href ="{{path('pedido_realizaremp',{'usn':app.user.username, 'pcab':pcab.Id})}}">Atender pedido</a></td>
+                            {%endif%}                            
+                            
+                        </tr>
+                       {% endfor %}
+                </table> 
+            </div>
+        </article>
+    {%elseif estado == 1%}
+        <div class="ayudante">
+            <div class="msj1">
+                <h2>Tienes trabajo pendiente por terminar. Debe finalizarlo antes de continuar atendiendo otros pedidos.</h2>
+                {%if app.user.tipou == "Administrador" %}
+                    <a href ="{{path('pedido_realizar',{'usn':app.user.username, 'pcab':pcab})}}">Ver detalle</a>
+                {%elseif app.user.tipou == "Empleado" %}
+                    <a href ="{{path('pedido_realizaremp',{'usn':app.user.username, 'pcab':pcab})}}">Ver detalle</a>
+                {%endif%}                 
+                
+            </div>            
+        </div>
+    {%endif%}
+{% endblock %}

@@ -1,0 +1,20 @@
+{#{cantuser}#}
+{#% if cantuser == 0  %}
+    {{mensaje}}
+
+{% elseif cantuser == 1 %}
+
+    {{mensaje}}
+{% endif %#}
+
+<script>
+$(document).ready(function(){    
+    val1 = {{cantuser}};
+    //if(val == 1) {
+        //jQuery("#sistema_usuariosbundle_empleadotype_username").focus();
+        //val1 = jQuery("#sistema_usuariosbundle_empleadotype_username").val(); 
+        //$( "#msjun" ).text( "El nombre de usuario ya existe debe cambiar.!!" ).show().fadeOut( 7000);
+    //}
+});    
+</script>    
+    

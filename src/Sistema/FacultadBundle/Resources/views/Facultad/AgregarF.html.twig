@@ -1,0 +1,31 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Agregar Facultad{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('F_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}        
+<form action="{{ path('F_agregar') }}" method="post" {{ form_enctype(form) }} class="contact_form">
+            <H2>Agregar Facultad</H2>
+            {{form_errors(form)}}
+            <div class="filae1">
+                <div class="Celle1">
+                    {{form_label(form.Fac_Codigo, 'Código')}}
+                    {{form_errors(form.Fac_Codigo)}}  
+                    {{form_widget(form.Fac_Codigo)}}
+                </div>
+                    <div class="Celle2">
+                    {{form_label(form.Fac_Nombre, 'Nombre de Facultad')}}
+                    {{form_errors(form.Fac_Nombre)}}
+                    {{form_widget(form.Fac_Nombre)}}
+                </div>
+            </div>
+                {{form_rest(form)}}
+            <div class="filae2">
+                <button type="submit">Agregar</button>
+            </div>
+        </form>
+    {% endblock %}

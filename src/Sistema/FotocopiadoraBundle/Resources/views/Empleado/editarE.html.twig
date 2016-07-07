@@ -1,0 +1,70 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Gestion Empleado{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('gestion_listarempleado')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+<div class="listacontenido">  
+    <p>Resetear Contraseña</p>
+    <div class="listatabla">
+      
+       <table>
+            <tr>
+                <th>Código</th>
+               <th>Nombre de Usuario</th>
+               <th>Correo Electronico</th>
+            </tr>     
+            <tr>
+                <td>{{id}}</td>
+                <td>{{ entity.username}}</td>
+                <td>{{ entity.email}}</td>
+            </tr>                
+        </table>
+ </div>
+   
+    <form action="{{ path('gestion_guardar',{'id': id}) }}" 
+          method="post" {{ form_enctype(edit_form) }} class="contact_form">
+        {{ form_errors(edit_form) }}
+        <div class="filaebot1">
+            <div class="Cellebot1">
+                {{form_errors(edit_form.password)}}  
+                {{form_widget(edit_form.password)}}
+                <div class="msjerror1"><span id="msjc"></span></div>        
+            </div>
+        </div>
+        {{form_rest(edit_form)}}
+        <div class="filaebot2">
+            <div class="Cellebot1">
+            <button type="submit">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>     
+{% endblock %}
+{% block javascripts %}
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        pass1 = $("#sistema_usuariosbundle_usuariotype_password_first").val();
+        pass2 = $("#sistema_usuariosbundle_usuariotype_password_second").val();
+        if(pass1 != pass2) {
+            $( "#msjc" ).text( "Los campos contraseña deben coincidir.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }    
+    });
+
+});
+    
+</script>
+{% endblock%}

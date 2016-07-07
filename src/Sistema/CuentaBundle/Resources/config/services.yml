@@ -1,0 +1,7 @@
+parameters:
+#    cuenta.example.class: Sistema\CuentaBundle\Example
+
+services:
+#    cuenta.example:
+#        class: %cuenta.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

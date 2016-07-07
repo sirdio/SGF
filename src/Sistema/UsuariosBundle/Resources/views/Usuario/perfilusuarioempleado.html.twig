@@ -1,0 +1,132 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if tipouser == "Empleado"%}
+                <li><a href="{{ path('pagina_emp') }}">Volver</a></li>
+            {%elseif tipouser == "Administrador"%}
+                <li><a href="{{ path('pagina_adm') }}">Volver</a></li>
+            {%endif%}                           
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+<div class="contenedor">
+    <div class="linea">
+        <div class="celtext"><p>Apellido y Nombre: <span>{{datosusuario.apellido}}, {{datosusuario.nombre}}</span></p></div>
+        <div class="enlacemodificar"><a class="modoficarayn" href="#">Modificar</a></div>
+    </div>
+    <div class="linea">
+        <div class="celtext"><p>Correo Electrónico: <span>{{datosusuario.email}}</span></p></div>
+    </div>
+    <div class="linea">
+        <div class="celtext"><p>Nombre de Usuario: <span>{{datosusuario.username}}</span></p></div>        
+    </div>
+    <div class="linea">
+        <div class="celtext"><p>Contraseña</p></div>
+        <div class="enlacemodificar"><a class="modoficarpass" href="#">Modificar</a></div>
+    </div>
+    <div class="linea">
+        <div class="celtext"><p>Número de Celular: <span>{{datosusuario.nrocel}}</span></p></div>
+        <div class="enlacemodificar"><a class="modoficarcel" href="#">Modificar</a></div>
+    </div>
+    <div class="linea">
+        <div class="celtext"><p>Sucursal: <span>{{datossucursal.sucnomb}}</span></p></div>     
+        <div class="enlacemodificar"><a class="modoficarsuc" href="#">Modificar</a></div>
+    </div>
+</div>
+<div id="pop">
+   <div id="cerrar">X</div>
+   <div id="contpop"></div>
+   
+</div>
+<div class="popup-overlay"></div>
+
+{% endblock %}
+{% block javascripts %}  
+    <script>
+    
+    $(document).ready(function(){
+        
+    //Conseguir valores de la img
+    var img_w =550 + 10;
+    var img_h = 300 + 28;
+    //Darle el alto y ancho
+    $("#pop").css('width', img_w + 'px');
+    $("#pop").css('height', img_h + 'px');
+
+    //Esconder el popup
+    $("#pop").hide();
+    //Consigue valores de la ventana del navegador
+    var w = $(this).width();
+    var h = $(this).height();
+
+    //Centra el popup   
+    w = (w/2) - (img_w/2);
+    h = (h/2) - (img_h/2);
+    $("#pop").css("left",w + "px");
+    $("#pop").css("top",h + "px");
+    //temporizador, para que no aparezca de golpe
+    setTimeout("mostrar()",1500);
+    //Función para cerrar el popup
+    $("#cerrar").click(function (){
+        $("#pop").fadeOut('slow');
+        $('.popup-overlay').fadeOut('slow');
+    });
+    
+    $('.modoficarcel').click(function(){
+        $("#pop").fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height(2000);
+        var usuario = $('#us').text();
+        var valor = "cel";
+        var direcmc = '{{ path("usuario_modificarempleado",{'usn':'usn', 'codop':'codop'}) }}';
+        direcmc = direcmc.replace("usn", usuario);
+        direcmc = direcmc.replace("codop", valor);
+        $('#contpop').load(direcmc.trim());        
+    });
+    $('.modoficarpass').click(function(){
+        $("#pop").fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height(2000);
+        var usuario = $('#us').text();
+        var valor = "pas";
+        var direcpass = '{{ path("usuario_modificarempleado",{'usn':'usn', 'codop':'codop'}) }}';
+        direcpass = direcpass.replace("usn", usuario);   
+        direcpass = direcpass.replace("codop", valor);
+        $('#contpop').load(direcpass.trim());        
+    });
+    $('.modoficarayn').click(function(){
+        $("#pop").fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height(2000);
+        var usuario = $('#us').text();
+        var valor = "ayn";
+        var direcayn = '{{ path("usuario_modificarempleado",{'usn':'usn', 'codop':'codop'}) }}';
+        direcayn = direcayn.replace("usn", usuario);
+        direcayn = direcayn.replace("codop", valor);
+        $('#contpop').load(direcayn.trim());        
+    });  
+    $('.modoficarsuc').click(function(){
+        $("#pop").fadeIn('slow');
+        $('.popup-overlay').fadeIn('slow');
+        $('.popup-overlay').height(2000);
+        var usuario = $('#us').text();
+        var valor = "suc";
+        var direcsuc = '{{ path("usuario_modificarempleado",{'usn':'usn', 'codop':'codop'}) }}';
+        direcsuc = direcsuc.replace("usn", usuario);
+        direcsuc = direcsuc.replace("codop", valor);
+        $('#contpop').load(direcsuc.trim());
+    });     
+    });
+    </script>
+{% endblock%}

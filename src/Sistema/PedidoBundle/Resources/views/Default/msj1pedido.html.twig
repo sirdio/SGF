@@ -1,0 +1,25 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_alumno')}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+    <div class="msj1">
+        <h2>{{mensaje}}</h2>
+    </div>
+</div>
+{% endblock %}

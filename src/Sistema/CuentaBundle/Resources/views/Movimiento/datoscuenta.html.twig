@@ -1,0 +1,43 @@
+<table>
+    <tr>
+        <th>Fecha</th>
+        <td>{#{"now"|date("d/m/Y")}#}{{fechaop}}</td>
+    </tr>  
+    <tr>
+        <th>Apellido y Nombre</th>
+        <td>{{ datoscta.apellido}} {{ datoscta.nombre}}</td>
+
+        <th>Libreta Universitaria</th>
+        <td>{{ datoscta.nroLU}}</td>
+    </tr>  
+    <tr>   
+        <th>Cuenta N°</th>
+        <td>{{ datoscta.nrocuenta}}</td>
+       
+        <th>Saldo en Cuenta</th>
+        <td>{{ datoscta.saldoactual}}</td>
+    </tr>
+    <tr>
+        <th>Descrioción</th> 
+        <td>{{ movimiento.descripcion}}</td>
+ 
+        <th>Tipo de Operación</th>
+        <td>{{ movimiento.operacion}}</td>
+    </tr>
+
+</table>
+<form {%if app.user.tipou == "Empleado"%}
+            action="{{ path('cuenta_createemp') }}" 
+       {%elseif app.user.tipou == "Administrador"%}
+            action="{{ path('cuenta_create') }}" 
+       {%endif%} 
+       method="post" class="chico_form">
+        <h2>Asignar Importe</h2>
+        <div class="RowEsp1">
+            <label>Importe:</label>
+             <input type="text" name="{{ datoscta.nroLU}}" autofocus required />            
+        </div>
+        <div class="RowEsp1">
+        <button type="submit">Aceptar</button>
+        </div>
+    </form>    

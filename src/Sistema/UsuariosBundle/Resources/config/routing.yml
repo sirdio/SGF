@@ -1,0 +1,176 @@
+##################################################################
+############################LOGUEO################################
+##################################################################
+usuario_login:
+    pattern: /login
+    defaults: { _controller: UsuariosBundle:Default:login }
+
+usuario_login_check:
+    pattern: /login_check
+
+usuario_logout:
+    pattern: /logout
+
+
+
+pagina_alumno:
+    pattern: /alumno
+    defaults: { _controller: UsuariosBundle:Default:IrAlum }
+pagina_profe:
+    pattern: /profesor
+    defaults: { _controller: UsuariosBundle:Default:IrProf }  
+pagina_emp:
+    pattern: /fotemp
+    defaults: { _controller: "UsuariosBundle:Default:IrEmp" }
+pagina_adm:
+    pattern: /administrador
+    defaults: { _controller: "UsuariosBundle:Default:IrAdm" }
+
+
+##################################################################  
+################################GRUPOS############################
+##################################################################
+rol:
+    pattern:  /admin/inicior
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:index" }
+
+rol_new:
+    pattern:  /admin/newr
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:new" }
+
+rol_create:
+    pattern:  /admin/creater
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:create" }
+    requirements: { _method: post }
+
+rol_edit:
+    pattern:  /admin/editr/{id}
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:edit" }
+
+rol_update:
+    pattern:  /admin/updater/{id}
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:update" }
+    requirements: { _method: post|put }
+
+rol_mostrar:
+    pattern: /admin/modificarr
+    defaults: { _controller: "UsuariosBundle:TipoUsuario:Listar"}
+
+##################################################################  
+################################USUARIO###########################
+##################################################################
+
+usuario_new:
+    pattern:  /newu/{tipou}
+    defaults: { _controller: "UsuariosBundle:Usuario:new" }
+
+usuario_create:
+    pattern:  /createu
+    defaults: { _controller: "UsuariosBundle:Usuario:create" }
+    requirements: { _method: post }
+
+usuario_update:
+    pattern:  /updateu/{id}
+    defaults: { _controller: "UsuariosBundle:Usuario:update" }
+    requirements: { _method: post|put }
+
+usuario_delete:
+    pattern:  /deleteu/{id}
+    defaults: { _controller: "UsuariosBundle:Usuario:delete" }
+    requirements: { _method: post|delete }
+
+usuario_selecTipoUser:
+    pattern:  /tipousuario
+    defaults: { _controller: "UsuariosBundle:Usuario:TipoUser" }
+    
+##################################################################  
+#####################enlaces usuario alumno#######################
+################################################################## 
+usuario_perfilalu:
+    pattern:  /alumno/perfil/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:VerPerfil }
+    
+usuario_modcelalu:
+    pattern:  /alumno/modificarcelular/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:ActualizarCel }    
+    
+usuario_modaynalu:
+    pattern:  /alumno/modificarayn/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:ActualizarAyN } 
+    
+usuario_modpassalu:
+    pattern:  /alumno/modificarpass/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:ActualizarPass }     
+    
+usuario_verinfoalu:
+    pattern:  /alumno/informacionmaterias/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:VerInfMat }     
+    
+usuario_agregarmatlist:
+    pattern:  /alumno/agregarmateria/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:AgregarMat }       
+       
+usuario_agregarl:
+    pattern:  /alumno/agregarlista/{fid}/{cid}/{maid}/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:AgregarLista }     
+ 
+usuario_modificar:
+    pattern:  /alumno/modificar/{id}
+    defaults: { _controller: UsuariosBundle:Usuario:Modificarlist }
+    
+usuario_mostMat:
+    pattern: /alumno/mostrarmateria/{id}    
+    defaults: { _controller: UsuariosBundle:Usuario:MostMateria }
+    
+usuario_mostdatosalu:
+    pattern: /alumno/selecciond/{cid}/{maid}/{pid}
+    defaults: { _controller: UsuariosBundle:Usuario:DatosSelecalu}
+    
+usuario_agregarmatlist:
+    pattern: /alumno/guardardatos/{pid}/{fid}/{cid}/{maid}    
+    defaults: { _controller: UsuariosBundle:Usuario:Guardardlalu}
+
+##################################################################  
+#####################enlaces usuario administrador#######################
+##################################################################   
+usuario_perfiladmin:
+    pattern:  /admin/perfil/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:VerPerfil }
+    
+usuario_mdificaremp:
+    pattern: /admin/modificardatosempleado/{usn}/{codop}
+    defaults: { _controller: UsuariosBundle:Usuario:ModDatosEmp }    
+    
+##################################################################  
+#####################enlaces usuario administrador#######################
+##################################################################   
+usuario_perfilemp:
+    pattern:  /fotemp/perfil/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:VerPerfil }
+    
+usuario_modificarempleado:
+    pattern: /fotemp/modificardatosempleado/{usn}/{codop}
+    defaults: { _controller: UsuariosBundle:Usuario:ModDatosEmp }      
+    
+##################################################################  
+#####################enlaces usuario profesor#######################
+################################################################## 
+usuario_perfilprofesor:
+    pattern:  /profesor/perfil/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:VerPerfil }   
+    
+usuario_modificarprofesor:
+    pattern: /profesor/modificardatosprofesor/{usn}/{codop}
+    defaults: { _controller: UsuariosBundle:Usuario:ModDatosProf }    
+    
+usuario_cargarperfil:
+    pattern: /profesor/agregardatosperfil/{usn}    
+    defaults: { _controller: UsuariosBundle:Usuario:CargarPerfil }   
+    
+usuario_obtenermateria:    
+    pattern: /profesor/obtenermateria/{cid}    
+    defaults: { _controller: UsuariosBundle:Usuario:ObtenerMateria }     
+    
+usuario_modificarperfilprof:    
+    pattern:  /profesor/modificar/{id}/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:Modificarlistprof }  

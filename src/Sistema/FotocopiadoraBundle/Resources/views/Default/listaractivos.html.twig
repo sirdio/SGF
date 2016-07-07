@@ -1,0 +1,37 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Usuarios Activos{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{path('Gestion_inicio')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}    
+<div class="listacontenido">  
+    <p>Usuarios Activos.</p>
+    <div class="listatabla">
+    <table>
+        <tr>
+            <th>Código</th>
+           <th>Nombre de Usuario</th>
+           <th>Correo Electronico</th>
+           <th>Tipo de Usuario</th>
+        </tr>     
+        {% for ua in usuarioactivo %}    
+        <tr>
+             {% if ua.username != app.user.username %}
+            <td>{{ ua.id}}</td>
+            <td>{{ ua.username}}</td>
+            <td>{{ ua.email}}</td>
+            <td>{{ ua.name}}</td>
+           
+                 <td><a href="{{ path('Gestion_DCU',{'id' : ua.id }) }}"> Desactivar Cuenta</a></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}    
+    </table>
+</div>
+</div>       
+{% endblock %}

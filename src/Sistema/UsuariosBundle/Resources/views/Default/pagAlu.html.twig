@@ -1,0 +1,54 @@
+{% extends '::basecuerpoL.html.twig' %}
+{% block title %}Centro de Copiado pagina de inicio Alumno{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('G_buscaralu')}}">Ver Apuntes</a></li>
+            <li><a href="{{ path('cuenta_inicioAlu')}}">Informacion de Cuenta</a></li>
+            <li><a href="{{ path('ped_iniciopedalu')}}">Realizar Pedido</a></li>            
+            <li><a href="{{ path('ped_veralu', {'usn': app.user.username})}}">Ver Pedidos</a></li>
+            <li><a href="{{path('usuario_logout')}}">Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+<a href="{{path('usuario_perfilalu',{'usn': app.user.username})}}">Ver mi perfil</a>
+{% endblock %} 
+{% block maincol %}
+    <article>
+        <figure><img src="{{ asset('/imagen/libdrosapilados.jpg') }}" alt=""></figure>
+        <span>Apuntes</span>
+        <h2>Nombre del apunte </h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+            Aenean commodo ligula eget dolor. </p>
+        <div class="descapu">
+            <ul>
+                <li>Carrera:</li>
+                <li>Materia:</li>
+                <li>Fecha:</li>
+                <li>Precio:</li>
+            </ul>
+        </div>
+    </article>
+{% endblock %}
+{% block maincolleft %}
+    <article>
+        <figure><img src="{{ asset('/imagen/libdrosapilados.jpg') }}" alt=""></figure>
+        <span>Apuntes</span>
+        <h2>Nombre del apunte </h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+            Aenean commodo ligula eget dolor. </p>
+        <div class="descapu">
+            <ul>
+                <li>Carrera:</li>
+                <li>Materia:</li>
+                <li>Fecha:</li>
+                <li>Precio:</li>
+            </ul>
+        </div>
+    </article>
+{% endblock %}

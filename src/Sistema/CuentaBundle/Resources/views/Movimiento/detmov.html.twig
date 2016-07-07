@@ -1,0 +1,40 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{path('cuenta_movimientosalu',{'usn':app.user.username})}}?page={{page}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %} 
+   <article>
+        <figure><img src="{{ asset('/imagen/movcta.jpg') }}" alt=""></figure>
+        <span>Movimiento</span>
+        <h2>Tipo de Operacion: {{movimiento.operacion}} </h2>
+        <p>{{movimiento.descripcion}}</p>
+        <div class="descapu">
+            <ul>
+                <li>Pedido Nro: {{movimiento.id}}</li>
+                <li>Fecha:{{movimiento.fecha}}</li>
+                {%if movimiento.operacion == "Ingreso"%}                
+                    <li>Importe: ${{movimiento.monto}}</li>
+                {%elseif movimiento.operacion == "Egreso"%}            
+                    {%set valor = movimiento.monto * -1 %}
+                    <li>Importe: ${{valor}}</li>                    
+                {%endif%}                                
+                <li>Saldo Posterior: ${{movimiento.saldopost}}</li>
+                
+            </ul>
+        </div>
+    </article>
+{% endblock %}

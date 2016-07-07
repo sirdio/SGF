@@ -1,0 +1,54 @@
+<div class="pedido">
+    <div class="cabecera">
+        <div class="pedidoencabizq"><p>Sucursal: {{opcts}}-{{sucursal.sucnomb}}</p></div>
+        <div class="pedidoencabizqmenos"><p>Pago: {{opctp}}-{{pago}}</p></div>
+        <div class="pedidocent"><p>Estado Pedido: {{estado.id}}-{{estado.estadonom}} </p></div>
+        <div class="pedidoencabder"><p class="fechap">Fecha: {{ "now"|date("d-m-Y") }}</p></div>
+    </div>
+    <div class="pedidodetalle">
+       {% set counter = 1%} 
+        <table>
+            <tr>
+                <th>Orden</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+            {% for reg in registros %}
+                <tr>
+                    <td>{{counter}}</td>
+                    <td>{{ reg[counter].nombre}}</td>
+                    <td>{{ reg[counter].precio}}</td>
+                </tr>
+            {% set counter = counter + 1 %}    
+            {% endfor %}
+        </table> 
+    </div>
+    <div class="pietot">
+        <p>Total:$ {{subt}}</p>
+    </div>        
+    <div class="pie">
+        <a class="CerrarPedido" value="" href ="#">Guardar Pedido</a>
+    </div>
+
+
+</div>
+
+<script>
+
+    $(document).ready(function(){
+        $(".circulo1").css("background-color", "#8b8a93");
+        $(".circulo2").css("background-color", "#8b8a93");
+        $(".circulo3").css("background-color", "#8b8a93");
+        $(".circulo4").css("background-color", "#131315");  
+        var fecha = $('.fechap').text();
+        fecha = fecha.substring(7); 
+        var usn = $('#us').text();
+        var variables = "{{lista}}"+","+{{opctp}}+","+{{opcts}}+","+{{estado.id}}+","+fecha+","+usn;
+        $('.CerrarPedido').click(function(evento){
+            evento.preventDefault();                           
+            var cpedido = '{{ path("ped_cerrandopedalu",{'datos':'datos'}) }}';
+            cpedido = cpedido.replace("datos", variables);   
+            $('.ayudante').load(cpedido.trim());
+        });
+    });
+</script>                

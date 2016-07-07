@@ -1,0 +1,6 @@
+<select id="Materias">
+        <option value="0">Seleccionar Materia</option>
+    {% for materias in materia %}
+        <option value="{{materias.MatCodigo}}">{{materias.MatNombre}}</option>
+    {% endfor %}
+</select>  

@@ -1,0 +1,68 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('cuenta_inicioAlu')}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %} 
+<div class="continfo">
+        <div class="continfofila">           
+            <div class="cicol1"><p>Fecha</p></div>
+            <div class="cicol1"><p>Operación</p></div>
+            <div class="cicol1"><p>Monto</p></div>
+            <div class="cicol1"><p>Acción</p></div>      
+        </div> 
+        {%for mov in datos%}
+        <div class="continfofila">           
+            <div class="cicol1"><p>{{mov.fecha}}</p></div>
+            <div class="cicol1"><p>{{mov.operacion}}</p></div>
+            {%if mov.operacion == "Ingreso"%}                
+                <div class="cicol1"><p>{{mov.monto}}</p></div>
+            {%elseif mov.operacion == "Egreso"%}            
+                {%set valor = mov.monto * -1 %}
+                <div class="cicol1"><p>{{valor}}</p></div>
+            {%endif%}
+            
+            <div class="cicol1"><p><a href="{{path('cuenta_movdetallealu',{'pid': mov.id})}}?page={{page}}">Ver Detalle</a></p></div>      
+        </div>    
+        {%endfor%}
+ </div>
+
+    <div  class="contentab">
+        <div class="paginacion">
+             <ul>
+                {%for i in 1.. totalPaginas %}
+                    {%if loop.first %}
+                        <li {%if page==1%} class="disabled" {%endif%}>
+                            <a href="{{path('cuenta_movimientosalu',{'usn':app.user.username})}}?page={{page-1}}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                        </li>
+                    {%endif%}
+                        
+                        <li {% if page==loop.index %}  class="active" {%endif%}>
+                            <a href="{{path('cuenta_movimientosalu',{'usn':app.user.username})}}?page={{loop.index}}">{{loop.index}}</a>
+                        </li>
+                        
+                    {%if loop.last %}                                                   
+                        <li {%if page==totalPaginas%} class="disabled" {%endif%}>
+                            <a href="{{path('cuenta_movimientosalu',{'usn':app.user.username})}}?page={{page+1}}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                        </li>
+                    {%endif%}
+                {%endfor%}
+             </ul>
+        </div>        
+    </div>
+{% endblock %}
+
+            

@@ -1,0 +1,75 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Agregar Sucursal{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            
+            <li><a href="{{ path('sucursal_lista')}}">Modificar</a></li>
+            <li><a href="{{ path('sucursal')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}   
+<form action="{{ path('sucursal_create') }}" method="post" {{ form_enctype(form) }} class="contact_form">
+        <h2>Nueva Sucursal</h2>
+        {{form_errors(form)}}
+        <div class="filae1">
+            <div class="Celle1">
+                {{form_label(form.SucNomb, 'Nombre de Sucursal:')}}
+                {{form_errors(form.SucNomb)}}  
+                {{form_widget(form.SucNomb)}}
+            </div>
+            <div class="Celle2">
+                {{form_label(form.SucDom, 'Domicilio:')}}
+                {{form_errors(form.SucDom)}}  
+                {{form_widget(form.SucDom)}}
+            </div>
+        </div>
+        <div class="filae2">
+            <div class="Celle1">
+                {{form_label(form.SucTel, 'Teléfono:')}}
+                {{form_errors(form.SucTel)}}  
+                {{form_widget(form.SucTel)}}
+            </div>        
+            <div class="Celle2">
+                {{form_label(form.SucEmail, 'Correo Electrónico:')}}
+                {{form_errors(form.SucEmail)}}  
+                {{form_widget(form.SucEmail)}}
+                <div><span id="msjemail"></span></div>
+            </div>            
+        </div> 
+            {{form_rest(form)}}
+        <div class="filae3">
+            <button id="formulas" type="submit">Aceptar</button>        
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block javascripts %} 
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+         cadena = $("#sistema_fotocopiadorabundle_sucursaltype_SucEmail").val();
+         resultado = cadena.indexOf("@");
+        if(resultado == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+        resultado2 = cadena.indexOf(".com");
+        if(resultado2 == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+    });   
+});
+    
+</script>  
+{% endblock%}

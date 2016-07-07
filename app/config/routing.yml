@@ -1,0 +1,24 @@
+msjinterna:
+    resource: "@MsjinternaBundle/Resources/config/routing.yml"
+    prefix:   /mensajeriaintarna
+
+pedido:
+    resource: "@PedidoBundle/Resources/config/routing.yml"
+    prefix:   /pedido
+
+cuenta:
+    resource: "@CuentaBundle/Resources/config/routing.yml"
+    prefix:   /Cuenta
+
+usuarios:
+    resource: "@UsuariosBundle/Resources/config/routing.yml"
+    prefix:   /usuario
+
+facultad:
+    resource: "@FacultadBundle/Resources/config/routing.yml"
+    prefix:   /datosfacultad
+
+fotocopiadora:
+    resource: "@FotocopiadoraBundle/Resources/config/routing.yml"
+    prefix:   /fotocopiadora
+

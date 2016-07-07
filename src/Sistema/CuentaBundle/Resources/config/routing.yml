@@ -1,0 +1,62 @@
+
+
+cuenta_inicio:
+    pattern:  /admin/inicio
+    defaults: { _controller: CuentaBundle:Default:index }
+
+cuenta_acredsaldo:
+  pattern: /admin/acreditarsaldo
+  defaults: { _controller: CuentaBundle:default:AcreditarSaldo}
+ 
+cuenta_buscar:
+  pattern: /admin/buscar/{id}
+  defaults: { _controller: CuentaBundle:default:BuscarCta}
+
+cuenta_create:
+    pattern:  /admin/agregarsaldo
+    defaults: { _controller: CuentaBundle:default:Agregar }
+    requirements: { _method: post }
+   
+##################################################################
+########################Rutas de acceso Empleado###################
+################################################################## 
+cuenta_acredsaldoemp:
+  pattern: /empleado/acreditarsaldo
+  defaults: { _controller: CuentaBundle:default:AcreditarSaldo}
+cuenta_buscaremp:
+  pattern: /empleado/buscar/{id}
+  defaults: { _controller: CuentaBundle:default:BuscarCta}
+cuenta_createemp:
+    pattern:  /empleado/agregarsaldo
+    defaults: { _controller: CuentaBundle:default:Agregar }
+    requirements: { _method: post }
+
+
+      
+##################################################################
+########################Rutas de acceso Alumnos###################
+##################################################################    
+
+cuenta_inicioAlu:
+    pattern:  /alumno/inicio
+    defaults: { _controller: CuentaBundle:Default:index }
+
+cuenta_consaldo:    
+    pattern:  /alumno/resumensaldo/{tipou}
+    defaults: { _controller: CuentaBundle:Default:ConsultarSaldo }  
+
+cuenta_ultimosmov:
+    pattern:  /alumno/ultimosmovimientos/{tipou}
+    defaults: { _controller: CuentaBundle:Default:ConsultarUltMov }    
+    
+cuenta_detallesaldoalu:
+    pattern: /alumno/detallesaldo/{usn}
+    defaults: { _controller: CuentaBundle:Default:DetalleSaldo}
+    
+cuenta_movimientosalu:    
+    pattern: /alumno/movimientodecuenta/{usn}
+    defaults: { _controller: CuentaBundle:Default:DetalleMovCta}  
+    
+cuenta_movdetallealu:
+    pattern: /alumno/detallemovimiento/{pid}    
+    defaults: { _controller: CuentaBundle:Default:VerDetalleMov}

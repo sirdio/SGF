@@ -1,0 +1,74 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Modificar Datos de Sucursal{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('sucursal_lista')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+        <form action="{{ path('sucursal_update',{'id': entity.id}) }}" 
+              method="post" {{ form_enctype(edit_form) }} class="contact_form">
+            <input type="hidden" name="_method" value="PUT" />    
+            <h2>Modificar Sucursal</h2>
+                {{ form_errors(edit_form) }}
+            <div class="filae1">
+                <div class="Celle1">
+                    {{form_label(edit_form.SucNomb, 'Nombre de Sucursal:')}}
+                    {{form_errors(edit_form.SucNomb)}}  
+                    {{form_widget(edit_form.SucNomb)}}
+                </div>
+                <div class="Celle2">
+                    {{form_label(edit_form.SucDom, 'Domicilio:')}}
+                    {{form_errors(edit_form.SucDom)}}  
+                    {{form_widget(edit_form.SucDom)}}
+                </div>
+            </div>
+            <div class="filae2">
+                <div class="Celle1">
+                    {{form_label(edit_form.SucTel, 'Teléfono:')}}
+                    {{form_errors(edit_form.SucTel)}}  
+                    {{form_widget(edit_form.SucTel)}}
+                </div>
+                <div class="Celle2">
+                    {{form_label(edit_form.SucEmail, 'Correo Electrónico:')}}
+                    {{form_errors(edit_form.SucEmail)}}  
+                    {{form_widget(edit_form.SucEmail)}}
+                    <div><span id="msjemail"></span></div>
+                </div>
+            </div> 
+                {{form_rest(edit_form)}}
+            <div class="filae3">
+                <button type="submit">Guardar</button>            
+            </div>
+        </form>
+{% endblock %}
+
+{% block javascripts %} 
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+         cadena = $("#sistema_fotocopiadorabundle_sucursaltype_SucEmail").val();
+         resultado = cadena.indexOf("@");
+        if(resultado == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+        resultado2 = cadena.indexOf(".com");
+        if(resultado2 == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+    });   
+});
+    
+</script>  
+{% endblock%}

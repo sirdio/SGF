@@ -1,0 +1,34 @@
+<form {%if tipouser == "Empleado"%}
+            action="{{ path('usuario_modificarempleado',{'usn': datosusuario.username,'codop': 'suc'}) }}"
+       {%elseif tipouser == "Administrador"%}
+            action="{{ path('usuario_mdificaremp',{'usn': datosusuario.username,'codop': 'suc'}) }}"
+       {%endif%}   
+      method="post" class="form_pop">
+        <h2>Modificar datos</h2>        
+        <div class="fil">
+            <select id="sucursales" name="sucursal">
+                        <option value="0">Seleccionar Sucursal</option>
+                    {% for suc in sucursal %}
+                        <option value="{{suc.id}}">{{suc.sucnomb}}</option>
+                    {% endfor %}
+                </select>             
+            <div class="msjerror1"><span id="msjc"></span></div>    
+        </div>
+        
+        <h2> <p><button type="submit">Aceptar</button></p></h2>
+       
+</form>
+   
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        suc = $("#sucursales").val();        
+        if(suc == 0) {
+            $( "#msjc" ).text( "Debe seleccionar una sucursal.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }    
+    });
+
+});
+    
+</script>

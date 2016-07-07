@@ -1,0 +1,48 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Lista de Trabajos {% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Administrador" %}
+                <li><a href="{{ path('pedido_inicio',{'usn':app.user.username})}}">Volver</a></li>
+            {%elseif app.user.tipou == "Empleado" %}
+                <li><a href="{{ path('pedido_inicioemp',{'usn':app.user.username})}}">Volver</a></li>
+            {%endif%}             
+            
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+<div class="pedido">
+    <div class="pedidodetalle">
+        <table>
+            <tr>
+                <th>Pedido Nro.</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Est.Pedido</th>
+                <th>Total</th>
+                <th>Lugar de Retiro</th>
+                <th>Acción</th>
+            </tr>
+            {% for DP in pedidocab %}
+                <tr>
+                    <td>{{DP.id}}</td>
+                    <td>{{ DP.fechap | date("d/m/Y", false) }}</td>
+                    <td>{{DP.usuarioalu.username}}</td>
+                    <td>{{DP.estados}}</td>
+                    <td> $ {{DP.total}}</td>
+                    <td>{{DP.sucursal}}</td>    
+                    {%if app.user.tipou == "Administrador" %}
+                        <td><a class="entregartrabajo" href ="{{ path("pedido_entrgar",{'idped':DP.id}) }}">Entregar Trabajo</a></td>
+                    {%elseif app.user.tipou == "Empleado" %}
+                        <td><a class="entregartrabajo" href ="{{ path("pedido_entrgaremp",{'idped':DP.id}) }}">Entregar Trabajo</a></td>
+                    {%endif%}                                                                                                   
+               </tr>    
+            {% endfor %}
+        </table> 
+    </div>
+</div>          
+</div>
+{% endblock %}

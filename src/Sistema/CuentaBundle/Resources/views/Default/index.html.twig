@@ -1,0 +1,44 @@
+{% extends '::basecuerpoL.html.twig' %}
+{% block title %}Gestion Cuenta{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">           
+            <li><a href="{{path('cuenta_detallesaldoalu',{'usn':app.user.username})}}">Detalle de Saldo</a></li>
+            <li><a href="{{path('cuenta_movimientosalu',{'usn':app.user.username})}}">Movimientos de Cuenta</a></li>
+            <li><a href="{{ path('pagina_alumno')}}">Menú Principal</a></li>
+           
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+<div class="cotenedor_cta">
+
+</div>
+{% endblock %}
+{% block maincolleft %}
+<div class="ifocta">
+    
+</div>
+{% endblock %} 
+{% block javascripts %} 
+    <script>
+        
+        $(document).ready(function(){
+            var user = $('#us').text();
+            var url = '{{ path("cuenta_consaldo", {'tipou': 'tipou'}) }}'; 
+            url = url.replace("tipou", user);
+            $('.ifocta').load(url);
+           
+            var url1 = '{{ path("cuenta_ultimosmov", {'tipou': 'tipou'}) }}'; 
+            url1 = url1.replace("tipou", user);
+            $('.cotenedor_cta').load(url1);                        
+        });                          
+     </script>
+{% endblock%}

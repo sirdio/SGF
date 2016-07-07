@@ -1,0 +1,113 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Lista de Apuntes{% endblock %}
+{% block navigation %} 
+    <nav>
+        <ul class="navigation">
+            {% if app.user.tipou == 'Empleado'%}
+                <li><a href="{{ path('G_buscaremp')}}">Volver</a></li>
+            {% endif %}
+            {% if app.user.tipou == 'Administrador'%}
+                <li><a href="{{ path('G_buscar')}}">Volver</a></li>
+            {% endif %}      
+        </ul>
+    </nav>            
+{% endblock %}
+{% block maincol %}
+
+<form action="#" method="post"  {{ form_enctype(form) }} class="contact_form">
+            <h2>Seleccionar Facultad - Carrera - Materia</h2>
+            {{form_errors(form)}}
+            
+            <div class="fila">
+                <div class="celda1">
+                    {{form_label(form.Facultad, 'Faultad:')}}        
+                </div>
+                <div class="celda2">
+                    {{form_errors(form.Facultad)}}
+                    {{form_widget(form.Facultad)}}
+                 </div>
+            </div>   
+            <div class="fila1">
+                <div class="celda1">                
+                    {{form_label(form.Carrera, 'Carrera:')}}
+                </div>
+                <div class="celda2">
+                    {{form_errors(form.Carrera)}}
+                    {{form_widget(form.Carrera)}}
+                 </div>
+            </div>
+            <div class="fila2">
+                <div class="celda1">
+                    {{form_label(form.Materia, 'Materia:')}}        
+                </div>
+                <div class="celda2">
+                    {{form_errors(form.Materia)}}
+                    {{form_widget(form.Materia)}}
+                 </div>
+            </div>                  
+                {{form_rest(form)}}
+        </form>
+    <hr />
+    <a id="mostrarformulario" href="#">Mostrar Apuntes</a>
+
+    <div id= "CargarAp" >
+    </div>
+{% endblock %}
+
+
+{% block javascripts %} 
+ 
+        <script>
+            var valor = 0;
+            var valor1 = 0;
+            var valor2 = 0;
+            var tipouser = "{{app.user.tipou}}";
+           $(document).ready(function(){
+            $("#Sistema_facultadbundle_mostrarftype_Facultad").click(function(evento){
+            evento.preventDefault();
+            valor = $(this).val();
+            var url = '{{ path("G_mostrarC", {'id': 'id'}) }}'; 
+            url = url.replace("id", valor);
+           
+            $('#Sistema_facultadbundle_mostrarftype_Carrera').load(url);                
+            }); 
+            
+            
+            $("#Sistema_facultadbundle_mostrarftype_Carrera").click(function(evento){
+            evento.preventDefault();
+            valor1 = $(this).val();
+            var url1 = '{{ path("G_mostrarM", {'id': 'id'}) }}'; 
+            url1 = url1.replace("id", valor1);  
+            $('#Sistema_facultadbundle_mostrarftype_Materia').load(url1);
+            
+            });
+            
+            $("#Sistema_facultadbundle_mostrarftype_Materia").click(function(evento){
+            evento.preventDefault();
+            valor2 = $(this).val();
+              
+            });            
+            $('#mostrarformulario').click(function(evento){
+                evento.preventDefault();
+                
+                if ((valor == 0) || (valor1 == 0) || (valor2 == 0)) {
+                    alert('Debe Seleccionar una facultad, una carrera'+
+                    ' y una materia para poder cargar el apunte. Gracias');
+                }else{
+                    
+                    if (tipouser == "Empleado") {
+                        var url2 = '{{ path("apunte_listaemp",{'fid':'fid','cid':'cid','maid':'maid'}) }}'; 
+                    }else{
+                        var url2 = '{{ path("apunte_lista",{'fid':'fid','cid':'cid','maid':'maid'}) }}'; 
+                    }                     
+                    url2 = url2.replace("fid", valor);
+                    url2 = url2.replace("cid", valor1);
+                    url2 = url2.replace("maid", valor2);
+                    $('#CargarAp').load(url2);  
+                    //alert(url2);
+                };
+            }); 
+       
+            });
+          </script>
+{% endblock%}

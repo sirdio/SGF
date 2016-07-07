@@ -1,0 +1,36 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Gestion Pedidos{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {#<li><a href="#">Generar Pedido</a></li>#}
+            {%if tipouser == "Administrador" %}
+                <li><a href="{{ path('pedido_listatrabajos',{'usn': app.user.username})}}">Atender Pedidos</a></li>
+                <li><a href="{{ path('pedido_finalizadomost',{'usn': app.user.username})}}">Pedidos Finalizados</a></li>
+                <li><a href="{{ path('pagina_adm')}}">Volver</a></li>
+            {%elseif tipouser == "Empleado" %}
+                <li><a href="{{ path('pedido_listatrabajosemp',{'usn': app.user.username})}}">Atender Pedidos</a></li>
+                <li><a href="{{ path('pedido_finalizadomostemp',{'usn': app.user.username})}}">Pedidos Finalizados</a></li>
+                <li><a href="{{ path('pagina_emp')}}">Volver</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+
+   {%if estado == 1%}
+    <div class="ayudante">
+        <div class="msj1">
+            <h2>Tienes trabajo pendiente por terminar.</h2>
+            {%if tipouser == "Administrador" %}
+                <a href ="{{path('pedido_realizar',{'usn':app.user.username, 'pcab':pcab})}}">Ver detalle</a>
+            {%elseif tipouser == "Empleado" %}
+                <a href ="{{path('pedido_realizaremp',{'usn':app.user.username, 'pcab':pcab})}}">Ver detalle</a>
+            {%endif%}            
+
+        </div>
+            
+    </div>
+
+    {%endif%}
+{% endblock %}

@@ -1,0 +1,38 @@
+
+<div class="pedidocuerpo">
+    <form class="contact_form">
+        <h2>Seleccionar Sucursal</h2>   
+        <div class="fila2">
+            <div class="celda1">
+                <select name="transporte" class="tiposuc">
+                    <option value="0">Seleccionar Pago</option>
+                    {% for suc in sucursal %}
+                        <option value="{{suc.id}}">{{suc.sucnomb}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="pieform"><a class="confirmarsuc" value="" href ="#">Confirmar Sucorsal</a></div>
+</div>
+
+<script>
+    var valor ="{{datos}}";
+    $(document).ready(function(){
+        $(".circulo1").css("background-color", "#8b8a93");
+        $(".circulo2").css("background-color", "#8b8a93");
+        $(".circulo3").css("background-color", "#131315");
+        $(".circulo4").css("background-color", "#8b8a93");
+        
+        $('.confirmarsuc').click(function(evento){
+            evento.preventDefault();
+            var opc1 = $('.tiposuc').val();  
+            if(opc1 == 0){                
+                alert("Por favor seleccione una Sucursal.");            
+            }else{
+                var redirec3 = '{{ path("ped_armaralu") }}'+'?opc1='+opc1+'/'+valor;                
+                $('.ayudcont').load(redirec3.trim());                 
+            };            
+        });                            
+    });         
+</script>

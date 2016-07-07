@@ -1,0 +1,50 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Agregar Sucursal{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('sucursal')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+<div class="listacontenido">  
+    <p>El alta de la Sucursal se realizo correctamente.</p>
+    <div class="listatabla">
+        <table>        
+            <tr>
+                <th>Código</th>
+                <th>Nombre Sucursal</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Correo Electrónico</th>
+            </tr>
+            <tr>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.SucNomb }}</td>
+                <td>{{ entity.SucDom }}</td>
+                 <td>{{ entity.SucTel }}</td>
+                 <td>{{ entity.SucEmail }}</td>                             
+            </tr>        
+        </table>
+    </div>
+</div>     
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('sucursal_new') }}">Agregar Nueva Sucursal</a>
+        </li>
+    </ul>
+  
+{% endblock %}
+
+
+{% block javascripts %} 
+  
+{% endblock%}

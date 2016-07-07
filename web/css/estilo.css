@@ -1,0 +1,266 @@
+/*una columno grande*/
+.maincol { width: 96%;  height: 1350px; display: inline-block; float: left; border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; } 
+
+.maincol>.contentab>h2{ color: #FFFFFF; background-color:#D83373;}
+.maincol>.msj{border: 1px solid #D83373; background-color:#D83373; }
+.maincol>.msj>h1{color: #FFFFFF; font-size: 40px}
+.maincol>.msj>h2{color: #FFFFFF; font-size: 30px}
+.maincol>.msj>h3{color: #FFFFFF; font-size: 25px}
+.maincol>.msj>h4{color: #FFFFFF; font-size: 20px}
+.maincol>.msj>h5{color: #FFFFFF; font-size: 15px}
+.maincol>.msj>h6{color: #FFFFFF; font-size: 10px}
+
+.contentab>.paginacion{width: 96%;  height: 50px; /*border: 1px solid #D83373*/}
+/*.contentab>.paginacion>ul{width: 60%; height:25px;margin-top: 5px;  /*border: 1px solid #F5CA00}*/
+/*.contentab>.paginacion>ul>li{width: 5%; float: left; /*border: 1px solid #D83373}*/
+
+.paginacion { margin:20px 0; }
+ 
+.paginacion ul { list-style:none; text-align: center;}
+ 
+.paginacion ul li { display:inline-block; margin-right:10px;}
+ 
+.paginacion>ul>li>a { display:block; padding:10px 20px; color: #cfcecf !important; background:#0F0E0F !important; text-decoration: none;}
+ 
+.paginacion ul li a:hover { color: #0F0E0F !important; background:#3e3e3e !important;}
+ 
+.paginacion ul .active a { background-color: #9f9e9f !important; font-weight:bold;}
+.paginacion>ul>.disabled { display: none }
+
+/*estilo para pedidos*/
+
+.pedidocuerpo{ width: 100%; border: 3px solid #2F3031; border-radius: 5px; background-color: #C7C6D2;}
+.pedidocuerpo>.pieform {height: 20px; background-color: #2F3031; text-align: center; border-radius: 5px; padding-top: 5px;}
+.pedidocuerpo>h2{ font-size: 20px; background-color:#2F3031; color: #FFFFFF; }
+.pedidocuerpo>.apuntes { width: 100%; /*height: 300px*/}
+.pedidocuerpo>.apuntes>table 
+{width: 99%; margin: 5px; border: 3px solid #FFFFFF; color: #D83373 /*#0888FF*/; font-size: 16px; font-weight: bold; border-spacing: 0;}
+.pedidocuerpo>.apuntes>table tr, .pedidocuerpo>.apuntes>table th, .pedidocuerpo>.apuntes>table td { border: 1px solid #FFFFFF; padding: .5em .5em; }
+
+.pedidocuerpo>.apuntes>table th { font-size: 15px; color: #FFFFFF; background-color: #2F3031; }
+.pedidocuerpo>.apuntes>table tr td{color: #000;font-size: 12px}
+
+
+/*==================================================================================================================================================================
+                                    vista del pedido                            
+==================================================================================================================================================================*/
+.pedido {width: 100%; /*height: 360px;*/ border: 3px solid #2F3031; border-radius: 5px; background-color: #C7C6D2; margin-bottom: 15px;}
+
+.pedido>p
+{ margin-top: 12px; color: #FFFFFF; background-color:#2F3031; border: 2px solid  #FFFFFF; border-radius: 5px; text-align: center;}
+
+.pedido>.cabecera{ width: 100%; height: 58px; border-bottom: 3px solid #2F3031;  border-radius: 5px;}
+.pedido>.cabecera>.pedidoencabizq { width: 26%; float: left; margin-left: 4px; margin-top:3px;  }
+.pedido>.cabecera>.pedidoencabizqmenos { width: 22%; float: left; margin-left: 1px; margin-top:3px; }
+.pedido>.cabecera>.pedidocent { width: 33%; float: left;  margin-left: 1px; margin-top:3px; } 
+.pedido>.cabecera>.pedidoencabder{ width: 18%; float: left;  margin-left: 1px; margin-top:3px; /*background-color: buttonhighlight*/}
+
+.pedido>.cabecera>.pedidoencabizq>p, .pedido>.cabecera>.pedidoencabizqmenos>p, .pedido>.cabecera>.pedidocent>p, .pedido>.cabecera>.pedidoencabder>p
+{border: 1px solid #2F3031; margin-top: 12px; color: #FFFFFF; background-color:#2F3031; border: 2px solid  #FFFFFF; border-radius: 5px; text-align: center;}
+
+.pedido>.pedidodetalle{width: 100%; border-top: 3px solid #2F3031; border-bottom: 3px solid #2F3031;  border-radius: 5px; margin-top: 5px; margin-bottom: 5px;}
+.pedido>.pedidodetalle>p
+{width: 99.71%; color: #FFFFFF; background-color:#2F3031; border: 2px solid  #FFFFFF; border-radius: 5px; text-align: center;/* margin-top: 90px;totales*/ }
+
+.pedido>.pedidodetalle>table 
+{width: 99%; margin: 5px; border: 3px solid #FFFFFF; color: #D83373 /*#0888FF*/; font-size: 16px; font-weight: bold; border-spacing: 0;}
+.pedido>.pedidodetalle>table tr, .pedido>.pedidodetalle>table th, .pedido>.pedidodetalle>table td { border: 1px solid #FFFFFF; padding: .5em .5em; }
+.pedido>.pedidodetalle>table th { font-size: 15px; color: #FFFFFF; background-color: #2F3031; }
+.pedido>.pedidodetalle>table tr td{color: #000;;font-size: 10px}
+
+.pedido>.pedidodetalle>.totales{ width: 99.5%; height:20px;  float: left; border: 3px solid #FFFFFF; border-radius: 5px; text-align: center;
+         background-color:#2F3031; color: #FFFFFF; font-size: 15px; /*padding-right: 5px; margin-left: 4px;  */margin-top:10px;}
+
+.pedido>.pie{ width: 99.5%; height: 20px; border: 3px solid #FFFFFF;  border-radius: 5px; margin-top: 5px; margin-bottom: 2px; background-color: #2F3031; text-align: center;}
+
+.pedido>.pietot {border: 3px solid #FFFFFF; background-color: #2F3031; border-radius: 5px; width: 99.5%; height: 20px;}
+.pedido>.pietot>p{text-align: center; color: #FFFFFF; font-size: 15px; border-radius: 5px; }
+
+.pedido>.pie>a {text-decoration: none; color:  #F2F60A !important; font-weight: bold; font-size: 15px; border: 1px solid #FFFFFF; }
+.pedido>.pie>a:hover {color:  #FFFFFF !important; font-size: 18px; }
+/*==================================================================================================================================================================
+                                    vista de la lista                            
+==================================================================================================================================================================*/
+
+.listacontenido
+{width: 100%; /*height: 360px;*/ border: 3px solid #2F3031; border-radius: 5px; background-color: #C7C6D2;}
+.listacontenido>.listatabla
+{width: 99.99%; /*height: 360px;*/ border-top: 3px solid #2F3031; border-bottom: 3px solid #2F3031; border-radius: 5px; background-color: #C7C6D2; margin-bottom: 5px;}
+.listacontenido>.listatabla>.totales
+{width: 99.5%; /*height: 360px;*/ border: 3px solid #FFFFFF; border-radius: 5px; background-color: #2F3031;color: #FFFFFF; margin-bottom: 5px; margin-top: 5px;
+text-align: center; font-size: 20px;}
+.listacontenido>.listatabla>.contlinnk
+{width: 99.5%; /*height: 360px;*/ border: 3px solid #FFFFFF; border-radius: 5px; background-color: #2F3031;color: #FFFFFF; margin-bottom: 5px; margin-top: 5px;
+text-align: center; font-size: 20px;}
+
+
+.listacontenido>p
+{width: 99.71%; color: #FFFFFF; background-color:#2F3031; border: 2px solid  #FFFFFF; border-radius: 5px; text-align: center;font-size: 25px;/* margin-top: 90px;totales*/ }
+
+.listacontenido>.listatabla>table 
+{width: 99%; margin: 5px; border: 3px solid #FFFFFF; color: #D83373 /*#0888FF*/; font-size: 16px; font-weight: bold; border-spacing: 0;}
+.listacontenido>.listatabla>table tr, .listacontenido>.listatabla>table th, .listacontenido>.listatabla>table td { border: 1px solid #FFFFFF; padding: .5em .5em; }
+.listacontenido>.listatabla>table th { font-size: 15px; color: #FFFFFF; background-color: #2F3031; }
+.listacontenido>.listatabla>table tr td{color: #000;;font-size: 10px}
+
+
+/*==================================================================================================================================================================
+                                   enlaces                            
+==================================================================================================================================================================*/
+
+
+.listacontenido>.listatabla>.contlinnk a { text-decoration: none; color:  #F2F60A !important; font-weight: bold; font-size: 15px;}
+
+.listacontenido>.listatabla>table tr td a, .pedidocuerpo>.apuntes>table tr td a
+{text-decoration: none; color:  #D83373 !important; font-weight: bold;}
+
+.pedidocuerpo>.pieform a
+{text-decoration: none; color:  #f3c1d5 !important; font-weight: bold;}
+
+
+.listacontenido>.listatabla>.contlinnk a:hover, .listacontenido>.listatabla>table tr td a:hover, .pedidocuerpo>.apuntes>table tr td a:hover, .pedidocuerpo>.pieform a:hover
+{ color:  #FFFFFF !important;}
+.listacontenido>.listatabla>.contlinnk a:hover, .pedidocuerpo>.pieform a:hover
+{font-size: 18px;}
+/*==================================================================================================================================================================
+                                   ayudante                            
+==================================================================================================================================================================*/
+.ayudante{/*height: 1300px;*/ width: 100%; /*border: 1px solid #055fb2; */}
+.ayudante>.msj1 {width: 99.5%; border: 3px solid  #FFFFFF; background-color: #2F3031; border-radius: 5px;  text-align:center;}
+.ayudante>.msj1 h2 {color: #FFFFFF !important; text-align:center; font-size:25px; font-weight: bold; border-radius: 5px; }
+.ayudante>.msj1>a{color: #979798 !important; text-align:center; font-size:20px; font-weight: bold;}
+.ayudante>.msj1>a:hover { color:  #FFFFFF !important;}
+
+.ayudante>.ayudcab{height: 110px; width: 100%;/* border: 1px solid #055fb2;*/ }
+.ayudante>.ayudbot{ width: 99.98%; /*border: 1px solid #D83373;*/ text-align:center; /*border-radius: 5px;*/ background-color:#131315; }
+.ayudante>.ayudbot a{ text-align:center; font-size:20px; color: #F2F60A !important; font-weight: bold; }
+.ayudante>.ayudbot a:hover { color:  #FFFFFF !important;font-size:25px; }
+.ayudante>.ayudcont{/*height: 50px;*/ width: 100%; /*border: 1px solid #D83373;*/ margin-top: 5px; }
+
+.ayudante>.ayudcab>.paso1,.ayudante>.ayudcab>.paso2, .ayudante>.ayudcab>.paso3, .ayudante>.ayudcab>.paso4
+{height: 100px; width: 235px; border: 3px solid #131315; float: left; background-color: #8b8a93 }
+.ayudante>.ayudcab>.paso1
+{ -moz-border-radius-bottomright: 50px; border-bottom-left-radius: 50px;}
+ .ayudante>.ayudcab>.paso4
+{ -moz-border-radius-bottomright: 50px; border-bottom-right-radius: 50px;}
+.ayudante>.ayudcab>.paso1>p,.ayudante>.ayudcab>.paso2>p, .ayudante>.ayudcab>.paso3>p, .ayudante>.ayudcab>.paso4>p
+{/*border: 1px solid #D83373;*/ text-align: center;font-size:15px; margin-top: 12px; color: #FFFFFF; font-weight: bold; }
+
+.ayudante>.ayudcab>.paso1>.circulo1,.ayudante>.ayudcab>.paso2>.circulo2, .ayudante>.ayudcab>.paso3>.circulo3, .ayudante>.ayudcab>.paso4>.circulo4
+{height: 70px; width: 70px; -moz-border-radius: 35px; border-radius: 35px; border: 5px solid #131315; float: left; background-color:#8b8a93; text-align: center;
+margin-top:5px; margin-left:5px;}
+
+.ayudante>.ayudcab>.paso1>.circulo1>p,.ayudante>.ayudcab>.paso2>.circulo2>p, .ayudante>.ayudcab>.paso3>.circulo3>p, .ayudante>.ayudcab>.paso4>.circulo4>p
+{ width: 48px; /*border: 1px solid #055fb2;*/ text-align: center; font-size:19px; color: #FFFFFF; font-weight: bold;  margin-top: 6px; margin-left: 10px;}
+
+.ifocab {width: 99.9%; height:80px; }
+.ifocab>.infizq, .ifocab>.infder {width: 49.999%; float: left;}
+
+.ifocab>.infizq h2, .ifocab>.infder h2
+{border: 1px solid #000; color: #FFFFFF !important; text-align: center; font-weight: bold; font-size:15px; background-color:#2F3031; margin-left: 1px; margin-top: 1px }
+
+.ifocab>.infizq p, .ifocab>.infder p
+{/*border: 1px solid #000;*/ font-weight: bold; font-size:20px; margin-left: 2px; margin-top: 1px  }
+
+#pop { z-index:3; position:absolute; border: 4px solid #ccc; border-radius: 5px; text-align:center; background: #FFFFFF; }
+#cerrar 
+{ float:right; margin-right:5px; cursor:pointer; font:Verdana, Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#FFFFFF; background-color:#666666;
+   width:12px; position:relative; margin-top:-1px; text-align:center; }
+
+.popup-overlay { left: 0; position: absolute; top: 0; width: 100%; z-index: 2; display:none; background-color: #232323; cursor: pointer; opacity: 0.7; }
+#pop>#contpop{width: 99.5%; border-radius: 5px; margin-top:15px; }
+#pop>#contpop>.form_pop{ width: 99.5%; border-radius: 5px; }
+#pop>#contpop>.form_pop>h2, #pop>#contpop>h2{ width: 99.5%; border-radius: 5px; font-size: 20px; color: #000; font-weight:bold;}
+
+#pop>#contpop>.form_pop>.fil{ width: 99.5%; border-radius: 5px; }
+#pop>#contpop>.form_pop>.fil>.msjerror1>#msjc, #pop>#contpop>.form_pop>.fil>.msjerror1>#msjc1 { color: #F61212; }
+
+#pop>#contpop>.pedido>.pedidodetalle>.form_pop>.fil1{ width: 99.5%; border-radius: 5px; margin: 5px 0px 0px 0px}
+#pop>#contpop>.pedido>.pedidodetalle>.form_pop>.fil1>.msjerror1>#msjc, #pop>#contpop>.pedido>.pedidodetalle>.form_pop>.fil1>.msjerror1>#msjc1,
+#pop>#contpop>.pedido>.pedidodetalle>.form_pop>.fil1>.msjerror1>#msjc2, #pop>#contpop>.pedido>.pedidodetalle>.form_pop>.fil1>.msjerror1>#msjc3{ color: #F61212; }
+
+/*==================================================================================================================================================================
+                                   modificar datos perfil                            
+==================================================================================================================================================================*/
+
+.informar{width: 99.9%; border: 5px solid #2F3031; background-color: #C7C6D2; border-radius: 5px;}
+.informar>.infcab, .informar>.infopie 
+{width: 99.5%; border-bottom: 3px solid #FFFFFF; border-top: 3px solid #FFFFFF; border-radius: 5px; font-size: 16px;
+ margin-top: 5px; padding-left: 5px; background-color: #2F3031; color: #FFFFFF; text-align: center; }
+.informar>.infocuerpo
+{width: 99.5%; height:300px; border-bottom: 3px solid #2F3031; border-top: 3px solid #2F3031; border-radius: 5px; font-size: 15px;
+ margin-top: 5px; padding-left: 5px; }
+
+.informar>.infocuerpo>.infof1, .informar>.infocuerpo>.infof2
+{width: 99.5%; height:100px; margin-top: 5px; margin-left: 5px; }
+
+.informar>.infopie>a {color: #FFFFFF !important; font-size: 20px;}
+.informar>.infopie>a:hover {color:#C7C6D2 !important;}
+
+
+/*==================================================================================================================================================================
+                                   informe de saldo                            
+==================================================================================================================================================================*/
+.continfo{ max-width: 99.5%; max-height: 600px; border: 5px solid #2F3031; border-radius: 15px; background-color: #C7C6D2}
+
+.continfo>.continfosal, .continfo>.continfodesc{ max-width: 99.9%; max-height: 300px; }
+
+.continfo>.continfosal {border-bottom: 3px solid #2F3031; }
+
+.continfo>.continfosal>p{border: 1px solid #2F3031; padding: 5px; }
+
+.continfo>.continfodesc>.col1 
+{border: 1px solid #2F3031; width:45%; height: 75px; display: inline-block; vertical-align: middle; margin: 10px 0px 10px 20px;background-color: #636369; color:#FFFFFF; border-radius: 5px; text-align: center; font-size: 1.1em; }
+
+.continfo>.continfosal>.col2 
+{border: 1px solid #2F3031; width:26%; height: 95px; display: inline-block; vertical-align: middle; margin: 10px 0px 5px 5%; background-color: #27272a; border-radius: 5px; }
+
+.continfo>.continfodesc>.col1>p, .continfo>.continfosal>.col2>p
+{margin: 0px; }
+.continfo>.continfodesc>.col1>p{margin: 10px 5px; font-size: .95em;}
+.continfo>.continfosal>.col2>p{margin: 10px 5px; color: #FFFFFF; font-size: 1.5em; text-align: center;font-weight: bolder;}
+
+.continfo>.continfofila { width: 90%; height: 40px; border-bottom: 2px solid #2F3031; border-radius: 5px; margin: 10px 0px 10px 40px; background-color: #828283;}
+.continfo>.continfofila:hover { background-color: #58595a;}
+.continfo>.continfofila>.cicol1 { width: 20%; height: 40px; display: inline-block; margin: 5px 0px 5px 3.5%;  }
+
+.continfo>.continfofila>.cicol1>p 
+{margin-top: 5px; height: 30px; line-height: 21px; font-weight: bolder; color:#FFFFFF; text-align: center; font-size: 1.5em;}
+    
+/*==================================================================================================================================================================
+                                   informe de ayuda                            
+==================================================================================================================================================================*/
+.continfoayuda{ max-width: 99.5%; max-height: 600px; border: 3px solid #2F3031; border-radius: 15px; background-color: #C7C6D2}
+
+.continfoayuda>p{ border-radius: 10px 10px 0px 0px; background-color: #2F3031; color: #FFFFFF; font-size: 1em; text-align: center}
+
+.continfoayuda>.continfodescy{ max-width: 99.9%; max-height: 350px; }
+
+.continfoayuda>.continfodescy>.col1 
+{border-top: 2px solid #2F3031; width:95%; height: 30px; display: inline-block; vertical-align: middle; margin: 5px 5px 5px 20px; background-color: #b3b2bd
+; color:#FFFFFF; border-radius: 5px; text-align: justify;}
+
+.continfoayuda>.continfodescy>.col1:hover{border-bottom: 3px solid #FFFFFF; background-color: #131315 }
+
+.continfoayuda>.continfodescy>.col1>p
+{margin-left: 10px; height:25px; line-height: 25px;}
+.continfoayuda>.continfodescy>.col1>p>span{font-size: .8em}
+
+.contact_form>.Rowp{width:99% }
+/*.contact_form>.Rowp>.Cell1p{ width:60%; float: left; border: 1px solid #D83373 }
+.contact_form>.Rowp>.Cell2p{ width:35%; float: left; border: 1px solid #D83373 }*/
+.contact_form>.Rowp>.Cell1p{ width:40%; float: left; margin: 5px 0px 5px 5% }
+.contact_form>.Rowp>.Cell2p{ width:40%; float: left; margin: 5px 0px 5px 5% }
+.contact_form>p>button{ margin: 15px 0px 5px 45%; }
+
+.contact_form>.Rowp>.Cell1p>.msjerror1>#msjc, .contact_form>.Rowp>.Cell2p>.msjerror1>#msjc2,
+.contact_form>.Rowp>.Cell1p>.msjerror1>#msjc1, .contact_form>.Rowp>.Cell2p>.msjerror1>#msjc3
+{color: #F61212;}
+
+.contact_form>.filafe{width:99%; height: 80px; border-radius: 5px; margin: 5px 0px 5px .5%;  }
+.contact_form>.filafebot{width:99%; height: 50px; border-radius: 5px; margin: 5px 0px 5px .5%; }
+
+.contact_form>.filafe>.Celda1, .contact_form>.filafebot>.Celda1{ width:40%; float: left; margin: 5px 0px 5px 60px  }
+.contact_form>.filafe>.Celda2, .contact_form>.filafebot>.Celda2{ width:40%; float: left; margin: 5px 0px 5px 60px }
+
+

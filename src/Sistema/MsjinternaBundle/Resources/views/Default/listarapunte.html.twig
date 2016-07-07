@@ -1,0 +1,45 @@
+{%if cantidad == 0%} 
+<div class="mensaje">
+    <p>{{mensaje}}</p>
+</div>    
+{%else%}
+    <article>
+        <figure><img src="{{ asset('/imagen/libdrosapilados.jpg') }}" alt=""></figure>
+        <span>Apuntes</span>      
+        <div class="contcab">
+            <p>Facultad: {{facultad.facnombre}}</p>
+            <p>Carrera: {{carrera.carrnombre}}</p>
+            <p>Materia: {{materia.matnombre}}</p>            
+        </div>
+        <div class="conttabla">
+            <table>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre Apunte</th>                        
+                        <th>Ubicacion</th>
+                    </tr>
+                    {% for Dlista in lista %}
+                    <tr>
+                        <td>{{Dlista.id}}</td>
+                        <td>{{Dlista.nombre}}</td>                        
+                        <td><a class="download" value="{{Dlista.id}}" href ="#">Abrir</a></td>                                                 
+                    </tr>
+                   {% endfor %}
+            </table> 
+        </div>
+    </article>
+{%endif%}
+{% block javascripts %} 
+<script>
+var tipouser = "{{app.user.tipou}}";    
+$(document).ready(function(){
+    $('.download').on('click', function(e){
+        e.preventDefault();        
+        link  = $(this).attr('value');      
+        var url = "{{path('msjinterna_buscararcdesprof',{'fId':'fId'})}}";                          
+        url = url.replace("fId",link);         
+        location.href = url;
+    });
+});    
+</script>
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensaje{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">            
+            {%if tipouser == "Profesor" %}
+                <li><a href="{{ path('pagina_prof') }}">Volver</a></li>
+            {%elseif tipouser == "Alumno" %}
+                <li><a href="{{ path('pagina_alumno') }}">Volver</a></li>
+            {%elseif tipouser == "Empleado"%}
+                <li><a href="{{ path('pagina_emp') }}">Volver</a></li>
+            {%elseif tipouser == "Administrador"%}
+                <li><a href="{{ path('pagina_adm') }}">Volver</a></li>
+            {%endif%}                       
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+    <div class="msj1">
+        <h2>{{mensaje}}</h2>
+    </div>
+</div>
+{% endblock %}
+

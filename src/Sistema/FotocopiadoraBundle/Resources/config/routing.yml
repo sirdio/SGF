@@ -1,0 +1,168 @@
+##################################################################  
+################################SUCURSAL##########################
+##################################################################
+    
+    
+sucursal:
+    pattern:  /admin/inicios
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:index" }
+
+sucursal_show:
+    pattern:  /admin/shows/{id}
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:show" }
+
+sucursal_new:
+    pattern:  /admin/nuevasucursal
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:new" }
+
+sucursal_create:
+    pattern:  /admin/crearsucursal
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:create" }
+    requirements: { _method: post }
+
+sucursal_edit:
+    pattern:  /admin/edits/{id}
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:edit" }
+
+sucursal_update:
+    pattern: /admin/updates/{id}
+    defaults: { _controller: "FotocopiadoraBundle:Sucursal:update" }
+    requirements: { _method: post|put }
+
+sucursal_lista:
+  pattern: /admin/listars
+  defaults: { _controller: FotocopiadoraBundle:Sucursal:Listar}
+  
+##################################################################  
+################################APUNTE############################
+##################################################################
+
+apunte_new:
+    pattern:  /admin/newa/{fid}/{cid}/{maid}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:new" }
+
+apunte_create:
+    pattern:  /admin/createa/{tus}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:create" }
+
+apunte_listar:
+    pattern: /admin/listar
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:listar"}
+
+apunte_lista:
+    pattern:  /admin/listara/{fid}/{cid}/{maid}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:listara" }
+
+##################################################################  
+################################APUNTE empleado###################
+##################################################################
+
+apunte_newemp:
+    pattern:  /empleado/newa/{fid}/{cid}/{maid}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:new" }
+    
+apunte_createemp:
+    pattern:  /empleado/createa/{tus}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:create" } 
+    
+apunte_listaremp:
+    pattern: /empleado/listar
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:listar"} 
+    
+apunte_listaemp:
+    pattern:  /empleado/listara/{fid}/{cid}/{maid}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:listara" }    
+#apunte_seleccionar:
+#    pattern:  /seleccionar/{fid}/{cid}/{maid}
+#    defaults: { _controller: "FotocopiadoraBundle:Apunte:seleccionar" }
+
+#apunte_mostrarapu:
+#  pattern: /agregarapu/{id}
+#  defaults: {_controller: "FotocopiadoraBundle:Apunte:apunterselec" }
+
+##################################################################  
+##########################Activar Cuenta##########################
+##################################################################
+Gestion_inicio: 
+    pattern:  /admin/estadocuenta
+    defaults: { _controller: FotocopiadoraBundle:Default:Inicio }
+###################################################################
+####################para usuarios no activos#######################
+gestion_UNA: 
+  pattern: /admin/usuariosnoactivos
+  defaults: {_controller: FotocopiadoraBundle:Default:Unoactivos}
+gestion_ACU: 
+  pattern: /admin/modificarcuna/{id}
+  defaults: {_controller: FotocopiadoraBundle:Default:ActivarCU} 
+###################################################################
+######################para usuarios activos########################
+Gestion_UA:    
+  pattern: /admin/usuariosactivos
+  defaults: { _controller: FotocopiadoraBundle:Default:Uactivos}
+  
+Gestion_DCU: 
+ pattern: /admin/modificarcua/{id}
+ defaults: { _controller: FotocopiadoraBundle:Default:DesactivarCU}
+ ##################################################################
+ ####################activar todo en general#######################
+ ##################################################################
+gestion_ATC: 
+  pattern: /admin/activarcuentas
+  defaults: {_controller: FotocopiadoraBundle:Default:ActivarTC}
+ ###################################################################
+ ####################mensajes#######################################
+ ###################################################################
+gestion_MsjC:
+  pattern: /admin/mensaje
+  defaults: {_controller: FotocopiadoraBundle:Default:Mensajes}   
+  
+ ###################################################################
+ ####################gestion empleado###############################
+ ###################################################################
+Gestion_inicioemp:
+    pattern:  /admin/inciogestionempleado
+    defaults: { _controller: FotocopiadoraBundle:Default:GestEmpleado }
+    
+gestion_ucreate:
+    pattern:  /admin/agregarempleado
+    defaults: { _controller: FotocopiadoraBundle:Default:Crearusuario }
+    requirements: { _method: post }
+ 
+gestion_empnuevo:
+    pattern:  /admin/Selecionarsucursal
+    defaults: { _controller: "FotocopiadoraBundle:Default:MostrarSuc" }
+    
+gestion_cargarform:
+    pattern:  /admin/nuevoempleado/{suc}
+    defaults: { _controller: "FotocopiadoraBundle:Default:new" }
+
+gestion_msje:
+    pattern: /admin/mostrardatos
+    defaults: { _controller: FotocopiadoraBundle:Default:Msjalta }
+
+gestion_listarempleado:
+  pattern: /admin/listandoempleados
+  defaults: {_controller: FotocopiadoraBundle:Default:Listare }
+  
+gestion_editemp:
+  pattern: /admin/modificarempleado/{id}
+  defaults: {_controller: FotocopiadoraBundle:Default:Editare }
+
+gestion_guardar:
+  pattern: /admin/guardardatose/{id}
+  defaults: {_controller: FotocopiadoraBundle:Default:Guardare }
+  
+gestion_consultar:
+  pattern: /admin/consultausuario/{name}
+  defaults: {_controller: FotocopiadoraBundle:Default:Consultaun }  
+  
+gestion_consultar1:
+  pattern: /admin/consultacorreo/{email}
+  defaults: {_controller: FotocopiadoraBundle:Default:Consultaemail }   
+  
+##################################################################
+########################Rutas de acceso Alumnos###################
+##################################################################   
+apunte_listaalu:
+    pattern:  /alumno/listara/{fid}/{cid}/{maid}
+    defaults: { _controller: "FotocopiadoraBundle:Apunte:listara" }    

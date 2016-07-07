@@ -1,0 +1,113 @@
+security:
+    firewalls:
+        frontend:
+            pattern: /.*
+            provider: usuarios
+            anonymous: ~
+            form_login:
+                  login_path: /usuario/login
+                  check_path: usuario_login_check         
+            logout:
+              path: usuario_logout
+              target: usuario_login
+              invalidate_session: false
+#            remember_me:
+#                  key: cupon1234
+#                  lifetime: 3600
+    access_control:
+################################################################################
+####################################Alumno######################################
+################################################################################
+        - { path: ^/usuario/alumno/*, roles: ROLE_ALUMNO}
+        - { path: ^/Cuenta/alumno/*, roles: ROLE_ALUMNO}
+        - { path: ^/pedido/alumno/*, roles: ROLE_ALUMNO}
+        - { path: ^/datosfacultad/alumno/*, roles: ROLE_ALUMNO}
+        - { path: ^/fotocopiadora/alumno/*, roles: ROLE_ALUMNO}
+################################################################################
+###################################Profesor#####################################
+################################################################################        
+        - { path: ^/usuario/profesor/*, roles: ROLE_PROF}
+        - { path: ^/Cuenta/profesor/*, roles: ROLE_PROF}
+        - { path: ^/pedido/profesor/*, roles: ROLE_PROF}
+        - { path: ^/datosfacultad/profesor/*, roles: ROLE_PROF}
+        - { path: ^/fotocopiadora/profesor/*, roles: ROLE_PROF}
+        - { path: ^/mensajeriaintarna/profesor/*, roles: ROLE_PROF}
+#        - { path: ^/datosuniversidad/*, roles: ROLE_PROF}
+################################################################################
+###################################Empleado#####################################
+################################################################################
+        - { path: ^/usuario/fotemp/*, roles: ROLE_EMP}
+        - { path: ^/Cuenta/empleado/*, roles: ROLE_EMP}
+        - { path: ^/pedido/empleado/*, roles: ROLE_EMP}
+        - { path: ^/datofacultad/empleado/*, roles: ROLE_EMP}
+        - { path: ^/fotocopiadora/empleado/*, roles: ROLE_EMP}
+        - { path: ^/mensajeriaintarna/empleado/*, roles: ROLE_EMP}
+#        - { path: ^/datosuniversidad/buscartodo/*, roles: ROLE_EMP}
+#        /fotocopiadora /datosfacultad /usuario /Cuenta /pedido
+################################################################################
+################################Administrador###################################
+################################################################################        
+        - { path: ^/usuario/fotadmin/*, roles: ROLE_ADMIN}
+        - { path: ^/usuario/admin/*, roles: ROLE_ADMIN}
+        - { path: ^/datosfacultad/admin/*, roles: ROLE_ADMIN}
+        - { path: ^/fotocopiadora/admin/*, roles: ROLE_ADMIN}
+        - { path: ^/Cuenta/admin/*, roles: ROLE_ADMIN}
+        - { path: ^/pedido/admin/*, roles: ROLE_ADMIN}
+        - { path: ^/mensajeriaintarna/admin/*, roles: ROLE_ADMIN}
+    providers:
+        usuarios:
+          entity: { class: UsuariosBundle:Usuario }
+ 
+    encoders:
+        Sistema\UsuariosBundle\Entity\Usuario: { algorithm: sha512, iterations: 10}
+        
+   
+services:
+    login_listener:
+        class: Sistema\UsuariosBundle\Listener\LoginListener 
+        arguments: ['@security.context', '@router']
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login }
+            - { name: kernel.event_listener, event: kernel.response }
+#jms_security_extra:
+#    secure_all_services: false
+#    expressions: true
+#
+#security:
+#    encoders:
+#        Symfony\Component\Security\Core\User\User: plaintext
+#
+#    role_hierarchy:
+#        ROLE_ADMIN:       ROLE_USER
+#        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+#
+#    providers:
+#        in_memory:
+#            memory:
+#                users:
+#                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+#                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+#
+#    firewalls:
+#        dev:
+#            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        login:
+#            pattern:  ^/demo/secured/login$
+#            security: false
+#
+#        secured_area:
+#            pattern:    ^/demo/secured/
+#            form_login:
+#                check_path: _security_check
+#                login_path: _demo_login
+#            logout:
+#                path:   _demo_logout
+#                target: _demo
+#            #anonymous: ~
+#            #http_basic:
+#            #    realm: "Secured Demo Area"
+#
+#    access_control:
+#        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

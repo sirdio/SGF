@@ -1,0 +1,59 @@
+#msjinterna_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: MsjinternaBundle:Default:index }
+
+##################################################################  
+########################direcciones profesor######################
+##################################################################
+
+msjinterna_mostrarformulario:
+    pattern:  /profesor/mostrarformulario/{usn}
+    defaults: { _controller: MsjinternaBundle:Mensaje:MostrarFormulario }
+    
+msjinterna_enviarapunte:
+    pattern:  /profesor/enviarapunte
+    defaults: { _controller: MsjinternaBundle:Mensaje:EnviarApunte }
+    
+msjinterna_verapuntes:
+    pattern:  /profesor/verapuntes/{usn}
+    defaults: { _controller: MsjinternaBundle:Mensaje:VerApuntes }    
+    
+msjinterna_listarapunte:     
+    pattern:  /profesor/listarapunte/{lid}
+    defaults: { _controller: MsjinternaBundle:Mensaje:ListarApunte }    
+    
+msjinterna_buscararcdesprof:     
+    pattern:  /profesor/descargar/{fId}
+    defaults: { _controller: MsjinternaBundle:Mensaje:DescargarApunte }  
+    
+##################################################################  
+###################direcciones administrador######################
+##################################################################
+
+msjinterna_mensajesinternosadmin:
+    pattern:  /admin/mensajesinterno/{usn}
+    defaults: { _controller: MsjinternaBundle:Mensaje:MensajesInt }    
+    
+msjinterna_abrirmsjadmin:
+    pattern:  /admin/vermensaje/{id}
+    defaults: { _controller: MsjinternaBundle:Mensaje:VerMsj } 
+    
+msjinterna_descargararchivoadmin:     
+    pattern:  /admin/descargar/{id}
+    defaults: { _controller: MsjinternaBundle:Mensaje:DescargarArchivo }    
+    
+##################################################################  
+###################direcciones empleado###########################
+##################################################################
+
+msjinterna_mensajesinternosemp:
+    pattern:  /empleado/mensajesinterno/{usn}
+    defaults: { _controller: MsjinternaBundle:Mensaje:MensajesInt }     
+    
+msjinterna_abrirmsjemp:
+    pattern:  /empleado/vermensaje/{id}
+    defaults: { _controller: MsjinternaBundle:Mensaje:VerMsj }         
+    
+msjinterna_descargararchivoemp:     
+    pattern:  /empleado/descargar/{id}
+    defaults: { _controller: MsjinternaBundle:Mensaje:DescargarArchivo }    

@@ -1,0 +1,72 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Lista de Trabajos {% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Administrador" %}
+                <li><a href="{{ path('pedido_inicio',{'usn':app.user.username})}}">Volver</a></li>
+            {%elseif app.user.tipou == "Empleado" %}
+                <li><a href="{{ path('pedido_inicioemp',{'usn':app.user.username})}}">Volver</a></li>
+            {%endif%}                           
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+    <article>
+        <figure><img src="{{ asset('/imagen/pedido1.jpg') }}" alt=""></figure>
+        <span>Pedido</span>
+        <h2>Atendiendo pedido</h2>
+        <div class="contcab">
+            <p>Pedido Nro.: {{pedidocab.id}}</p>
+            <p>Fecha: {{pedidocab.fechap}}</p>
+            <p>Estado Pedido: {{pedidocab.estados}}</p>
+            <p>Total: {{pedidocab.total}}</p>
+        </div>
+        <div class="conttabla">
+            <table>
+                    <tr>
+                        <th>orden</th>
+                        <th>Nombre Apunte</th>
+                        <th>Cantidad de Paginas</th>
+                        <th>Precio</th>
+                        <th>Ubicacion</th>
+                    </tr>
+                    {% for pdet in registros %}
+                    <tr>
+                        <td>{{pdet.id}}</td>
+                        <td>{{pdet.nombre}}</td>
+                        <td>{{pdet.cant}}</td>
+                        <td>{{pdet.precio}}</td>
+                        <td><a class="download" value="{{pdet.codapu}}" href ="#">Abrir</a></td>                                                 
+                    </tr>
+                   {% endfor %}
+            </table> 
+        </div>
+        <div class="contpie">
+            {%if app.user.tipou == "Administrador" %}
+                <a href ="{{path('pedido_cerrar',{'pedid': pedidocab.id, 'usn': app.user.username})}}">Cerrar pedido</a>
+            {%elseif app.user.tipou == "Empleado" %}
+                <a href ="{{path('pedido_cerraremp',{'pedid': pedidocab.id, 'usn': app.user.username})}}">Cerrar pedido</a>
+            {%endif%}            
+            
+        </div>
+    </article>
+{% endblock %}
+{% block javascripts %} 
+<script>
+var tipouser = "{{app.user.tipou}}";    
+$(document).ready(function(){
+    $('.download').on('click', function(e){
+        e.preventDefault();        
+        link  = $(this).attr('value');      
+        if (tipouser == "Empleado") {
+            var url = "{{path('pedido_buscararcdesemp',{'fId':'fId'})}}";  
+        }else{
+            var url = "{{path('pedido_buscararcdes',{'fId':'fId'})}}";  
+        }                
+        url = url.replace("fId",link);         
+        location.href = url;
+        });
+   });    
+</script>
+{% endblock%}

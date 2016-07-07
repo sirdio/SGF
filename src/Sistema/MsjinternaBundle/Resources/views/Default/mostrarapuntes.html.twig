@@ -1,0 +1,59 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Centro de Copiado pagina de inicio Profesor{% endblock %}
+{% block navigation %}      
+     <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_profe')}}">Volver</a></li>                        
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+{% block maincol %}
+    <div class="pedido">
+        <div class="pedidodetalle">
+            <form action="{#{path('msjinterna_enviarapunte')}#}" method="post" class="contact_form">          
+                <div class="filafe">
+                    <div class="Celda1">
+                        <select id="carreras" name="codcarrera">
+                            <option value="0">Seleccionar Materia</option>
+                            {% for listas in lista %}
+                                <option value="{{listas.id}}">{{listas.materia}}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="msjerror1"><span id="msjc3"></span></div>    
+                    </div>                     
+                </div>                    
+            </form> 
+        </div>
+        <div class="pie">
+            <a class="mostrarapunte" href ="#">Mostrar Apuntes</a>
+        </div>
+    </div>
+<div class="listarapu">
+
+</div>
+{% endblock %}
+{% block javascripts %} 
+<script>  
+$(document).ready(function(){
+    $('.mostrarapunte').on('click', function(e){
+        e.preventDefault();        
+        var carrera  = $('#carreras').val();
+        if (carrera == 0) {
+            $( "#msjc3" ).text( "Debe seleccionar una materia.!!" ).show().fadeOut( 7000);
+            event.preventDefault(); 
+        }
+        var direcapu = "{{path('msjinterna_listarapunte',{'lid':'lid'})}}";        
+        direcapu = direcapu.replace("lid",carrera); 
+        $('.listarapu').load(direcapu.trim()); 
+        //location.href = url;
+        //alert(direcapu);
+    });
+});    
+</script>
+{% endblock%}

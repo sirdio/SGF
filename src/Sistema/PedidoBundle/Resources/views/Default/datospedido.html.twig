@@ -1,0 +1,79 @@
+{% set counter = 1%} 
+<table>
+        <tr>
+            <th>Orden</th>
+            <th>Descripción</th>
+            <th>Subtotal</th> 
+            <th>Acción</th>
+        </tr>
+{% if estapu == 1%}   
+        {% for lineas1 in lineas %}
+
+                <tr>
+                    <td>{{counter}}</td>
+                    <td>{{lineas1[counter].nombre}}</td>
+                    <td>${{lineas1[counter].precio}}</td>    
+                    <td><a class="selecc1" value="{{ lineas1[counter].id}}" href ="#">Eliminar</a></td>
+                </tr>
+            {% set counter = counter + 1 %}
+        {% endfor %}
+{% endif %}                      
+ </table>
+
+<hr>
+<div class="totales">Total:${{subt}}</div>
+{% if estapu == 1%}
+    <div class="contlinnk"><a class="confirmarlista" value="" href ="#">Confirmar Lista</a></div>
+{% endif %}
+
+<script>
+
+    $(document).ready(function(){
+        $('.confirmarlista').click(function(evento){
+            evento.preventDefault();
+            var tot = $('.totales').text();
+            tot = tot.substring(7);
+            var mont = (tot/2);
+            if (tot <= saldo || mont <= saldo){
+                var usn = $('#us').text();
+                var redirec1 = '{{ path("ped_verficaralu",{'precio':'precio', 'usn' : 'usn'}) }}'+'?lista='+link;
+                redirec1 = redirec1.replace("precio", tot);
+                redirec1 = redirec1.replace("usn", usn);
+                //alert(redirec1);
+                $('.ayudcont').load(redirec1.trim());                                  
+            }else{
+                alert("El total del pedido supera el saldo de sucuenta. Debe eliminar algún elemento de la lista.");
+            };
+        });
+        
+        $('.selecc1').on('click', function(eve){
+            eve.preventDefault();
+            if (link != "") {
+            var matapu = link.split("-"); 
+            link = "";
+            var estado = 0;
+            valoreliminar  = $(this).attr('value');
+            $.each( matapu, function( key, value ) {
+                if (value == valoreliminar && estado == 0) {
+                    estado = 1;                  
+                }else{
+                    if (link == "") {
+                        link  = value;                    
+                    }else{
+                        link  = link + "-" + value;                    
+                    };                    
+                };   
+            });
+            }
+            if (link == "") {
+                link = "0";                    
+            }
+            var urlap1 = '{{ path("ped_mostrarapualu",{'id': 'v1'}) }}';            
+            urlap1 = urlap1.replace("v1",link);            
+            if (link == "0") {
+                link = "";
+            }            
+            $('.listatabla').load(urlap1.trim());                                        
+        });                            
+    });         
+</script>

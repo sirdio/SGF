@@ -1,0 +1,27 @@
+{% if materias is empty %}
+    <p>La carrera seleccionada no posee materias asignadas.</p>
+    {%else%}
+        <select id="Materia">
+            <option value="0">Seleccionar Materia</option>
+            {% for materia in materias %}
+                <option value="{{materia.MatCodigo}}">{{materia.MatNombre}}</option>
+            {% endfor %}
+        </select> 
+{%endif%}
+ 
+
+{% block javascripts %} 
+<script>
+    $(document).ready(function(){
+        $('#Materia').click(function(evento){
+            evento.preventDefault();
+            valormat = $(this).val();
+            var urlmd = '{{ path("usuario_mostdatosalu",{'cid': 'cid', 'maid': 'maid', 'pid':'pid'}) }}'; 
+            urlmd = urlmd.replace("cid", valorcarr);
+            urlmd = urlmd.replace("maid", valormat);             
+            urlmd = urlmd.replace("pid", codlista);                        
+            $('.infopie').load(urlmd);
+        });
+    }); 
+</script>
+{%endblock%}

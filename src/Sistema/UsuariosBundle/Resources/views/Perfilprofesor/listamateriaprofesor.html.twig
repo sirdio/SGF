@@ -1,0 +1,40 @@
+<div class="pedido">
+    <p>Lista de Materias</p>
+    <div class="pedidodetalle">
+        {%if cant == 0%}
+            <p>{{mensaje}}</p>
+        {%else%}
+            <table>
+                <tr>
+                    <th>Facultad</th>
+                    <th>Carrera</th>
+                    <th>Materia</th>
+                    <th>Acción</th>
+                </tr>
+
+                {% for infom in infoperfil %}
+                <tr>
+                    <td>{{ infom.facultad}}</td>
+                    <td>{{ infom.carrera}}</td>
+                    <td>{{ infom.materia}}</td>
+                    <td><a class="seleccm"  href ="{{ path('usuario_modificarperfilprof',{'id':infom.Id,'usn':app.user.username}) }}">Modificar</a></td>
+                </tr>
+                {% endfor %}                
+            </table>        
+        {%endif%}     
+        {%if cant < 5%}        
+            <a class="agregarperfil" href="#">Agregar</a>
+        {%endif%}    
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){    
+    $('.agregarperfil').click(function(){
+        var usuario = $('#us').text();        
+        var urlp = '{{ path("usuario_cargarperfil",{'usn':'usn'}) }}';
+        urlp = urlp.replace("usn", usuario);        
+        $('.pedidodetalle').load(urlp.trim());        
+    });
+});    
+</script>

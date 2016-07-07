@@ -1,0 +1,9 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensaje de alerta{% endblock %}
+
+
+{% block id 'portada' %}
+{% block article -%}
+        <h3>{{ mensaje }}</h3>
+        <a class="boton" href="{{ path ('rol')}}">Volver</a>
+{% endblock %}

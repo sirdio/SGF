@@ -1,0 +1,17 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensaje{% endblock %}
+
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {% if app.user.tipou == 'Empleado'%}
+                <li><a href="{{ path('pagina_emp')}}">Menu Principal</a></li>
+            {% endif %}
+            {% if app.user.tipou == 'Administrador'%}
+                <li><a href="{{ path('pagina_adm')}}">Menu Principal</a></li>
+            {% endif %}                        
+        </ul>
+    </nav>
+{% endblock %}
+
+<h3>No estan cargadas las facultades, carreras y materias, que es información necesaria para poder agregar los apuntes.</h3>

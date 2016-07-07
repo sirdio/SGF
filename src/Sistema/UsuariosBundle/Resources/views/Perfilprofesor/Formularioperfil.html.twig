@@ -1,0 +1,70 @@
+<p>Agregar datos</p>
+<form action="{{path('usuario_cargarperfil',{'usn':app.user.username})}}" method="post" class="form_pop">
+        
+            <div class="fil1">
+                <select id="carreras" name="codcarrera">
+                    <option value="0">Seleccionar carrera</option>
+                    {% for carreras in carrera %}
+                        <option value="{{carreras.CarrCodigo}}">{{carreras.CarrNombre}}</option>
+                    {% endfor %}
+                </select>  
+                <div class="msjerror1"><span id="msjc"></span></div>
+            </div>   
+            <div class="fil1">    
+                <div class="materia">                   
+                    <select id="Materias" name="codmateria">
+                        <option value="0">Vacio</option>
+                    </select>                      
+                </div>        
+                <div class="msjerror1"><span id="msjc1"></span></div>    
+            </div>        
+            <div class="fil1">
+                <label>Resolución:</label>
+            </div>        
+            <div class="fil1">
+                <input type="text" id="resol" name="resolucion"/>
+                <div class="msjerror1"><span id="msjc2"></span></div>    
+            </div>        
+            <div class="fil1">
+                <label>Fecha vencimiento resolución:</label>
+            </div>        
+            <div class="fil1">
+                <input type="text" id="fechav" name="fechavencimiento"/>
+                <div class="msjerror1"><span id="msjc3"></span></div>    
+            </div>
+        <h2> <p><button type="submit">Aceptar</button></p></h2>       
+</form>
+
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        var valor1 = $('#carreras').val();
+        if(valor1 == 0 ) {
+            $( "#msjc" ).text( "Debe seleccionar una carrera.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }         
+        var valor2 = $('#Materias').val();
+        if(valor2 == 0 ) {
+            $( "#msjc1" ).text( "Debe seleccionar una materia.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }
+        var valor3 = $('#resol').val();
+        if(valor3 == "" ) {
+            $( "#msjc2" ).text( "Debe completar el campo resolución.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }         
+        var valor4 = $('#fechav').val();
+        if(valor4 == "" ) {
+            $( "#msjc3" ).text( "Debe completar el campo con una fecha valida.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }        
+        
+    });
+    $('#carreras').click(function(){
+        var codcarrera = $(this).val();
+        var urlc = '{{ path("usuario_obtenermateria",{'cid':'cid'}) }}';
+        urlc = urlc.replace("cid", codcarrera);        
+        $('.materia').load(urlc.trim());        
+    });
+});    
+</script>

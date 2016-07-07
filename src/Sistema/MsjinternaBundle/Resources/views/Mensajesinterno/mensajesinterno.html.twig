@@ -1,0 +1,71 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensajes Internos{% endblock %}
+{% block navigation %}      
+     <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == 'Empleado'%}
+                <li><a href="{{ path('pagina_emp')}}">Volver</a></li>                        
+            {%else%}
+                <li><a href="{{ path('pagina_adm')}}">Volver</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+{% block maincol %}
+    <div class="pedido">
+        <div class="pedidodetalle">
+           <table>
+                    <tr>
+                        <th>Remitente</th>
+                        <th>Asunto</th>                        
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                        <th>Acción</th>
+                    </tr>
+                    {% for MsjInt in msjint %}
+                    <tr>
+                        <td>{{MsjInt.nombreremitente}}</td>
+                        <td>{{MsjInt.asunto}}</td>
+                        <td>{{MsjInt.fechaenvio}}</td>
+                        {%if MsjInt.isActive == 1%}
+                            <td>No Leido</td>
+                        {%else%}
+                            <td>Leido</td>
+                        {%endif%}
+                        {%if app.user.tipou == 'Empleado'%}
+                            <td><a href ="{{path('msjinterna_abrirmsjemp',{'id':MsjInt.id})}}">Abrir mensaje</a></td>                                                 
+                        {%else%}
+                            <td><a href ="{{path('msjinterna_abrirmsjadmin',{'id':MsjInt.id})}}">Abrir mensaje</a></td>                                                 
+                        {%endif%}
+                        
+                    </tr>
+                   {% endfor %}
+            </table>             
+        </div>
+    </div>
+{% endblock %}
+{#% block javascripts %} 
+<script>  
+$(document).ready(function(){
+    $('.mostrarapunte').on('click', function(e){
+        e.preventDefault();        
+        var carrera  = $('#carreras').val();
+        if (carrera == 0) {
+            $( "#msjc3" ).text( "Debe seleccionar una materia.!!" ).show().fadeOut( 7000);
+            event.preventDefault(); 
+        }
+        var direcapu = "{{path('msjinterna_listarapunte',{'lid':'lid'})}}";        
+        direcapu = direcapu.replace("lid",carrera); 
+        $('.listarapu').load(direcapu.trim()); 
+        //location.href = url;
+        //alert(direcapu);
+    });
+});    
+</script>
+{% endblock%#}

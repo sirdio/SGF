@@ -1,0 +1,38 @@
+
+    
+{%if estado == 1%}
+    <h2>Listas de Materias</h2>
+    <div class="pedido">
+        <div class="pedidodetalle">        
+            <table>
+                <tr>
+                    <th>Facultad</th>
+                    <th>Carrera</th>
+                    <th>Materia</th>
+                    <th>Acción</th>
+                </tr>
+
+                {% for infom in infomaterias %}
+                <tr>
+                    <td>{{ infom.facultad}}</td>
+                    <td>{{ infom.carrera}}</td>
+                    <td>{{ infom.materia}}</td>
+                    <td><a class="seleccm" href ="{{ path('usuario_modificar',{'id':infom.Id}) }}">Modificar</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    {%if cantidad < 5%}    
+        <a href="{{ path('usuario_agregarmatlist',{'usn': usn}) }}">Agregar materia a la lista</a>
+    {%endif%}
+{%endif%}
+{%if estado == 2%}
+ 
+        <h2> {{mensaje}}</h2>
+        <p>{{facultad.facnombre}} - {{carrera.carrnombre}} - {{materia.matnombre}}</p>
+        {%if cantidad < 4%} 
+            <a href="{{ path('usuario_agregarmatlist',{'usn': usn}) }}">Agregar otra materia a la lista</a>
+        {%endif%}
+     
+{%endif%}    

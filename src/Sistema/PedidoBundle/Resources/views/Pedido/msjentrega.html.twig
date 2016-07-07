@@ -1,0 +1,28 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Mensaje de trabajos realizados{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Administrador" %}
+                <li><a href="{{ path('pedido_finalizadomost',{'usn': app.user.username})}}">Volver</a></li>
+            {%elseif app.user.tipou == "Empleado" %}
+                <li><a href="{{ path('pedido_finalizadomostemp',{'usn': app.user.username})}}">Volver</a></li>                
+            {%endif%}            
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+    <div class="msj1">
+        <h2>{{mensaje}}</h2>
+    </div>
+</div>
+{% endblock %}

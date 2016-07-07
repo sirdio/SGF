@@ -1,0 +1,108 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{path('usuario_perfilprofesor',{'usn': app.user.username})}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+<div class="pedido">            
+     <p>{{infoperfil.facultad}} - {{infoperfil.carrera}} - {{infoperfil.materia}}</p>
+     <div class="pedidodetalle">
+        <form action="{{ path('usuario_modificarperfilprof',{'id':infoperfil.Id,'usn':app.user.username}) }}" method="post" class="contact_form">
+            <h2>Modificar datos</h2>
+                <div class="Rowp">
+                    <div class="Cell1p">
+                        <label>Resolución:</label>                    
+                        <input type="text" id="resol" value="{{infoperfil.nroresolucion}}" name="resolucion"/>
+                        <div class="msjerror1"><span id="msjc2"></span></div>    
+                    </div> 
+                    <div class="Cell2p">
+                        <label>Fecha vencimiento resolución:</label>
+                        <input type="text" id="fechav" value="{{infoperfil.fechafinresol}}" name="fechavencimiento"/>
+                        <div class="msjerror1"><span id="msjc3"></span></div>    
+                    </div> 
+                </div>            
+            
+                {#<div class="Rowp">
+                    <div class="Cell1p">
+                        <select id="carreras" name="codcarrera">
+                            <option value="0">Seleccionar carrera</option>
+                            {% for carreras in carrera %}
+                                <option value="{{carreras.CarrCodigo}}">{{carreras.CarrNombre}}</option>
+                            {% endfor %}
+                        </select>  
+                        <div class="msjerror1"><span id="msjc"></span></div>
+                    </div>
+                    <div class="Cell2p">
+                        <label>Resolución:</label>                    
+                        <input type="text" id="resol" value="{{infoperfil.nroresolucion}}" name="resolucion"/>
+                        <div class="msjerror1"><span id="msjc2"></span></div>    
+                    </div> 
+                </div>
+                <div class="Rowp"> 
+                    <div class="Cell1p">    
+                        {#<div class="materia">                   
+                            <select id="Materias" name="codmateria">
+                                <option value="0">Vacio</option>
+                            </select>                      
+                        </div>        
+                        <div class="msjerror1"><span id="msjc1"></span></div>
+                    </div>       
+                    <div class="Cell2p">
+                        <label>Fecha vencimiento resolución:</label>
+                        <input type="text" id="fechav" value="{{infoperfil.fechafinresol}}" name="fechavencimiento"/>
+                        <div class="msjerror1"><span id="msjc3"></span></div>    
+                    </div>
+                </div> #}  
+            
+                <p><button type="submit">Aceptar</button></p>       
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %} 
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        var valor1 = $('#carreras').val();
+        if(valor1 == 0 ) {
+            $( "#msjc" ).text( "Debe seleccionar una carrera.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }         
+        var valor2 = $('#Materias').val();
+        if(valor2 == 0 ) {
+            $( "#msjc1" ).text( "Debe seleccionar una materia.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }
+        var valor3 = $('#resol').val();
+        if(valor3 == "" ) {
+            $( "#msjc2" ).text( "Debe completar el campo resolución.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }         
+        var valor4 = $('#fechav').val();
+        if(valor4 == "" ) {
+            $( "#msjc3" ).text( "Debe completar el campo con una fecha valida.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }        
+        
+    });
+    /*$('#carreras').click(function(){
+        var codcarrera = $(this).val();
+        var urlc = '{#{ path("usuario_obtenermateria",{'cid':'cid'}) }#}';
+        urlc = urlc.replace("cid", codcarrera);        
+        $('.materia').load(urlc.trim());        
+    });*/
+});    
+</script>
+{%endblock%} 

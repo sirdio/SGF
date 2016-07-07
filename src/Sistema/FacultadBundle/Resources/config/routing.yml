@@ -1,0 +1,129 @@
+#facultad_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: FacultadBundle:Default:index }
+Faclutad_inicio:
+  pattern: /admin/inicio
+  defaults: { _controller: FacultadBundle:Default:index}
+##################################################################  
+##############################MATERIAS############################
+##################################################################
+M_inicio:
+  pattern: /admin/inicioM
+  defaults: { _controller: FacultadBundle:Materia:InicioM}
+
+M_agregar:
+  pattern: /admin/agregarM
+  defaults: {_controller: FacultadBundle:Materia:AgregarM}
+
+M_listar:
+  pattern: /admin/listarM
+  defaults: {_controller: FacultadBundle:Materia:ListarM}
+
+M_editar:
+  pattern: /admin/editarM/{Mat_Codigo}
+  defaults: {_controller: FacultadBundle:Materia:EditarM}
+  
+M_guardar:
+  pattern: /admin/guardarM/{Mat_Codigo}
+  defaults: {_controller: FacultadBundle:Materia:GuardarM}
+##################################################################  
+##############################CARRERA#############################
+##################################################################
+C_inicio:
+  pattern: /admin/inicioC
+  defaults: { _controller: FacultadBundle:Carrera:InicioC}
+
+C_agregar:
+  pattern: /admin/agregarC
+  defaults: {_controller: FacultadBundle:Carrera:AgregarC}
+  
+C_listar:
+  pattern: /admin/listarC
+  defaults: {_controller: FacultadBundle:Carrera:ListarC}
+
+C_editar:
+  pattern: /admin/editarC/{Carr_Codigo}
+  defaults: {_controller: FacultadBundle:Carrera:EditarC}
+
+C_guardar:
+  pattern: /admin/guardarC/{Carr_Codigo}
+  defaults: {_controller: FacultadBundle:Carrera:GuardarC}
+##################################################################  
+##############################FACULTAD############################
+##################################################################
+F_inicio:   
+  pattern: /admin/inicioF
+  defaults: { _controller: FacultadBundle:Facultad:InicioF}
+  
+F_agregar: 
+  pattern: /admin/agregarF
+  defaults: {_controller: FacultadBundle:Facultad:AgregarF}
+  
+F_listar: 
+  pattern: /admin/listarF
+  defaults: {_controller: FacultadBundle:Facultad:ListarF}
+
+F_editar:   
+  pattern: /admin/editarF/{Fac_Codigo}
+  defaults: {_controller: FacultadBundle:Facultad:EditarF}
+  
+F_guardar:
+  pattern: /admin/guardarF/{Fac_Codigo}
+  defaults: {_controller: FacultadBundle:Facultad:GuardarF}
+  
+##################################################################  
+##############################GENERAL#############################
+##################################################################
+G_buscar:
+  pattern: /admin/buscartodo
+  defaults: {_controller: FacultadBundle:Default:Buscar}
+
+G_facultad:
+  pattern: /admin/buscartodos
+  defaults: {_controller: FacultadBundle:Default:BuscarC}
+  
+G_mostrarC:
+    pattern:  /admin/mostrar/{id}
+    defaults: { _controller: FacultadBundle:Default:BuscarC }
+    
+G_mostrarM:
+    pattern:  /admin/mostrarm/{id}
+    defaults: { _controller: FacultadBundle:Default:BuscarM }
+
+##################################################################  
+#################Rutas de acceso Alumnos##########################
+##################################################################
+G_buscaremp:
+  pattern: /empleado/buscartodo
+  defaults: {_controller: FacultadBundle:Default:Buscar}
+
+#G_facultad:
+#  pattern: /empleado/buscartodos
+#  defaults: {_controller: FacultadBundle:Default:BuscarC}
+#  
+#G_mostrarC:
+#    pattern:  /empleado/mostrar/{id}
+#    defaults: { _controller: FacultadBundle:Default:BuscarC }
+#    
+#G_mostrarM:
+#    pattern:  /empleado/mostrarm/{id}
+#    defaults: { _controller: FacultadBundle:Default:BuscarM }
+    
+##################################################################
+########################Rutas de acceso Alumnos###################
+################################################################## 
+G_buscaralu:
+  pattern: /alumno/buscartodo
+  defaults: {_controller: FacultadBundle:Busquedaalu:Buscaralu}
+
+G_facultadalu:
+  pattern: /alumno/buscartodos
+  defaults: {_controller: FacultadBundle:Busquedaalu:BuscarCalu}
+  
+G_mostrarCalu:
+    pattern:  /alumno/mostrar/{id}
+    defaults: { _controller: FacultadBundle:Busquedaalu:BuscarCalu }
+    
+G_mostrarMalu:
+    pattern:  /alumno/mostrarm/{id}
+    defaults: { _controller: FacultadBundle:Busquedaalu:BuscarMalu }    

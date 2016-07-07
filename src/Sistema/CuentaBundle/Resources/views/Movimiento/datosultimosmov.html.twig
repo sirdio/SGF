@@ -1,0 +1,23 @@
+<h2>Ultimos 5 Moviminetos</h2>
+{% if cantidad == 0 %}
+<h3>No se han realizado movimientos en esta cuenta.</h3>
+{% else %}
+    <table>
+        <tr>
+            {#<th>id</th>#}
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Tipo de Operación</th>
+            <th>Importe</th>
+        </tr>          
+        {% for mov in datos %}    
+        <tr>
+        {#<td>{{ mov.id}}</td>#}
+        <td>{{ mov.fecha}}</td>
+        <td>{{ mov.descripcion}}</td>
+        <td>{{ mov.operacion}}</td>
+        <td>$ {{ mov.monto}}</td>        
+        </tr>
+        {% endfor %}    
+    </table>
+{% endif %}

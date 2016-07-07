@@ -1,0 +1,8 @@
+{% extends '::frontend2.html.twig' %}
+{% block title %}Registro de usuarios mensaje {% endblock %}
+
+
+{% block article -%}
+<h3><p>Erro en el alta del usuario, vuelva intentar de nuevo.</p></h3>
+<a class="boton" href="{{ path('usuario_login') }}">Volver</a>
+{% endblock %}

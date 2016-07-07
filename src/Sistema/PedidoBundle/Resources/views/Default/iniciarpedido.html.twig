@@ -1,0 +1,69 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Generar Pedido{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_alumno')}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+    <div class="ayudante">
+        <div class="ayudbot"><a class="iniciopedido" value="" href ="#">INICIAR PEDIDO</a></div> 
+        <div class="ayudcab">
+            
+            <div class="paso1">
+                <div class="circulo1">
+                    <p>paso 1</p>
+                </div>
+                <p>Armar pedido.</p>    
+            </div>
+            <div class="paso2">
+                <div class="circulo2">
+                    <p>paso 2</p>
+                </div>
+                <p>Seleccionar importe a pagar.</p>    
+            </div>
+            <div class="paso3">
+                <div class="circulo3">
+                    <p>paso 3</p>
+                </div>
+                <p>Seleccionar sucursal donde retirar el pedido.</p>    
+            </div>            
+            <div class="paso4">
+                <div class="circulo4">
+                    <p>paso 4</p>
+                </div>
+                <p>Cerrar pedido.</p>    
+            </div>        
+        </div>
+           
+        <div class="ayudcont">
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %} 
+    <script>              
+        var saldo = 0;
+        $(document).ready(function(){
+            $('.iniciopedido').on('click', function(e){
+                e.preventDefault();
+
+                var usn = $('#us').text();
+                var urlaI = '{{ path("pedido_nuevoalu",{'usn' : 'usn'}) }}';                
+                urlaI = urlaI.replace("usn", usn);                
+                $('.ayudcont').load(urlaI.trim());
+            }); 
+        });         
+    </script>
+{% endblock%}

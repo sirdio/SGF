@@ -1,0 +1,126 @@
+<form action="{{ path('gestion_ucreate') }}" method="post" {{ form_enctype(form) }} class="contact_form">
+        <h2>Registrar Empleado</h2>
+        {{form_errors(form)}} 
+        <div class="filae1">
+            <div class="Celle1">
+                {{form_label(form.apellido, 'Apellido:')}}
+                {{form_errors(form.apellido)}}  
+                {{form_widget(form.apellido)}}
+            </div>
+            <div class="Celle2">
+                {{form_label(form.nombre, 'Nombre:')}}
+                {{form_errors(form.nombre)}}  
+                {{form_widget(form.nombre)}}
+            </div>  
+        </div>
+        <div class="filae2">
+            <div class="Celle1">
+                {{form_label(form.Email, 'Correo Electrónico:')}}
+                {{form_errors(form.Email)}}  
+                {{form_widget(form.Email)}}
+                <div class="msjerror1"><span id="msjemail"></span></div>
+                <div id="msjerror3"></div>    
+            </div> 
+            <div class="Celle2">
+                {{form_label(form.username, 'Nombre de Usuario:')}}
+                {{form_errors(form.username)}}  
+                {{form_widget(form.username)}}
+                <div class="msjerror1"><span id="msjun"></span></div>    
+                <div id="msjerror2"></div>
+            </div>
+            
+       </div>     
+            
+        <div class="filae3">     
+            <div class="Celle1">
+                {{form_label(form.nrocel, 'Número de Tel./Cel.:')}}
+                {{form_errors(form.nrocel)}}  
+                {{form_widget(form.nrocel)}}
+            </div>           
+            <div class="Celle2">
+                {{form_label(form.sucid, 'Sucursal:')}}
+                {{form_errors(form.sucid)}}  
+                {{form_widget(form.sucid)}}
+                    <div class="msjerror1"><span id="msjsuc"></span></div>
+            </div>               
+        </div>
+        <div class="filae4">
+            <div class="Celle1">
+                {{form_label(form.tipou, 'Tipo de Usuario:')}}
+                {{form_errors(form.tipou)}}  
+                {{form_widget(form.tipou)}}
+                <div class="msjerror1"><span id="msjtu"></span></div>
+            </div>   
+            <div class="Celle2">
+                {{form_errors(form.password)}}  
+                {{form_widget(form.password)}}
+                    <div class="msjerror1"><span id="msjc"></span></div>
+            </div>
+        </div>
+        {{form_rest(form)}}
+        
+        <div class="filae5">
+           
+            <button type="submit">Crear Usuario</button>
+        </div>
+        <h2></h2>
+    </form>
+<a id="mostrarformulario" href="{{ path('gestion_empnuevo') }}">Volver para cambiar sucursal</a>
+
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+         cadena = $("#sistema_usuariosbundle_empleadotype_Email").val();
+         resultado = cadena.indexOf("@");
+        if(resultado == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+        resultado2 = cadena.indexOf(".com");
+        if(resultado2 == -1) {
+            $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }        
+        
+        if(val2 == 1) {
+            $( "#msjemail" ).text( "El Correo ya existe debe cambiar.!!" ).show().fadeOut( 7000);
+            event.preventDefault();           
+        }                
+        
+        if(val1 == 1){
+            $( "#msjun" ).text( "El nombre de usuario ya existe debe cambiar.!!" ).show().fadeOut( 7000);
+            event.preventDefault();  
+        }
+        pass1 = $("#sistema_usuariosbundle_empleadotype_password_first").val();
+        pass2 = $("#sistema_usuariosbundle_empleadotype_password_second").val();
+        if(pass1 != pass2) {
+            $( "#msjc" ).text( "Los campos contraseña deben coincidir.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }
+        tipoUs = $("#sistema_usuariosbundle_empleadotype_tipou").val();
+        if(tipoUs == 1 || tipoUs == 2){
+            $( "#msjtu" ).text( "Los unicos tipos de usuarios aceptados son (Empleado o Administrado).!!" ).show().fadeOut( 7000);
+            event.preventDefault();  
+        }
+ 
+    
+    });
+    jQuery("#sistema_usuariosbundle_empleadotype_username").change(function() {
+            user = jQuery("#sistema_usuariosbundle_empleadotype_username").val();           
+            var url1 = '{{ path("gestion_consultar", {'name': 'name'}) }}'; 
+            url1 = url1.replace("name", user);
+            val1 = 0;
+            //alert(url1);
+            $('#msjerror2').load(url1);            
+    }); 
+    jQuery("#sistema_usuariosbundle_empleadotype_Email").change(function() {
+            correo = jQuery("#sistema_usuariosbundle_empleadotype_Email").val();           
+            var url2 = '{{ path("gestion_consultar1", {'email': 'email'}) }}'; 
+            url2 = url2.replace("email", correo);
+            val2 = 0;
+            //alert(url1);
+            $('#msjerror3').load(url2);            
+    });             
+});
+    
+</script>

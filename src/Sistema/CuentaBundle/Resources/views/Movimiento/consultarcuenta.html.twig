@@ -1,0 +1,58 @@
+{% extends '::basecuerpo1C.html.twig' %}
+{% block title %}Acreditar Saldo Usuario{% endblock %}
+
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            {%if app.user.tipou == "Empleado"%}
+                <li><a href="{{ path('pagina_emp') }}">Volver</a></li>
+            {%elseif app.user.tipou == "Administrador"%}
+                <li><a href="{{ path('pagina_adm') }}">Volver</a></li>
+            {%endif%}            
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conectado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+
+{% block maincol %}
+
+    <div id="buscador">        
+        <p>
+            <a class="boton" id="buscar" type="black">Buscar Cuenta</a>
+        </p>
+              
+    </div>
+    <div id="dialog">
+       
+    </div>
+
+{% endblock %}
+{% block javascripts %} 
+    <script>
+      
+     $(document).ready(function(){                  
+         $("#buscar").click(function(){
+           var tipouser = "{{app.user.tipou}}";
+           var nrocta = prompt("Ingresar número de cuenta", "p. ej.:12324852015");                    
+          if (nrocta != null) {
+                if (tipouser == "Empleado") {
+                    var url = '{{ path("cuenta_buscaremp", {'id': 'id'}) }}'; 
+                }else{
+                    var url = '{{ path("cuenta_buscar", {'id': 'id'}) }}'; 
+                }                
+                url = url.replace("id", nrocta);
+                $('#dialog').load(url);         
+           }
+         });
+
+     });
+ 
+ 
+     </script>
+{% endblock%}
+

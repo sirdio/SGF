@@ -1,0 +1,35 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Modificar Facultad{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('F_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block id 'portada' %}
+{% block maincol %}
+
+        <form action="{{ path('F_guardar',{'Fac_Codigo': facultad.FacCodigo}) }}" 
+              method="post" {{ form_enctype(edit_form) }} class="contact_form">
+            <H2>Modificar datos de Facultad</H2>
+            <input type="hidden" name="_method" value="PUT" />                               
+            {{ form_errors(edit_form) }}
+            <div class="filae1">
+                <div class="Celle1">
+                {{form_label(edit_form.Fac_Codigo, 'Codigo')}}
+                {{form_errors(edit_form.Fac_Codigo)}}  
+                {{form_widget(edit_form.Fac_Codigo)}}
+                </div>
+                    <div class="Celle2">
+                {{form_label(edit_form.Fac_Nombre, 'Nombre de Facultad')}}
+                {{form_errors(edit_form.Fac_Nombre)}}
+                {{form_widget(edit_form.Fac_Nombre)}}
+                </div>
+            </div>
+                {{form_rest(edit_form)}}
+            <div class="filae2">
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+{% endblock %}

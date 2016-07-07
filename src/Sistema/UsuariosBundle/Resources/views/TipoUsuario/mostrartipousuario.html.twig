@@ -1,0 +1,31 @@
+<form class="contact_form">
+    
+    <h2> Tipo de Usuario</h2>    
+ <div class="RowEsp">       
+<select id="tipousuarios">
+        <option value="0">Seleccionar</option>
+    {% for tipouser in entity %}
+        <option value="{{tipouser.id}}">{{tipouser.name}}</option>
+    {% endfor %}
+</select>  
+</div>
+</form>
+<script>
+    valor = 0;
+    $(document).ready(function(){
+
+        $('#tipousuarios').click(function(evento){
+            evento.preventDefault();
+            valor = $(this).val(); 
+            var url = '{{ path("usuario_new", {'tipou': 'tipou'}) }}'; 
+            url = url.replace("tipou", valor);
+            if(valor == 0){
+                return false;
+            }
+            $('#formulario').load(url);
+
+
+        });                
+    });  
+
+ </script>

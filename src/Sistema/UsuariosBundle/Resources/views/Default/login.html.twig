@@ -1,0 +1,91 @@
+{% extends '::basecuerpoL.html.twig' %}
+{% block title %}Iniciar Sesión{% endblock %}
+{% block saludo %}
+<p>Bienvenido</p>
+<p>Al Centro de Copiado</p>
+<p>Debe inciar sesión </p>
+{% endblock %}  
+{% block maincol %}
+<div id= "formulario" {#style="border: thin solid silver"#}>
+        <p>Bienvenidos al centro de copiados.
+Esta es una aplicación que le permite realizar el pedido de diferentes apuntes y pagar en línea...
+</p>
+    </div>
+{% endblock %}
+
+{% block maincolleft %}
+
+       {#% if error %}
+            <div>{{ error.message }}</div>
+        {% endif %#}
+<form  action="{{ path('usuario_login_check') }}" method="post" onsubmit="return validacion()" class="login_form">
+                <h2>Iniciar Sesión</h2>
+                <H3><div class="sidebar">     
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            </div></H3>
+
+            <H3><div>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="_password" />
+            </div></H3>
+
+            {#<H3><div>
+                <input type="checkbox" id="no_cerrar" name="_remember_me" checked />
+                <label for="no_cerrar">No cerrar sesión</label>
+            </div></H3>#} 
+                <p><button type="submit" name="login">Acceder</button></p>
+            {#<input type="submit" name="login" value="Acceder" />#}
+           
+        {% if error %}
+                {% if error.message == 'User account is disabled.' %}
+                        <div id='error' class='error'>La cuenta de usuario está deshabilitada.</div>
+                {% endif %} 
+
+                {% if error.message == 'Bad credentials' %}
+                        <div id='error' class='error'>Su nombre de usuario o contraseña es incorrecto.</div>
+                {% endif %} 
+        {% endif %} 
+ </form>                        
+<div id="reguser"><a id="mostrarformulario" href="#">Regístrate al Centro de Copiado</a></div>
+
+{% endblock %}
+{% block javascripts %} 
+        <script>
+            valor = 0;
+            $(document).ready(function(){
+                $('#mostrarformulario').click(function(evento){
+                    evento.preventDefault();
+                    
+                    $('#formulario').load('{{path('usuario_selecTipoUser')}}');                    
+                });          
+            });  
+            
+            
+            function validacion(){
+                valor = document.getElementById("password").value;
+                if (valor == null || valor.length == 0 || /^\s+$/.test(valor)){
+                    alert('Se olvido ingresar la contraseña');
+                    return false;
+                }
+            }
+            function validacion1(){
+                $("#msjc").html("");
+                $("#msjtu").html(""); 
+                valor = document.getElementById("sistema_usuariosbundle_usuariotype_password_first").value;
+                valor1 = document.getElementById("sistema_usuariosbundle_usuariotype_password_second").value;
+                valor3 = document.getElementById("sistema_usuariosbundle_usuariotype_tipou").value;
+                if (valor == null || valor.length == 0 || /^\s+$/.test(valor)){
+                    alert('El campo debe contener la contraseña.');
+                    return false;
+                }
+                if (valor != valor1 ){
+                    $("#msjc").html("<p style=color:#e12b2b>Los campos contraseña deben coincidir.</p>"); 
+                }
+                if (valor3 == 3 || valor3 == 4 ){
+                    $("#msjtu").html("<p style=color:#e12b2b>Debe seleccionar un tipo de usuario.</p>");                                    
+                }   
+                return false;
+            }
+         </script>
+{% endblock%}

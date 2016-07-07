@@ -1,0 +1,20 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Mensaje{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">            
+            <li><a href="{{path('C_agregar')}}">Agregar</a></li>
+            <li><a href="{{ path('C_listar')}}">Modificar</a></li>
+            {# <li><a href="{{ path('C_asignar')}}">Asignar Materia</a></li>#}
+            <li><a href="{{ path('Faclutad_inicio') }}">Inicio</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="ayudante">
+    <div class="msj1">
+        <h2>No existe ninguna Carrera cargada</h2>        
+    </div>
+</div>
+{% endblock %}
+

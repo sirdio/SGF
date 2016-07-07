@@ -1,0 +1,55 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+
+{% block title %}Información de Materias{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_alumno')}}">Volver</a></li>                
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p id="us">
+{{app.user.username}}
+</p>
+<p id="tu" style="display:none">{{app.user.tipou}}</p>
+{% endblock %}
+{% block maincol %}
+    <div class="informar">
+        <div class="infcab">
+            {{datoslista.id}} - {{datoslista.facultad}} - {{datoslista.carrera}} - {{datoslista.materia}}
+        </div>
+        <div class="infocuerpo">
+            <div class="infof1">
+                <select id="Carreras">
+                        <option value="0">Seleccionar Carrera</option>
+                    {% for carreras in carrera %}
+                        <option value="{{carreras.CarrCodigo}}">{{carreras.CarrNombre}}</option>
+                    {% endfor %}
+                </select>            
+            </div>
+            <div class="infof2">
+
+            </div>
+        </div>
+        <div class="infopie">
+      
+        </div>
+                
+    </div>
+{% endblock %}        
+{% block javascripts %} 
+<script>
+    var codlista = {{datoslista.id}};
+    $(document).ready(function(){ 
+        $('#Carreras').click(function(evento){
+            evento.preventDefault();
+            valorcarr = $(this).val();
+            var urlc = '{{ path("usuario_mostMat", {'id': 'id'}) }}'; 
+            urlc = urlc.replace("id", valorcarr);
+            $('.infof2').load(urlc);                          
+        });  
+    }); 
+</script>
+{%endblock%}

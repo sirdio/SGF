@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset=utf-8" />
+        <title>{% block title %}CentCop{% endblock %} - CentCop</title>
+        {% block stylesheets %}
+            {#<link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>          
+            <link href="{{ asset('css/estilogeneral.css') }}" type="text/css" rel="stylesheet" />  
+            <link href="{{ asset('css/estilo2.css') }}" type="text/css" rel="stylesheet" /> 
+            <link href="{{ asset('css/estilogrilla.css') }}" type="text/css" rel="stylesheet" /> #}
+        {% endblock %}
+        <link rel="shortcut icon" href="{{ asset('images.jpg') }}" />
+        <script src="{{ asset('js/jquery-1.7.2.min.js') }}"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="{{ asset('js/probar.js') }}"></script>
+    </head>
+    {% block javascripts %} {% endblock%}
+    <body onload="nobackbutton();">
+        
+        <section id="wrapper">
+            {% block wrapper %}
+                <header id="header">
+                 {% block header %}    
+                    <div class="top">
+                        {% block navigation %}
+                        {% endblock %}
+                    </div>
+                    <div class="saludo">
+                        {% block saludo %}
+                            <p>Conoctado como "{{app.user.tipou}}":</p>
+                            <p>
+                            {{app.user.username}}
+                            </p>
+                            {#<a href="#">Ver mi perfil</a>#}
+                        {% endblock %}                    
+                    </div>                         
+                    <hgroup>
+                        <h2>{% block blog_title %}<a href="#">CentCop</a>{% endblock %}</h2>
+                        <h3>{% block blog_tagline %}<a href="#">Centro de Copiado</a>{% endblock %}</h3>
+                    </hgroup>
+                 {% endblock %}    
+                </header>
+                
+
+
+                <div id="footer">
+                    {% block footer %}
+                        SistemaGF - CentCop - Creado por <a href="https://github.com/dsyph3r">Navarro Sergio</a>
+                        &copy; {{ 'now' | date('Y') }}
+                        <a href="{#{ path('pagina_estatica', { 'pagina': 'ayuda' }) }#}">Ayuda</a>
+                        <a href="{#{ path('pagina_estatica', { 'pagina': 'contacto' })}#}">Contacto</a>
+                        <a href="{#{ path('pagina_estatica', { 'pagina': 'privacidad' })}#}">Privacidad</a>
+                        <a href="{#{ path('pagina_estatica', { 'pagina': 'sobre-nosotros' })}#}">Sobre nosotros</a>
+                    {% endblock %}
+                </div>
+
+            {%endblock %} 
+        </section> 
+    </body>
+ 
+</html>

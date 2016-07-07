@@ -1,0 +1,28 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Listar Facultades{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('F_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="listacontenido">
+    <p>Facultades</p>
+    <div class="listatabla">
+        <table>           
+            <tr>
+                <th>Código</th>
+                <th>Nombre de Facultad</th>
+            </tr>
+            {% for facultads in facultad %}
+            <tr>
+                <td>{{ facultads.FacCodigo}}</td>
+                <td><a href="{{ path('F_editar',{'Fac_Codigo' : facultads.FacCodigo }) }}">{{facultads.FacNombre}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>     
+</div>     
+{% endblock %}

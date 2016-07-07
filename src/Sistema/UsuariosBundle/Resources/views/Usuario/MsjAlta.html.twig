@@ -1,0 +1,10 @@
+{% extends '::frontend2.html.twig' %}
+{% block title %}Registro de usuarios mensaje {% endblock %}
+
+
+{% block article -%}
+<h3><p>Erro en el registro del usuario, en ultimo mometo decidio cambiar 
+    el tipo de usuario. Debe intentar de nuevo, recuerde que una vez seleccionado
+    el tipo de usuario al inicio no lo puede volver a cambiar.</p></h3>
+<a class="boton" href="{{ path('usuario_login') }}">Volver</a>
+{% endblock %}

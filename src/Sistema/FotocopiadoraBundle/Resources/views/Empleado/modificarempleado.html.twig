@@ -1,0 +1,47 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Gestion Empleado{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{path ('gestion_empnuevo')}}">Agregar Empleado</a></li>
+            <li><a href="{{ path('Gestion_inicioemp')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{#<a href="#">Ver mi perfil</a>#}
+{% endblock %} 
+{% block maincol %}
+<div class="listacontenido">  
+<p>Lista de Empleados</p>
+    <div class="listatabla">
+
+    <table>
+            <tr>
+                <th>Código</th>
+               <th>Nombre de Usuario</th>
+               <th>Correo Electronico</th>
+            </tr>     
+            {% for emp in empleado %}    
+            <tr>
+                <td>{{ emp.id}}</td>
+                <td>{{ emp.username}}</td>
+                <td>{{ emp.email}}</td>
+                <td><a class="boton" href="{{ path('gestion_editemp',{'id' : emp.id }) }}"> Resetear Contraseña</a></td>
+                
+
+            </tr>
+            {% endfor %}    
+        </table>
+    </div>
+ </div>
+
+
+{% endblock %}
+{% block javascripts %}
+{% endblock%}
+

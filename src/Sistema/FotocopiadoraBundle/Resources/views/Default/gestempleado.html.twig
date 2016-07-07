@@ -1,0 +1,39 @@
+{#% extends '::frontendg.html.twig' %}
+{% block title %}Gestion{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="#">Agregar Empleado</a></li>
+            <li><a href="#">Modificar Empleados</a></li>
+            <li><a href="{{ path('Gestion_Inicio')}}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block id 'portada' %}
+{% block article -%}
+    <h2>Empleados</h2>
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>D.N.I</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Sucursal</th>
+                <th>Rol</th>
+            </tr>  
+            {% set counter = 0 %} 
+            {% for usuarioinact in usuarioinac %}    
+            <tr>
+                <td>{{ usuarioinact.id}}</td>
+                <td>{{ usuarioinact.PerDni}}</td>
+                <td>{{usuarioinact.PerApe}}</td>
+                <td>{{usuarioinact.PerNomb}}</td>
+                
+                {% if usuarioinact.isActive  == 0 %}
+                  <td><a href="{{ path('gestion_MUNA',{'id' : usuarioinact.id }) }}">Activar</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}    
+        </table>
+        <td><a href="{{ path('gestion_MUNATODO') }}">Activar Todos los Usuarios</a>    
+{% endblock %#}

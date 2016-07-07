@@ -1,0 +1,27 @@
+<form action="{{ path('usuario_modpassalu',{'usn': datosusuario.username}) }}" method="post" {{ form_enctype(edit_form) }} class="form_pop">
+        <h2>Modificar datos</h2>
+        {{form_errors(edit_form)}}       
+        <div class="fil">
+            {{form_errors(edit_form.password)}}  
+            {{form_widget(edit_form.password)}} 
+            <div class="msjerror1"><span id="msjc"></span></div>    
+        </div>
+        {{form_rest(edit_form)}}
+        <h2> <p><button type="submit">Aceptar</button></p></h2>
+       
+</form>
+   
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        pass1 = $("#sistema_usuariosbundle_alumnopasstype_password_first").val();
+        pass2 = $("#sistema_usuariosbundle_alumnopasstype_password_second").val();
+        if(pass1 != pass2) {
+            $( "#msjc" ).text( "Los campos contraseña deben coincidir.!!" ).show().fadeOut( 7000);
+            event.preventDefault();                
+        }    
+    });
+
+});
+    
+</script>

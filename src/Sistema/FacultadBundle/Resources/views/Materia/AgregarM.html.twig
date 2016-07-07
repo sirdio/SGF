@@ -1,0 +1,33 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Agregar Materia{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('M_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}    
+    <form action="{{ path('M_agregar') }}" method="post" {{ form_enctype(form) }} class="contact_form">
+        <H2>Agregar Materias</H2>
+        {{form_errors(form)}}
+        <div class="filae1">
+            <div class="Celle1">
+                {{form_label(form.Mat_Codigo, 'Codigo')}}
+                {{form_errors(form.Mat_Codigo)}}  
+                {{form_widget(form.Mat_Codigo)}}
+            </div>
+            <div class="Celle2">
+                {{form_label(form.Mat_Nombre, 'Nombre de Materia')}}
+                {{form_errors(form.Mat_Nombre)}}
+                {{form_widget(form.Mat_Nombre)}}
+            </div>
+        </div>        
+        {{form_rest(form)}}
+        <div class="filaeEsp7">
+            <div class="Celle2">
+                <button type="submit">Agregar</button>
+            </div>
+        </div>        
+    </form>
+{% endblock %}

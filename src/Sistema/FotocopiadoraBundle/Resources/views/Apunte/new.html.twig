@@ -1,0 +1,163 @@
+  
+	{#<link href="{{ asset('css/screen2.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/estilogeneral.css') }}" type="text/css" rel="stylesheet" />#}
+        
+       
+ 	<script type="text/javascript">
+$(document).ready(function(){    
+    
+        jQuery("#exampleInputEmail3").change(function() {
+            var extension = jQuery("#exampleInputEmail3").val().split('.').pop();           
+            switch(extension) {
+ 		case 'pptx':
+		    alert('Es un archivo de Power Point');
+                    break;
+		case 'docx':
+		    alert('Es un archivo de Word');  
+                    break;
+		case 'xlsx':
+		    alert('Es un archivo de Excel.'); 
+		    break;
+		case 'pdf':
+		    alert('Fichero PDF');
+		    break;
+		default: 
+		    alert('El archivo seleccionado no es del tipo permitido.');
+		    jQuery("#exampleInputEmail3").val('');
+	    }
+            
+jQuery(function($){
+	$.datepicker.regional['es'] = {
+		closeText: 'Cerrar',
+		prevText: '&#x3c;Ant',
+		nextText: 'Sig&#x3e;',
+		currentText: 'Hoy',
+		monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+		monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun',
+		'Jul','Ago','Sep','Oct','Nov','Dic'],
+		dayNames: ['Domingo','Lunes','Martes','Mi&eacute;rcoles','Jueves','Viernes','S&aacute;bado'],
+		dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+		dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+		weekHeader: 'Sm',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['es']);
+});    
+
+        $(document).ready(function() {
+           $("#datepicker").datepicker();
+        });            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        });  
+    /*$("#datepicker").click(function() {
+        openVentana();
+    });*/
+  
+
+}); 
+/*function openVentana(){
+			$(".ventana").slideDown(1000);
+		}
+		function closeVentana(){
+			$(".ventana").slideUp("fast");
+		}
+*/
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+    
+    {#<div class="ventana">
+        <div class="subventana">
+        
+        </div>
+    </div>#}        
+     <hr />
+    <form role="form" enctype="multipart/form-data" method="post" 
+        {%if app.user.tipou == "Empleado"%}
+            action="{{path('apunte_createemp',{'tus':app.user.tipou})}}"
+        {%elseif app.user.tipou == "Administrador"%}
+            action="{{path('apunte_create',{'tus':app.user.tipou})}}"
+        {%endif%}         
+         class="contact_form">
+        <h2>Cargar Apuntes</h2>
+        <div class="filae1">
+            <div class="Celle1">
+                <label class="sr-only" for="exampleInputEmail2">Nombre</label>
+                <input type="text" name="nombre"  id="exampleInputEmail2" />
+            </div> 
+
+            <div class="Celle2">
+                <label class="sr-only" for="exampleInputEmail2">Número de páginas</label>
+                <input type="text" name="nropag"  id="exampleInputEmail2" />
+            </div> 
+        </div>
+        <div class="filae2">
+            <div class="Celle1">
+                <label class="sr-only" for="exampleInputEmail2">Precio</label>
+                <input type="text" name="precio" id="exampleInputEmail2" />
+            </div> 
+            <div class="Celle2">
+                <label class="sr-only" for="exampleInputEmail2">Fecha</label>
+                <input type="date" name="datepicker" id="datepicker" value="{{"now"|date("d/m/Y")}}"/>
+                
+             </div>
+        </div>
+        <div class="filae3"> 
+            <div class="Celle1">
+                <label class="sr-only" for="exampleInputEmail2">Observacion</label>
+                <input type="text" name="observacion" id="exampleInputEmail2" />
+            </div> 
+                <div class="Celle2">
+                <label class="sr-only" for="exampleInputEmail2">Código de Facultad</label>
+                <input type="text" name="facultad_id" value="{{facultad.FacCodigo}} - {{facultad.FacNombre}}" id="exampleInputEmail4" />
+            </div> 
+        </div>
+        <div class="filae4">
+            <div class="Celle1">
+                <label class="sr-only" for="exampleInputEmail2">Código de Carrera</label>
+                <input type="text" name="carrera_id" value="{{carrera.CarrCodigo}} - {{carrera.CarrNombre}}" id="exampleInputEmail5" />
+            </div>
+            <div class="Celle2">
+                <label class="sr-only" for="exampleInputEmail2">Código de Materia</label>
+                <input type="text" name="materia_id" value="{{materia.MatCodigo}} - {{materia.MatNombre}}" id="exampleInputEmail6" />
+            </div>         
+        </div>
+        <div class="filae5">        
+            <div class="Celle1">
+                <label class="sr-only" for="exampleInputEmail2">Archivo</label>
+                <input type="file" name="archivo" id="exampleInputEmail3"  />
+            </div>
+        </div>
+        <hr />
+        
+        <div class="filae6">
+            <div class="Celle1">
+                <button type="submit" name="boton" value ="Nuevo" onclick="return validacion()">Guargar</button>
+            </div>
+            <div class="Celle2">
+                <button type="submit" name="boton" value ="Otro" onclick="return validacion()">Guardar y cargar otro apunte</button>
+            </div>                            
+        </div>
+    </form>

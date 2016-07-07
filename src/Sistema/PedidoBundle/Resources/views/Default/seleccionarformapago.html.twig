@@ -1,0 +1,60 @@
+<div class="pedidocuerpo">
+    <div class="ifocab">
+        <div class="infizq">
+            <h2>Informacion del Pedido</h2>
+            <p class="import1">Importe total es: $ {{precio}}</p>
+        </div>
+        <div class="infder">
+            <h2>Saldo de la Cta.Cte.</h2>
+            <p class="salact">El saldo de su cuenta es: $ {{saldo}} </p>
+        </div>
+    
+    </div>
+      
+    <form class="contact_form">
+        <h2>Seleccionar el importe a pagar</h2>   
+        <div class="fila2">
+            <div class="celda1">
+                <select name="transporte" class="tipopago">
+                    <option value="0">Seleccionar Pago</option>
+                    <option value="1">pago parcial 50%</option>
+                    <option value="2">pago total</option>                
+                </select>
+            </div>
+        </div>
+    </form>
+  
+    <div class="pieform"><a class="confirmartipopago" value="" href ="#">Confirmar Pago</a></div>
+</div>
+<script>
+    monto = {{monto}};
+    importe = {{precio}};
+    sal2 = {{saldo}};
+    var lista = "{{lista}}";
+    $(document).ready(function(){
+        $(".circulo1").css("background-color", "#8b8a93");
+        $(".circulo2").css("background-color", "#131315");        
+        
+        $('.confirmartipopago').click(function(evento){
+            evento.preventDefault();            
+            var opc = $('.tipopago').val(); 
+            if(opc == 0) {                
+                alert("Por favor seleccione una Forma de Pago.");            
+            }else if(opc == 1){
+                if(monto <= sal2){
+                    var redirec2 = '{{ path("ped_selecsucalu") }}'+'?lista='+lista+'/'+opc;                       
+                    $('.ayudcont').load(redirec2.trim()); 
+                }else{
+                    alert("No puede realizar un pago parcial.");
+                };
+            }else{
+                if(importe <= sal2){
+                    var redirec2 = '{{ path("ped_selecsucalu") }}'+'?lista='+lista+'/'+opc;
+                    $('.ayudcont').load(redirec2.trim());
+                }else{
+                    alert("No puede realizar un pago total.");                     
+                };                
+            };            
+        });                            
+    });         
+</script>

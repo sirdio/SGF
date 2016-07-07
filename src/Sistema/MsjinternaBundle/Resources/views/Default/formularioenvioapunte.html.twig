@@ -1,0 +1,98 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Centro de Copiado pagina de inicio Profesor{% endblock %}
+{% block navigation %}      
+     <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('pagina_profe')}}">Volver</a></li>                        
+        </ul>
+    </nav>
+{% endblock %}
+{% block saludo %}
+<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>
+{{app.user.username}}
+</p>
+{% endblock %} 
+{% block maincol %}
+    <div class="pedido">
+        <p>Formulario de envio de Apuntes</p>
+        <div class="pedidodetalle">
+            <form action="{{path('msjinterna_enviarapunte')}}" enctype="multipart/form-data" method="post" class="contact_form">          
+                <div class="filafe">
+                    <div class="Celda1">
+                        <label>Nombre Usuario:</label>
+                        <input type="text" value="{{app.user.username}}" name="usuarionombre" readonly="readonly"/>
+                    </div>
+                    <div class="Celda2">
+                        <label>Asunto:</label>                    
+                        <input id="asunto" type="text" name="asunto"/>
+                        <div class="msjerror1"><span id="msjc1"></span></div>    
+                    </div>                     
+                </div>
+                <div class="filafe">
+                    <div class="Celda1">
+                        <label>Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" cols="40"></textarea>
+                        {#<input type="text" name="mensaje" />#}
+                        <div class="msjerror1"><span id="msjc2"></span></div>
+                    </div>
+                    <div class="Celda2">
+                        <select id="carreras" name="codcarrera">
+                            <option value="0">Seleccionar Materia</option>
+                            {% for listas in lista %}
+                                <option value="{{listas.id}}">{{listas.materia}}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="msjerror1"><span id="msjc3"></span></div>    
+                    </div>                     
+                </div>
+                <div class="filafe">
+                    <div class="Celda1">
+                        <label>Archivo:</label>
+                        <input id="archivo" type="file" name="archivo" />
+                        <div class="msjerror1"><span id="msjc4"></span></div>
+                    </div>
+                     
+                </div>                    
+                <div class="filafebot">
+                    <div class="Celda1">
+                        <p><button name="boton" value="aceptar" type="submit">Enviar Archivo</button></p>
+                    </div>
+                    <div class="Celda2">
+                        <p><button name="boton" value="otro" type="submit">Aceptar y Enviar otro Archivo</button></p>
+                    </div>                     
+                    
+                </div>
+            </form> 
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %} 
+<script>
+$(document).ready(function(){    
+    $( "form" ).submit(function( event ) {
+        var valor1 = $('#asunto').val();
+        if(valor1 == "" ) {
+            $( "#msjc1" ).text( "Debe ingresar un asusnto.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }         
+        var valor2 = $('#mensaje').val();
+        if(valor2 == 0 ) {
+            $( "#msjc2" ).text( "Debe completar el campo mensaje.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }
+        var valor3 = $('#carreras').val();
+        if(valor3 == 0 ) {
+            $( "#msjc3" ).text( "Debe seleccionar una materia.!!" ).show().fadeOut( 7000);
+                event.preventDefault();                
+        }                 
+        var extension = $("#archivo").val().split('.').pop();           
+        if(extension != 'pptx' || extension != 'docx' || extension != 'xlsx' || extension != 'pdf' ) {
+            $( "#msjc4" ).text( "El archivo seleccionado no es del tipo permitido.!!" ).show().fadeOut( 7000);
+            $("#archivo").val('');
+            event.preventDefault();                
+        }               
+    });
+});    
+</script>
+{%endblock%} 

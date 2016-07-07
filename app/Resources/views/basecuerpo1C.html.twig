@@ -1,0 +1,49 @@
+{% extends '::baseCP.html.twig' %}
+{% block stylesheets %}
+    <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>          
+    <link href="{{ asset('css/estilogeneral.css') }}" type="text/css" rel="stylesheet" />  
+    <link href="{{ asset('css/estilo4.css') }}" type="text/css" rel="stylesheet" /> 
+    <link href="{{ asset('css/estilogrilla.css') }}" type="text/css" rel="stylesheet" /> 
+{% endblock %}
+{% block wrapper %}
+    <header id="header">
+     {% block header %}    
+        <div class="top">
+            {% block navigation %}
+            {% endblock %}
+        </div>
+        <div class="saludo">
+            {% block saludo %}
+                <p>Conoctado como "{{app.user.tipou}}":</p>
+                <p>
+                {{app.user.username}}
+                </p>
+                {#<a href="#">Ver mi perfil</a>#}
+            {% endblock %}                    
+        </div>                         
+        <hgroup>
+            <h2>{% block blog_title %}<a href="#">CentCop</a>{% endblock %}</h2>
+            <h3>{% block blog_tagline %}<a href="#">Centro de Copiado</a>{% endblock %}</h3>
+        </hgroup>
+     {% endblock %}    
+    </header>
+
+
+    <section class="maincol">
+    {% block maincol %}
+            
+    {% endblock %}
+    </section>    
+
+    <div id="footer">
+    {% block footer %}
+        SistemaGF - CentCop - Creado por <a href="https://github.com/dsyph3r">Navarro Sergio</a>
+        &copy; {{ 'now' | date('Y') }}
+        <a href="{#{ path('pagina_estatica', { 'pagina': 'ayuda' }) }#}">Ayuda</a>
+        <a href="{#{ path('pagina_estatica', { 'pagina': 'contacto' })}#}">Contacto</a>
+        <a href="{#{ path('pagina_estatica', { 'pagina': 'privacidad' })}#}">Privacidad</a>
+        <a href="{#{ path('pagina_estatica', { 'pagina': 'sobre-nosotros' })}#}">Sobre nosotros</a>
+    {% endblock %}
+    </div>
+{% endblock %}

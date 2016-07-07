@@ -1,0 +1,39 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Agregar nuevo de tipos de usuarios{% endblock %}
+{% block navigation %}      
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{path ('rol_mostrar')}}">Modificar</a></li>    
+            <li><a href="{{ path ('rol')}}">Inicio</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block id 'portada' %}
+{% block article -%}
+    <h1>Nuevo Tipo de Usuario</h1>
+
+    <form action="{{ path('rol_create') }}" method="post" {{ form_enctype(form) }}>
+        {{form_errors(form)}}
+        <div><H3>
+        {{form_label(form.name, 'Nombre')}}
+        {{form_errors(form.name)}}  
+        {{form_widget(form.name)}}
+        </H3></div>    
+        <div><H3>
+        {{form_label(form.tipus, 'Tipo Usuario')}}
+        {{form_errors(form.tipus)}}  
+        {{form_widget(form.tipus)}}
+        </H3></div>
+        <div><H3>
+        {{form_label(form.estado, 'Estado')}}
+        {{form_errors(form.estado)}}  
+        {{form_widget(form.estado)}}
+        </H3></div>            
+        {{form_rest(form)}}    
+        <p>
+            <button type="submit"><H3>Agregar</H3></button>
+        </p>
+    </form>
+
+{% endblock %}
+

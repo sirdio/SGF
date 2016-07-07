@@ -1,0 +1,53 @@
+{% extends '::basecuerpo1CG.html.twig' %}
+{% block title %}Listar Materias{% endblock %}
+{% block navigation %}        
+    <nav>
+        <ul class="navigation">
+            <li><a href="{{ path('M_inicio') }}">Volver</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block maincol %}
+<div class="listacontenido">
+    <p>Materia</p>
+    <div class="listatabla"> 
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Nombre de Materia</th>
+            </tr>
+            {% for materias in datos %}
+            <tr>
+                <td>{{ materias.Mat_Codigo}}</td>
+                <td><a href="{{ path('M_editar',{'Mat_Codigo' : materias.Mat_Codigo }) }}">{{materias.Mat_Nombre}}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+       <div  class="contentab">                      
+        <div class="paginacion">
+             <ul>
+                {%for i in 1.. totalPaginas %}
+                    {%if loop.first %}
+                        <li {%if page==1%} class="disabled" {%endif%}>
+                            <a href="{{path('M_listar')}}?page={{page-1}}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                        </li>
+                    {%endif%}
+                        
+                        <li {% if page==loop.index %}  class="active" {%endif%}>
+                            <a href="{{path('M_listar')}}?page={{loop.index}}">{{loop.index}}</a>
+                        </li>
+                        
+                    {%if loop.last %}                                                   
+                        <li {%if page==totalPaginas%} class="disabled" {%endif%}>
+                            <a href="{{path('M_listar')}}?page={{page+1}}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+                        </li>
+                    {%endif%}
+                {%endfor%}
+             </ul>
+        </div>        
+    </div>
+{% endblock %}
+    
+

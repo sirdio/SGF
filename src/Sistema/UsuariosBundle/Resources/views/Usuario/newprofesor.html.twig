@@ -1,0 +1,59 @@
+{% extends '::basecuerpo1C.html.twig' %}
+{% block title %}Registro de Usuarios{% endblock %}
+
+{% block saludo %}
+    <p>Bienvenido</p>
+    <p>Al Centro de Copiado</p>
+    <p>Debe inciar sesión </p>
+{% endblock %} 
+{% block maincol %}
+   <form action="{{ path('usuario_create') }}" method="post" {{ form_enctype(form) }} class="contact_form">
+        <h2>Registro de Usuario</h2>
+        {{form_errors(form)}}
+        <div class="Row1">
+            <div class="Cell1">
+                {{form_label(form.apellido, 'Apellido:')}}
+                {{form_errors(form.apellido)}}  
+                {{form_widget(form.apellido)}}
+            </div>
+            <div class="Cell2">
+                {{form_label(form.nombre, 'Nombre:')}}
+                {{form_errors(form.nombre)}}  
+                {{form_widget(form.nombre)}}
+            </div>
+        </div>
+        <div class="Row2">    
+            <div class="Cell1">
+                {{form_label(form.Email, 'Correo Electrónico:')}}
+                {{form_errors(form.Email)}}  
+                {{form_widget(form.Email)}}
+            </div>
+            <div class="Cell2">
+                {{form_label(form.username, 'Nombre de Usuario:')}}
+                {{form_errors(form.username)}}  
+                {{form_widget(form.username)}}
+            </div>
+        </div>
+        <div class="Row3">
+            <div class="Cell1">
+                {{form_label(form.nrocel, 'Número de Tel./Cel.:')}}
+                {{form_errors(form.nrocel)}}  
+                {{form_widget(form.nrocel)}}
+            </div>
+        </div>        
+        <div class="Row4">
+            <div class="Cell1">
+                {{form_errors(form.password)}}  
+                {{form_widget(form.password)}}
+            </div>
+                <div id="msjc"></div>       
+            <div class="Cell2">
+                {{form_rest(form)}}
+            </div>    
+        </div>
+        
+        <h2><p><button type="submit">Crear Usuario</button></p></h2>
+        
+    </form>
+
+{% endblock %}

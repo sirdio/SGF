@@ -1,0 +1,168 @@
+
+.maincol { width: 70%;  height: 1000px; display: inline-block; float: left; border: 1px solid #ccc; padding: 20px; margin-bottom: 20px; } /*scren96%*/
+.maincolleft { float: right; width: 20%; height: 1000px; display: inline-block; padding: 20px; margin-bottom: 20px; border: 1px solid #ccc;}
+
+.maincol>.cotenedor_cta{ width: 99.5%; height: 300px; border: 2px solid #2F3031; border-radius: 5px; background-color: #C7C6D2; }
+
+.maincolleft>.ifocta{ width: 99.5%; height: 150px; border: 2px solid #2F3031; border-radius: 5px; background-color: #C7C6D2; }
+
+
+.maincol>.cotenedor_cta>h2{ color: #FFFFFF; background-color:#2F3031;}
+.maincol>.cotenedor_cta>h3{ color: #FFFFFF; background-color:#2F3031; margin-top: 40px; font-size: 25px}
+.maincol>.msj{border: 1px solid #2F3031; background-color:#2F3031; }
+.maincol>.msj>h1{color: #FFFFFF; font-size: 40px}
+.maincol>.msj>h2{color: #FFFFFF; font-size: 30px}
+.maincol>.msj>h3{color: #FFFFFF; font-size: 25px}
+.maincol>.msj>h4{color: #FFFFFF; font-size: 20px}
+.maincol>.msj>h5{color: #FFFFFF; font-size: 15px}
+.maincol>.msj>h6{color: #FFFFFF; font-size: 10px}
+
+
+
+.cotenedor_cta>.paginacion{width: 96%;  height: 50px; /*border: 1px solid #D83373*/}
+
+.paginacion { margin:20px 0; }
+ 
+.paginacion ul { list-style:none; text-align: center; }
+ 
+.paginacion ul li { display:inline-block; margin-right:10px; }
+ 
+.paginacion>ul>li>a { display:block; padding:10px 20px; color: #0F0E0F; background:#D83373; text-decoration: none; }
+ 
+.paginacion ul li a:hover { background:#efadc7; }
+ 
+.paginacion ul .active a { background-color: #f7d6e3; font-weight:bold; }
+
+.paginacion>ul>.disabled { display: none; }
+
+
+
+.ifocta>.info_fila1, .ifocta>.info_fila2, .ifocta>.info_fila3 {width: 99.5%;  height: 70px; margin-top:5px; /*border: 1px solid #D83373*/} 
+
+.ifocta>.info_fila1>.info_cel1, .ifocta>.info_fila1>.info_cel2 {width: 98%;  height: 25px; float: left; border-radius: 5px; margin-top:5px;margin-left: 3px;
+           background-color: #2F3031; }
+.ifocta>.info_fila1>.info_cel1>p, .ifocta>.info_fila1>.info_cel2>p {color: #FFFFFF; font-size: 20px; }
+p>samp{color: #FFFFFF; font-size: 22px;}
+
+.ifocta>.info_fila2>.info_cel1, .ifocta>.info_fila2>.info_cel2 {width: 98%;  height: 25px; float: left; border-radius: 5px; margin-top:5px;margin-left: 3px;
+           background-color: #2F3031; }
+.ifocta>.info_fila2>.info_cel1>p, .ifocta>.info_fila2>.info_cel2>p {color: #FFFFFF; font-size: 20px; }
+
+.ifocta>.info_fila3>.info_cel1, .ifocta>.info_fila3>.info_cel2 {width: 98%;  height: 25px; float: left; border-radius: 5px; margin-top:5px;margin-left: 3px;
+           background-color: #2F3031; }
+.ifocta>.info_fila3>.info_cel1>p, .ifocta>.info_fila3>.info_cel2>p {color: #FFFFFF; font-size: 20px; }
+
+.maincol>.cotenedor_cta>table {
+    color: #2F3031;
+    font-size: 16px;
+    font-weight: bold;
+    alignment-adjust: central;
+}
+.maincol>.cotenedor_cta>table {
+    border: 2px solid  #FFFFFF;
+    border-spacing: 0;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.maincol>.cotenedor_cta>table tr, .maincol>.cotenedor_cta>table th, .maincol>.cotenedor_cta>table td {
+    border: 1px solid #FFFFFF;
+    padding: .5em .5em;
+}
+.maincol>.cotenedor_cta>table th {
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #2F3031;
+}
+.maincol>.cotenedor_cta>table tr td{color: #000;;font-size: 12px}
+
+
+
+
+/*******************************************************************************
+                                configurando cajas de diseño                    
+******************************************************************************
+
+section.maincol>article, section.maincolleft>article {
+border-width: 3px;
+border-style:solid;
+display: inline-block;
+vertical-align:top;
+position: relative;
+border-radius: 0px 0px 15px 15px;
+margin:15px 0px 5px 5%;
+width: 92%;
+font-size: 1.2em;
+background-color: #C7C6D2;
+font-family: cursive;
+}
+
+section.maincol>article>figure, section.maincolleft>article>figure{
+    float: left;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+section.maincol>article>figure>img, section.maincolleft>article>figure>img{
+    -moz-border-radius: 50%; border-radius: 50%;
+    border-width: 4px;
+    border-style: solid;
+    width: 90px;
+    height: 80px;    
+    
+}
+
+section.maincol>article>span, section.maincolleft>article>span {
+    position: absolute;
+    border-width: 3px ;
+    border: solid #2F3031;
+    top:-30px;
+    right: -2px;
+    height: 21px;
+    line-height: 21px;
+    padding: 2px 8px;
+    border-radius: 15px 15px 0px 0px;
+    font-weight: bolder;
+    color:#FFFFFF;
+    background-color: #2F3031;
+}
+
+section.maincol>article>h2, section.maincolleft>article>h2{
+    padding: 0px;
+    text-align: right;
+    margin: 10px 10px 0px 40px;
+    font-size: 1.1em;
+    font-weight: bolder;    
+    color: #2F3031;   
+}
+
+section.maincol>article>p, section.maincolleft>article>p{
+    font-size: 0.9em;
+    text-align: justify;
+    margin: 15px 10px 5px 30px;    
+}
+
+section.maincol>article>.descapu, section.maincolleft>article>.descapu{
+    width: 90%;
+    margin: 30px 4% 10px 4%;
+    border-width: 2px;
+    border: solid #121313;
+    border-radius: 15px;
+    background-color: #2F3031;
+    padding-top: 20px;
+    font-size: 0.8em;    
+}
+section.maincol>article>.descapu>ul, section.maincolleft>article>.descapu>ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;    
+}
+
+section.maincol>article>.descapu>ul>li, section.maincolleft>article>.descapu>ul>li{
+    color: #FFFFFF;
+    font-weight: bolder;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 5px 4%;
+    width: 40%;
+}*/
