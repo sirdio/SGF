@@ -24,7 +24,7 @@
         </div>
     </div>
     {%if cantidad < 5%}    
-        <a href="{{ path('usuario_agregarmatlist',{'usn': usn}) }}">Agregar materia a la lista</a>
+        <a href="{{ path('usuario_agregarmatl',{'usn': usn}) }}">Agregar materia a la lista</a>
     {%endif%}
 {%endif%}
 {%if estado == 2%}
@@ -32,7 +32,7 @@
         <h2> {{mensaje}}</h2>
         <p>{{facultad.facnombre}} - {{carrera.carrnombre}} - {{materia.matnombre}}</p>
         {%if cantidad < 4%} 
-            <a href="{{ path('usuario_agregarmatlist',{'usn': usn}) }}">Agregar otra materia a la lista</a>
+            <a href="{{ path('usuario_agregarmatl',{'usn': usn}) }}">Agregar otra materia a la lista</a>
         {%endif%}
      
 {%endif%}    

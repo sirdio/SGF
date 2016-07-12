@@ -30,7 +30,8 @@ class DefaultController extends Controller
     public function IrAlumAction(Request $request)
     {
         $user = $this->get('security.context')->getToken()->getUser();
-        return $this->render('UsuariosBundle:Default:pagAlu.html.twig', array('user' => $user));
+        return $this->render('UsuariosBundle:Default:pagAlu.html.twig', 
+                array('user' => $user));
     }
    
     public function IrProfAction(Request $request)

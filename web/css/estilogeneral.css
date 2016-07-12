@@ -247,6 +247,13 @@ table th { font-size: 15px; color: #F48A00;  }*/
                                 configurando cajas de diseño                    
 *******************************************************************************/
 
+
+section.maincol>.espacio,section.maincolleft>.espacio { height: 10px}
+
+
+
+
+
 section.maincol>article, section.maincolleft>article, section.maincol>.listarapu>article {
 border-width: 3px;
 border-style:solid;

@@ -82,7 +82,7 @@ usuario_delete:
 usuario_selecTipoUser:
     pattern:  /tipousuario
     defaults: { _controller: "UsuariosBundle:Usuario:TipoUser" }
-    
+       
 ##################################################################  
 #####################enlaces usuario alumno#######################
 ################################################################## 
@@ -106,7 +106,7 @@ usuario_verinfoalu:
     pattern:  /alumno/informacionmaterias/{usn}
     defaults: { _controller: UsuariosBundle:Usuario:VerInfMat }     
     
-usuario_agregarmatlist:
+usuario_agregarmatl:
     pattern:  /alumno/agregarmateria/{usn}
     defaults: { _controller: UsuariosBundle:Usuario:AgregarMat }       
        
@@ -130,6 +130,9 @@ usuario_agregarmatlist:
     pattern: /alumno/guardardatos/{pid}/{fid}/{cid}/{maid}    
     defaults: { _controller: UsuariosBundle:Usuario:Guardardlalu}
 
+usuario_alumnommi:
+    pattern: /alumno/mostrarapuntes/{usn}
+    defaults: { _controller: UsuariosBundle:Usuario:MostrarApuntes}
 ##################################################################  
 #####################enlaces usuario administrador#######################
 ##################################################################   

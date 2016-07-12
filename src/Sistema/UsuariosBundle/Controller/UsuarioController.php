@@ -283,15 +283,12 @@ class UsuarioController extends Controller
         $em = $this->getDoctrine()->getManager();
         $infomaterias = $em->getRepository('UsuariosBundle:Informacionperfiles')->findByUsuarioalu($datosusuario);
         if(!$infomaterias){
-            $mensaje = "No existen materias seleccionadas.";
+            $mensaje = "No existen materias seleccionadas.";     
             return $this->render('UsuariosBundle:Usuario:msjinfo.html.twig', array(
             'mensaje' => $mensaje, 'usn' => $usn,  )); 
         }
         $cantidad = count($infomaterias);
-        $estado = 1;
-//                        echo "entroooo";
-//                echo count($infomaterias);
-//    die(); 
+        $estado = 1; 
         return $this->render('UsuariosBundle:Usuario:VerInformaciondematerias.html.twig', array(
             'infomaterias' => $infomaterias, 'cantidad' => $cantidad, 'estado' => $estado,
             'usn' => $usn,
@@ -615,9 +612,62 @@ class UsuarioController extends Controller
       }      
       return $this->render('UsuariosBundle:Perfilprofesor:Formularioeditperfil.html.twig',array(
           //'carrera'=>$carrera, 
-          'infoperfil'=>$infoperfil));
-      
-      
+          'infoperfil'=>$infoperfil));  
+  }
+  
+  public function MostrarApuntesAction($usn)
+  {
+        $em = $this->getDoctrine()->getManager();
+        $alumno = $em->getRepository('UsuariosBundle:Usuario')->findByUsername($usn);
+        $infomateria = $em->getRepository('UsuariosBundle:Informacionperfiles')->findByUsuarioalu($alumno);
+        
+        $i =1;
+        foreach($infomateria as $infomateria){
+            $apunte = $em->getRepository('FotocopiadoraBundle:Apunte')->findBy(
+                    array( 'facultad_id'  => $infomateria->getFacultad()->getFacCodigo(),
+                        'carrera_id' => $infomateria->getCarrera()->getCarrCodigo(),
+                         'materia_id' => $infomateria->getMateria()->getMatCodigo()));
+            if (count($apunte)!= 0){
+                foreach($apunte as $apunte){
+                    $apuntes[$i]=array( 'nombre'=>$apunte->getNombre(),
+                    'carrera'=>$infomateria->getCarrera()->getCarrCodigo(),
+                    'materia'=>$infomateria->getMateria()->getMatCodigo(),
+                    'fecha'=>$apunte->getFecha(),
+                    'precio'=>$apunte->getPrecio(),
+                    'observ'=>$apunte->getObservacion());
+                    $i++;                    
+                }
+            }
+            
+
+        }
+        if (count($apuntes) == 0){
+            $i =1;
+            $apunte = $em->getRepository('FotocopiadoraBundle:Apunte')->findAll();
+            foreach($apunte as $apunte){
+                $apuntes[$i]=array( 'nombre'=>$apunte->getNombre(),
+                'carrera'=>$apunte->getCarreraId(),
+                'materia'=>$apunte->getMateriaId(),
+                'fecha'=>$apunte->getFecha(),
+                'precio'=>$apunte->getPrecio(),
+                'observ'=>$apunte->getObservacion());
+                $i++;                    
+            }
+            for($i = 1; $i < 4; $i++){
+                $j = rand(1, count($apuntes));
+                $lista[$i] = $apuntes[$j];
+            }             
+        }elseif(count($apuntes)> 0 and count($apuntes) < 4 ){
+            $lista = $apuntes;            
+        }elseif(count($apuntes)> 3){
+            for($i = 1; $i < 4; $i++){
+                $j = rand(1, count($apuntes));
+                $lista[$i] = $apuntes[$j];
+            }            
+        };
+        
+        return $this->render('UsuariosBundle:Usuario:listarmateriadeinteres.html.twig', 
+            array('lista' => $lista));                                                   
   }
 }
 ?>

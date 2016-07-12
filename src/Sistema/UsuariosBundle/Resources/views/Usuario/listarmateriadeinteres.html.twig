@@ -1,0 +1,39 @@
+    
+                        
+
+                            {#%if app.user.tipou == "Administrador" %}
+                                <td><a class="verdet" href ="{{path('pedido_realizar',{'usn':app.user.username, 'pcab':pcab.Id})}}">Atender pedido</a></td>
+                            {%elseif app.user.tipou == "Empleado" %}
+
+                            {%endif%}     
+{% for list in lista %}
+    {{list.nombre}} - {{list.carrera}} - {{list.materia}} - {{list.fecha}} - {{list.precio}} - {{list.observ}}
+    <br>
+
+{% endfor %#}
+{% for list in lista %}   
+
+<div class="espacio"></div>   
+<article class="arti">
+        <figure><img src="{{ asset('/imagen/libdrosapilados.jpg') }}" alt=""></figure>
+        <span>Apuntes</span>
+        <h2>{{list.nombre}} </h2>
+        <p>{{list.observ}}</p>
+        <div class="descapu">
+            <ul>
+                <li>Carrera: {{list.carrera}}</li>
+                <li>Materia: {{list.materia}}</li>
+                <li>Fecha: {{list.fecha}}</li>
+                <li>Precio: {{list.precio}}</li>
+            </ul>
+        </div>
+    </article>
+ 
+ {% endfor %}
+{% block javascripts %} 
+    <script>        
+        $(document).ready(function(){
+            //$(".arti").fadeOut(15000);
+        });               
+     </script>
+{% endblock%}
