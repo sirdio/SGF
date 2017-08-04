@@ -1,15 +1,15 @@
 {% extends '::basecuerpo1CG.html.twig' %}
-{% block title %}Gestion Empleado{% endblock %}
+{% block title %}Modificar Empleado{% endblock %}
 {% block navigation %}      
     <nav>
         <ul class="navigation">
-            <li><a href="{{path ('gestion_empnuevo')}}">Agregar Empleado</a></li>
+            {#<li><a href="{{path ('gestion_empnuevo')}}">Agregar Empleado</a></li>#}
             <li><a href="{{ path('Gestion_inicioemp')}}">Volver</a></li>
         </ul>
     </nav>
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>

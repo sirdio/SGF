@@ -11,10 +11,10 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('UsuariosBundle:Default:index.html.twig', array('name' => $name));
-    }
+    //public function indexAction($name)
+    //{
+    //    return $this->render('UsuariosBundle:Default:index.html.twig', array('name' => $name));
+    //}
 
     public function loginAction()
     {

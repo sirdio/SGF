@@ -1,15 +1,15 @@
 {% extends '::basecuerpo1CG.html.twig' %}
-{% block title %}Gestion Empleado{% endblock %}
+{% block title %}Agregar Empleado{% endblock %}
 {% block navigation %}      
     <nav>
         <ul class="navigation">
-            <li><a href="{{path ('gestion_listarempleado')}}">Modificar Empleado</a></li>
+            {#<li><a href="{{path ('gestion_listarempleado')}}">Modificar Empleado</a></li>#}
             <li><a href="{{ path('Gestion_inicioemp')}}">Volver</a></li>
         </ul>
     </nav>
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>
@@ -28,7 +28,7 @@
                     {% endfor %}
                 </select>  
                 </div>
-            <h1>Debe seleccionar una sucursal para cuntinuar con el alta de empleados.</h1> 
+            <h1>Debe seleccionar una sucursal para continuar con el alta de empleados.</h1> 
         </form>
        
     </div>

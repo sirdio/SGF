@@ -14,7 +14,7 @@ class SucursalType extends AbstractType
             ->add('SucNomb')
             ->add('SucDom')
             ->add('SucTel')
-            ->add('SucEmail')
+            ->add('SucEmail')   
         ;
     }
 

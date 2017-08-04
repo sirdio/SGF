@@ -37,6 +37,7 @@ class UsuarioController extends Controller
             $nomb = $nombre;       
         }
         if($nomb =='sistema_usuariosbundle_alumnotype'){
+            
             $entity  = new Alumno();
             $form = $this->createForm(new AlumnoType(), $entity);
             $form->bind($request);            
@@ -630,8 +631,8 @@ class UsuarioController extends Controller
             if (count($apunte)!= 0){
                 foreach($apunte as $apunte){
                     $apuntes[$i]=array( 'nombre'=>$apunte->getNombre(),
-                    'carrera'=>$infomateria->getCarrera()->getCarrCodigo(),
-                    'materia'=>$infomateria->getMateria()->getMatCodigo(),
+                    'carrera'=>$infomateria->getCarrera()->getCarrNombre(),
+                    'materia'=>$infomateria->getMateria()->getMatNombre(),
                     'fecha'=>$apunte->getFecha(),
                     'precio'=>$apunte->getPrecio(),
                     'observ'=>$apunte->getObservacion());
@@ -646,8 +647,8 @@ class UsuarioController extends Controller
             $apunte = $em->getRepository('FotocopiadoraBundle:Apunte')->findAll();
             foreach($apunte as $apunte){
                 $apuntes[$i]=array( 'nombre'=>$apunte->getNombre(),
-                'carrera'=>$apunte->getCarreraId(),
-                'materia'=>$apunte->getMateriaId(),
+                'carrera'=>$apunte->getCarrNombre(),
+                'materia'=>$apunte->getMatNombre(),
                 'fecha'=>$apunte->getFecha(),
                 'precio'=>$apunte->getPrecio(),
                 'observ'=>$apunte->getObservacion());

@@ -4,7 +4,7 @@
     
     
 sucursal:
-    pattern:  /admin/inicios
+    pattern:  /admin/iniciosuc
     defaults: { _controller: "FotocopiadoraBundle:Sucursal:index" }
 
 sucursal_show:
@@ -32,6 +32,10 @@ sucursal_update:
 sucursal_lista:
   pattern: /admin/listars
   defaults: { _controller: FotocopiadoraBundle:Sucursal:Listar}
+  
+sucursal_consultarns:
+  pattern: /admin/consultarnombresucursal/{nomsuc}
+  defaults: { _controller: FotocopiadoraBundle:Sucursal:ConsultarNS }
   
 ##################################################################  
 ################################APUNTE############################

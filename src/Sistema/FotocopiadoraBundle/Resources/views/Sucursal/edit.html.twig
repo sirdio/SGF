@@ -8,7 +8,7 @@
     </nav>
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>
@@ -37,6 +37,7 @@
                     {{form_label(edit_form.SucTel, 'Teléfono:')}}
                     {{form_errors(edit_form.SucTel)}}  
                     {{form_widget(edit_form.SucTel)}}
+                    <div><span id="msjtel"></span></div>
                 </div>
                 <div class="Celle2">
                     {{form_label(edit_form.SucEmail, 'Correo Electrónico:')}}
@@ -66,6 +67,12 @@ $(document).ready(function(){
         if(resultado2 == -1) {
             $( "#msjemail" ).text( "El Campo Correo debe poseer una dirección valida.!!" ).show().fadeOut( 7000);
             event.preventDefault();           
+        } 
+        var valortel = $("#sistema_fotocopiadorabundle_sucursaltype_SucTel").val();
+        var numero = valortel.length;
+        if(!/^([0-9])*$/.test(valortel) || numero < 10 ){
+            $( "#msjtel" ).text( "El Campo Teléfono debe poseer numero valido.!!ejemplo: cel: 0379415564758 o fijo: 03794467187" ).show().fadeOut( 7000);
+            event.preventDefault();
         }        
     });   
 });

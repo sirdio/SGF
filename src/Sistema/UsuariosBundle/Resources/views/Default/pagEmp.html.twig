@@ -1,19 +1,19 @@
 {% extends '::basecuerpo1CG.html.twig' %}
-{% block title %}Centro de Copiado pagina de inicio Empleado{% endblock %}
+{% block title %}Centro de Copiado Página de Inicio Empleado{% endblock %}
 {% block navigation %}      
     <nav>
         <ul class="navigation">
             <li><a href="{{ path('msjinterna_mensajesinternosemp',{'usn':app.user.username})}}">Mensajes</a></li> 
             <li><a href="{{ path('pedido_inicioemp',{'usn':app.user.username})}}">Pedidos</a></li>            
             <li><a href="{{ path('cuenta_acredsaldoemp')}}">Cargar Saldo</a></li>
-            <li><a href="{{ path('G_buscaremp')}}">Agregar Apunte</a></li>
+            <li><a href="{{ path('G_buscaremp')}}">Apuntes</a></li>
             <li><a href="{{path('usuario_logout')}}">Cerrar Sesión</a></li>
         </ul>
     </nav>
 
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>

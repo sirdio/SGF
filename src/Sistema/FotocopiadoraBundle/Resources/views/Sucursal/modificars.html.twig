@@ -6,13 +6,13 @@
     <nav>
         <ul class="navigation">
             
-            <li><a href="{{ path('sucursal_new')}}">Agregar</a></li>
+            {#<li><a href="{{ path('sucursal_new')}}">Agregar</a></li>#}
             <li><a href="{{ path('sucursal')}}">Volver</a></li>
         </ul>
     </nav>
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>

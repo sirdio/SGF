@@ -30,7 +30,6 @@ class EmpleadoType extends AbstractType
             ->add('sucid')                
         ;
     }
-
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(

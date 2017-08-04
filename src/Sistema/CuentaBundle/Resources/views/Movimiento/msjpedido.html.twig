@@ -1,10 +1,10 @@
 {% extends '::basecuerpo1CG.html.twig' %}
 
-{% block title %}Información de Materias{% endblock %}
+{% block title %}Generar Pedido{% endblock %}
 {% block navigation %}      
     <nav>
         <ul class="navigation">
-            <li><a href="{{ path('msjinterna_mostrarformulario',{'usn':app.user.username})}}">Volver</a></li>                
+            <li><a href="{{ path('cuenta_inicioAlu')}}">Volver</a></li>                
         </ul>
     </nav>
 {% endblock %}
@@ -13,12 +13,12 @@
 <p id="us">
 {{app.user.username}}
 </p>
+{#<a href="#">Ver mi perfil</a>#}
 <p id="tu" style="display:none">{{app.user.tipou}}</p>
 {% endblock %}
 {% block maincol %}
- <div class="ayudante">
-    <div class="msj1">
-        <h2>{{mensaje}}</h2>
-    </div>
-</div>
-{%endblock%}
+            <h3> {{mensaje}}</h3>
+{% endblock %}
+{% block javascripts %} 
+
+{% endblock%}

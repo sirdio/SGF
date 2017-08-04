@@ -1,5 +1,5 @@
 {% extends '::basecuerpoL.html.twig' %}
-{% block title %}Centro de Copiado pagina de inicio Alumno{% endblock %}
+{% block title %}Centro de Copiado Página de Inicio Alumno{% endblock %}
 {% block navigation %}      
     <nav>
         <ul class="navigation">
@@ -12,7 +12,7 @@
     </nav>
 {% endblock %}
 {% block saludo %}
-<p>Conoctado como "{{app.user.tipou}}":</p>
+<p>Conectado como "{{app.user.tipou}}":</p>
 <p>
 {{app.user.username}}
 </p>
@@ -46,14 +46,14 @@
         $(document).ready(function(){
             var url = '{{ path("usuario_alumnommi", {'usn': 'usn'}) }}'; 
             url = url.replace("usn", user);
-            $('.maincolleft').load(url);            
+            $('.maincol').load(url);            
             setInterval(loadClima,15000);
         });
 
         function loadClima(){
                         var url = '{{ path("usuario_alumnommi", {'usn': 'usn'}) }}'; 
             url = url.replace("usn", user);
-            $('.maincolleft').load(url);
+            $('.maincol').load(url);
         }               
      </script>
 {% endblock%}

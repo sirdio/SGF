@@ -113,4 +113,11 @@ class SucursalController extends Controller
         return $this->render('FotocopiadoraBundle:Sucursal:modificars.html.twig',
                 Array('sucursal'=>$sucursal));   
     }
+    public function ConsultarNSAction($nomsuc){
+        $em = $this->getDoctrine()->getManager();
+        $sucursal= $em->getRepository('FotocopiadoraBundle:Sucursal')->findBySucNom($nomsuc);
+        
+        print_r($sucursal);
+        die();
+    }
 }

@@ -95,6 +95,11 @@ class DefaultController extends Controller
             return $this->render('CuentaBundle:Movimiento:msjconsulta.html.twig',
                     array('msaj' => $msaj));
         }
+        if($datoscta->getIsActive() == 0){
+            $msaj = "El número de cuenta ingresado pertenece a una cuenta No Activa.";
+            return $this->render('CuentaBundle:Movimiento:msjconsulta.html.twig',
+                    array('msaj' => $msaj));
+        }
         $movimiento = new Movimiento();
         $movimiento->setNrocuenta($datoscta->getNrocuenta());
         $fechaop = date("d-m-Y");
@@ -154,7 +159,7 @@ class DefaultController extends Controller
                         )); 
                 }else{
                     $estado = 2;
-                    $msaj = "El importe ingresado debe ser positivo.";
+                    $msaj = "El importe ingresado debe ser un valor numérico y positivo.";
                     return $this->render('CuentaBundle:Movimiento:msjconsulta2.html.twig',
                     array('msaj' => $msaj,
                         'estado' => $estado,
